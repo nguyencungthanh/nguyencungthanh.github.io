@@ -13,10 +13,6 @@
     {{- $writings := .Site.GetPage "/categories/writings" -}}
     <h2 id="freshly-planted"><a href='{{ $writings.RelPermalink }}' class='nl lh'>🪴 Freshly Planted <span class='lg'>⇢</span></a></h2>
     {{- partial "logs" (dict "Pages" (first 8 $writings.Pages) "WithMicroformats" true) -}}
-
-    {{- $photos := .Site.GetPage "/categories/photos" -}}
-    <h2 id="freshly-captured"><a href='{{ $photos.RelPermalink }}' class='nl lh'>🎞️ Freshly Captured <span class='lg'>⇢</span></a></h2>
-    {{- template "index.photos" (dict "pages" (first 8 $photos.Pages) "feed" true) -}}
   </div>
 
   <h2 id="favourite-articles">🌟 Favourite Writings</h2>
@@ -25,30 +21,4 @@
   {{- $favoritePosts = $favoritePosts | append ($.GetPage .) -}}
   {{- end -}}
   {{- partial "logs" (dict "Pages" (first 4 $favoritePosts)) -}}
-
-  <h2 id="favourite-captures">📸 Favourite Captures</h2>
-  {{- $favoritePhotos := slice -}}
-  {{- range .Params.favoriteCaptures -}}
-  {{- $favoritePhotos = $favoritePhotos | append ($.GetPage .) -}}
-  {{- end }}
-  {{- template "index.photos" (dict "pages" (first 4 $favoritePhotos) "feed" false) -}}
 {{ end }}
-
-{{- define "index.photos" }}
-<div class='fg'>
-  {{ range .pages }}
-  <div class='br{{ if $.feed }} h-entry{{ end }}'>
-    <a href='{{ .RelPermalink }}' class='nl lh {{ if $.feed }} u-url{{ end }}'>
-      {{ $imageUrl := or .Params.thumbnail (index (index .Params.photos 0) "url") }}
-      {{ partial "helpers/figure" (dict
-        "Destination" $imageUrl
-        "Title" .Title
-        "IsBlock" true
-        "Sizes" (slice 600)
-        "Page" .
-      )}}
-    </a>
-  </div>
-  {{ end }}
-</div>
-{{- end }}

@@ -8,6 +8,5 @@
 {{- end }}
 {{- partialCached "post/content" . .Permalink }}
 <p>
-  <a href="mailto:{{ .Site.Params.author.email }}?subject=Re: {{ .Page.Title }}" rel='noopener noreferrer'>💬 Reply via e-mail</a> |
-  <a href="{{ absURL "/guestbook/" }}" rel='noopener noreferrer'>📖 Sign my guestbook</a>
+  <a href="mailto:{{ .Site.Params.author.email }}?subject=Re: {{ .Page.Title }}" rel='noopener noreferrer'>💬 Reply via e-mail</a>
 </p>

@@ -1,5 +1,5 @@
 {{ $pages := .Pages }}
 {{ if .IsHome }}
-  {{ $pages = where .Site.RegularPages "Params.categories" "intersect" (slice "writings" "photos") }}
+  {{ $pages = where .Site.RegularPages "Params.categories" "intersect" (slice "writings") }}
 {{ end }}
 {{ return $pages }}
