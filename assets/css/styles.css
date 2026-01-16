@@ -507,7 +507,7 @@ button:hover,
   list-style-type: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(246px, 1fr));
   grid-gap: var(--hms);
   margin: 0 0 var(--hms) 0;
   font-size: var(--f5);

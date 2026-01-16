@@ -1,6 +1,6 @@
 ---
 title: Home
-description: Henrique is a software engineer who cares about the web, decentralization, identity, user agency, and making impactful tools for developers and users.
+description: Thanh is a software engineer who cares about the web, decentralization, identity, user agency, and making impactful tools for developers and users.
 noWebmentions: true
 favoriteCaptures:
   - /posts/2022/10/19/capturing-leiden
@@ -15,4 +15,4 @@ favoritePosts:
 thumbnail: image:2024-09-01-stratumse-heide
 ---
 
-**Hi, I’m Henrique 👋**, a software engineer based in The Netherlands 🇳🇱, originally from Portugal 🇵🇹. I'm passionate about open source, user agency, decentralization, identity, and building impactful tools and products. In my free time, I enjoy staying active 💪, photography 📷, programming 💻, or a great cup of coffee or tea ☕️. Welcome to my corner on the web!
+**Hi, I’m Thanh 👋**, a sophomore in VinUniversity

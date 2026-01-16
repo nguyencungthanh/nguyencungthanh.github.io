@@ -18,7 +18,7 @@ figure.book {
 ![](https://media.hacdias.com/2022-03-01-man-reading.gif "Man Reading Book")
 {.right .pixelated .book}
 
-This is my bookshelf with all books I remember reading in the past, as well as some reviews. The further back you go, the more Portuguese books you will find, since I read them thorough my childhood and teenage years. Chances are that some books added before 2021 do not have correct dates.
+This page shares the books I have read, mainly in the field of Mathematics and AI. It is not only a place to store my reading journey but also a small corner to spread my love for Mathematics and knowledge.
 
 <!--more-->
 

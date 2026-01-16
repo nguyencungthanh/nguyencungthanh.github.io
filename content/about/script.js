@@ -1,9 +1,9 @@
 const element = document.getElementById('hello')
-const helloText = ['Hi, I’m', 'Hoi, Ik ben', 'Olá, sou o']
+const helloText = ['Xin chào, tôi là', "Hi, I'm"]
 
 let helloTextIndex = 0
 
 setInterval(() => {
-  helloTextIndex = (helloTextIndex + 1) % 3
+  helloTextIndex = (helloTextIndex + 1) % 2
   element.innerText = helloText[helloTextIndex]
 }, 2000)

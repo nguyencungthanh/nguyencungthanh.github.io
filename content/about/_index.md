@@ -3,16 +3,16 @@ title: About
 thumbnail: image:2024-09-01-stratumse-heide
 ---
 
-<span id='greetings'>**<span id='hello'>Hi, I'm</span> <span style="color: var(--c)">Henrique</span>! 👋**</span>
+<span id='greetings'>**<span id='hello'>Hi, I'm</span> <span style="color: var(--c)">Nguyen Cung Thanh</span>! 👋**</span>
 
-I come from a little town in the countryside of Portugal 🇵🇹, and I've been living The Netherlands 🇳🇱 for a few years. I'm a software engineer who cares open source, user agency, decentralization, identity, and building impactful tools and products. In my spare time, I enjoy staying physically active, photography, programming, or a nice cup of coffee or tea.
+I come from a little town in the countryside of Vietnam 🇻🇳. I’m a sophomore in VinUniversity who love mathematics in general, especially in machine learning theory, analytic number theory and dynamical system. In my spare time, I enjoy staying physically active or programming. 
 
 <!--more-->
 
-![](image:2024-09-01-stratumse-heide "In The Stratumse Heide")
-{width="3000" height="1688"}
+![](TLAM2449.jpg)
+{width="2000" height="1500"}
 
-I started playing with computers at an early age. When my father bought his first computer, I carved a monitor, keyboard and mouse from the cardboard boxes and made my own "computer". As the years passed, I decided to learn programming. I spent hours researching which programming language to learn first and decided on C#. I bought a book, which I never read, and ended up learning PHP instead.
+<!-- I started playing with computers at an early age. When my father bought his first computer, I carved a monitor, keyboard and mouse from the cardboard boxes and made my own "computer". As the years passed, I decided to learn programming. I spent hours researching which programming language to learn first and decided on C#. I bought a book, which I never read, and ended up learning PHP instead.
 
 During secondary school, I had the opportunity to write for [Pplware](https://pplware.sapo.pt/), which is one of the largest tech blogs in Portugal. At the same time, I had the opportunity to do some software development work for [Upframe](/2017/07/12/how-did-i-start-working-remotely-at-a-startup/), which was the time I started getting introduced to a bit more of the startup world.
 
@@ -20,7 +20,7 @@ After secondary school, in 2017, I moved to Lisbon to pursue a BSc in Computer S
 
 A few years later, in 2020, in the midst of the pandemic, I [moved](/2020/03/30/a-new-adventure/) to [The Netherlands](/2025/08/06/road-to-eindhoven/), where I [obtained](/2022/11/25/msc-graduation-ceremony/) my MSc in Computer Science and Engineering degree at the [TU/e](https://tue.nl). Moving to a new country - especially during such turbulent times - has given me the opportunity to grow in ways I was not expecting and a new place to [call home](/2024/01/10/when-does-abroad-stop-being-abroad/).
 
-After finishing university, in 2022, I joined Protocol Labs full-time. About a year and a half in, I decided to say goodbye to the interplanetary journey, and join [Ver.iD](https://ver.id/), where I worked on building a platform to verify and issue verifiable credentials into identity wallets. I now work at [Animo Solutions](https://animo.id), where I get to work on open-source projects in the decentralized identity space. On the side, I work on [open source](https://github.com/hacdias) projects, usually related to the IndieWeb, or just contributions here and there. 
+After finishing university, in 2022, I joined Protocol Labs full-time. About a year and a half in, I decided to say goodbye to the interplanetary journey, and join [Ver.iD](https://ver.id/), where I worked on building a platform to verify and issue verifiable credentials into identity wallets. I now work at [Animo Solutions](https://animo.id), where I get to work on open-source projects in the decentralized identity space. On the side, I work on [open source](https://github.com/hacdias) projects, usually related to the IndieWeb, or just contributions here and there.  -->
 
 ## 🛠️ Colophon {#colophon}
 

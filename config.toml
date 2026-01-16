@@ -1,6 +1,6 @@
 baseURL = 'https://hacdias.com/'
 languageCode = 'en'
-title = 'Henrique Dias'
+title = 'Nguyen Cung Thanh'
 pluralizeListTitles = false
 removePathAccents = true
 capitalizeListTitles = true
@@ -17,7 +17,7 @@ printPathWarnings = true
 [permalinks]
   tags = '/tags/:contentbasename/'
   categories = '/:contentbasename/'
-  posts = '/:year/:month/:day/:contentbasename/'
+  posts = '/:year/:month/:day/:slug/'
 
 [markup]
   [markup.goldmark]
@@ -47,26 +47,22 @@ printPathWarnings = true
 [[menu.main]]
   name = '📷 Photos'
   pageRef = '/categories/photos'
-  weight = 5
+  weight = 4
 [[menu.main]]
   name = '📖 Guestbook'
   pageRef = '/guestbook'
-  weight = 6
-[[menu.main]]
-  name = '🗞️ Blogroll'
-  pageRef = '/blogroll'
-  weight = 7
+  weight = 5
 [[menu.main]]
   name = '🌈 More'
   pageRef = '/more'
-  weight = 8
+  weight = 6
 
 [params]
   [params.site]
-    description = "Henrique is a software engineer who cares open source, user agency, decentralization, identity, and building impactful tools and products"
+    description = "Nguyen Cung Thanh is a software engineer who cares open source, user agency, decentralization, identity, and building impactful tools and products"
   [params.author]
-    name = 'Henrique Dias'
-    email = 'mail@hacdias.com'
+    name = 'Nguyen Cung Thanh'
+    email = 'nguyencungthanh.hsgs.11112006@gmail.com'
     photo = 'https://hacdias.com/avatar/512.jpg'
     fediverse = '@hacdias@fosstodon.org'
     handle = 'hacdias'

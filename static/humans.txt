@@ -1,15 +1,12 @@
 
   +---------------------------------------------------------------------+
   |                                                                     |
-  |   Hello, I'm Henrique!                                              |
+  |   Hello, I'm Nguyen Cung Thanh!                                     |
   |                                                                     |
   |   I a software engineer interested in web infrastructure,           |
   |   decentralized systems, identity and making tools for developers   |
   |   and users. I enjoy learning about new things, taking photographs, |
   |   programming, as well as a nice cup of coffee or tea. Welcome to   |
   |   my small peninsula on the Internet!                               |
-  |                                                                     |
-  |   -- @hacdias (https://hacdias.com)                                 |
-  |                                                                     |
   +---------------------------------------------------------------------+
 
