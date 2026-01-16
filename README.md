@@ -1,4 +1,4 @@
-# hacdias.com (Hugo site)
+# nguyencungthanh.com (Hugo site)
 
 > Source for the personal website of Nguyen Cung Thanh
 
