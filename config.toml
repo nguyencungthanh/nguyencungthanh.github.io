@@ -7,6 +7,9 @@ capitalizeListTitles = true
 summaryLength = 300
 printPathWarnings = true
 
+[build]
+  buildFuture = true
+
 [pagination]
   pagerSize = 15
 
@@ -41,25 +44,29 @@ printPathWarnings = true
   pageRef = '/contact'
   weight = 2
 [[menu.main]]
-  name = '✏️ Writings'
+  name = '✏️ Mathematics Blog'
   pageRef = '/categories/writings'
   weight = 3
 [[menu.main]]
+  name = '🖥️ Algorithm Project'
+  pageRef = '/categories/projects'
+  weight = 4
+[[menu.main]]
   name = '🌈 More'
   pageRef = '/more'
-  weight = 4
+  weight = 5
 
 [params]
   [params.site]
     description = "Nguyen Cung Thanh is a software engineer who cares open source, user agency, decentralization, identity, and building impactful tools and products"
   [params.author]
     name = 'Nguyen Cung Thanh'
-    email = 'nguyencungthanh.hsgs.11112006@gmail.com'
+    email = 'nguyencungthanh11@gmail.com'
     photo = 'https://hacdias.com/avatar/512.jpg'
     fediverse = '@hacdias@fosstodon.org'
     handle = 'hacdias'
     identities = [
-      'https://github.com/hacdias',
+      'https://github.com/nguyencungthanh',
       'https://instagram.com/hacdias',
       'https://fosstodon.org/@hacdias',
       'https://linkedin.com/in/hacdias',
