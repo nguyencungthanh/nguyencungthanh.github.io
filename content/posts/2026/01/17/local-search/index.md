@@ -6,7 +6,35 @@ categories:
 tags:
   - Heuristic algorithm
 ---
+
+Given $n$ points in the plane. We want to find a point that minimizes the sum of distance between this point and all the given $n$ points. One of the easiest but efficient way to approach this problem is using **Local Search**.   
+
 <!--more--> 
+
+Local search is a heuristic method for solving computationally hard optimization problems. The main ideas of local search can be expressed as follow: 
+1. Initialize an arbitrary configuration
+2. Consider any configuration that adjacents to present configuration and update to the best configuration 
+3. Iterate until fixed iteration or meet some conditions 
+
+Back to the initial problem. We can express it as follow: 
+
+<div style="border: 2px solid #ccc; border-radius: 4px; padding: 5px; background-color:rgba(245, 245, 248, 0.64);">
+Find $(x, y)$ that minizes 
+$$f(x, y) = \sum_{i = 1}^{n} \sqrt{(x-x_i)^2 + (y-y_i)^2}$$ 
+</div>
+
+Taking the partial derivative of $f$ with respect to $x$ and $y$ yields: 
+$$\begin{cases}
+\dfrac{\partial f}{\partial x} = \sum_{i=1}^{n} \dfrac{x-x_i}{\sqrt{(x-x_i)^2 + (y-y_i)^2}} \\\\
+\dfrac{\partial f}{\partial y} = \sum_{i=1}^{n} \dfrac{y-y_i}{\sqrt{(x-x_i)^2 + (y-y_i)^2}}
+\end{cases}$$
+
+Set them equal to $0$ we will have 
+$$x = \sum_{i=1}^{n} \dfrac{x_i}{\sqrt{(x-x_i)^2 + (y-y_i)^2}} \quad \text{ and } \quad y = \sum_{i=1}^{n} \dfrac{y_i}{\sqrt{(x-x_i)^2 + (y-y_i)^2}}$$
+
+This give our idea of update the next point $(z_{k+1}, w_{k+1})$ equal to $$\left( \dfrac{x_i}{\sqrt{(z_k-x_i)^2 + (w_k-y_i)^2}}, \dfrac{y_i}{\sqrt{(z_k-x_i)^2 + (w_k-y_i)^2}} \right)$$
+
+Following that ideas, we can iterate 100 times and the condition to stop is the distance between the previous point and the new point is less than $10^{-6}$. The below C++ code is the example implementation code for that idea. 
 
 ```cpp
 double distance(pair<double, double> x, pair<double, double> y){
@@ -14,7 +42,7 @@ double distance(pair<double, double> x, pair<double, double> y){
     return result;
 }
 
-pair<double, double> geometric_median(const vector<pair<double, double>>& points, max_iteration = 100, tol = 1e-6){
+pair<double, double> geometric_median(const vector<pair<double, double>>& points, int max_iteration = 100, double tol = 1e-6){
     int n = points.size();
     double sum_x, sum_y;
 

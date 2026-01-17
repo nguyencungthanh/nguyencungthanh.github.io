@@ -2,6 +2,7 @@
 <html lang='{{ .Site.Language }}'>
 <head>
   {{ partial "base/head" . }}
+  {{ partial "mathjax.html" . }}
 </head>
 <body>
   {{ partialCached "assets/js.html" . }}

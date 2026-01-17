@@ -7,26 +7,7 @@ tags:
   - functional analysis 
 ---
 
-<script>
-window.MathJax = {
-    loader: {load: ['[tex]/ams']},
-    tex: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        packages: {'[+]': ['ams']}
-    },
-    svg: {fontCache: 'global'},
-    useLabelIds: true
-};
-</script>
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-<!--more-->
-<style>
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em auto;
-}
-</style>
+<!--more--> 
 
 # Normed Spaces and Banach Spaces
 
