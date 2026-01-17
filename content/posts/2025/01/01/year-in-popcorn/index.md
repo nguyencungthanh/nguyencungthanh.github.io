@@ -1,6 +1,10 @@
 ---
 title: Year in Popcorn '24
-date: 2025-01-01T15:03:21+01:00
+date: 2025-01-01T15:03:21+01:00 
+# _build: 
+#   list: never 
+#   render: never 
+draft: true 
 categories:
   - writings
 tags:

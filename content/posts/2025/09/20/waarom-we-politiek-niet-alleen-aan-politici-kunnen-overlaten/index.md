@@ -1,6 +1,7 @@
 ---
 title: Waarom We Politiek Niet Alleen Aan Politici Kunnen Overlaten
 date: 2025-09-20T14:02:58+02:00
+draft: true 
 location:
   latitude: 51.44593
   longitude: 5.46159

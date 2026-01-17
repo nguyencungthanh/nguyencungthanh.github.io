@@ -1,6 +1,7 @@
 ---
 title: Should I Follow a Linguistics Course?
 date: 2025-06-24T13:14:34.101691035+02:00
+draft: true 
 location:
   latitude: 51.44593
   longitude: 5.46159

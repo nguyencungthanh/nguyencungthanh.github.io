@@ -1,6 +1,7 @@
 ---
 title: The Winding Road to Eindhoven
 date: 2025-08-06T12:12:56+02:00
+draft: true 
 location:
   latitude: 51.4459
   longitude: 5.46156

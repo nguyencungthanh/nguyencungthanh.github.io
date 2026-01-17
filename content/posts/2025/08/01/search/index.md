@@ -1,6 +1,7 @@
 ---
 title: How Searching This Website Works
 date: 2025-08-01T08:00:00+02:00
+draft: true 
 location:
   latitude: 51.44571
   longitude: 5.46152

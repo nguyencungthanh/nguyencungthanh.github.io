@@ -1,6 +1,7 @@
 ---
 title: Organizing My Website's Media Storage
-date: 2025-06-20T16:22:33.246849368+02:00
+date: 2025-06-20T16:22:33.246849368+02:00 
+draft: true 
 location:
   latitude: 51.44563
   longitude: 5.46154

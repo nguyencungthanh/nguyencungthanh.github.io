@@ -1,6 +1,7 @@
 ---
 title: Autonomous Trains
 date: 2025-09-10T19:42:09+02:00
+draft: true 
 categories:
   - writings
 tags:
