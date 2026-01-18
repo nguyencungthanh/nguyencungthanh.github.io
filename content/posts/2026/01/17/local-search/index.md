@@ -1,6 +1,7 @@
 ---
 title: Local Search
 date: 2026-01-17
+update: 2026-01-18
 categories:
   - projects
 tags:

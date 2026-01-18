@@ -39,14 +39,25 @@
     <p class='lg small'>
       <a href="{{ .RelPermalink }}" class="nl">
         {{- if not .Date.IsZero -}}
-          <time class='dt-published' datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
+          <time class='dt-published' datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00"}}'>
             {{ if $bookmark }}Bookmarked
             {{ else if $rating }}Reviewed
             {{ else if $read }}Read
             {{ else }}Published
             {{ end }}
-            on {{ .Date.Format "2 January 2006" }}
+            on {{ .Date.Format "2 January 2006" -}}
           </time>
+        {{- end -}}
+        {{- if and (.Params.update) (ne .Params.update (.Date.Format "2006-01-02")) -}}
+          {{- $parts := split .Params.update "-" -}}
+          {{- $year := index $parts 0 -}}
+          {{- $month := index $parts 1 -}}
+          {{- $day := index $parts 2 -}}
+          {{- $months := dict "01" "January" "02" "February" "03" "March" "04" "April" "05" "May" "06" "June" "07" "July" "08" "August" "09" "September" "10" "October" "11" "November" "12" "December" -}}
+          {{- $monthName := index $months $month -}}
+          , updated on {{ $day }} {{ $monthName }} {{ $year }}
+          <!-- <time class='dt-updated' datetime='{{ .Params.update }}T00:00:00Z'> --> 
+          <!-- </time> -->
         {{- end -}}
       </a>
     </p>
