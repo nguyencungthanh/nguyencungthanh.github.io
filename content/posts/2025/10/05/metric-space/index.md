@@ -1,6 +1,7 @@
 ---
 title: Metric space
 date: 2025-10-05
+update: 2026-01-18
 categories:
   - writings
 tags:
@@ -380,7 +381,7 @@ $$
 
 This show that $x$ is the limit of $\left(x_{m}\right)$.
 
-<b>2.</b> Completencs of $l^{\infty}$. The space $l^{\infty}$ is complete.
+<b>2.</b> Completeness of $l^{\infty}$. The space $l^{\infty}$ is complete.
 
 <b>3.</b> Completeness of $c$. The space $c$ consists of all convergent sequence $x=\left(x_{j}\right)$ of complex numbers, with the metric induced from the space $l^{\infty}$. The space $c$ is complete.
 
