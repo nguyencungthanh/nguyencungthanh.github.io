@@ -5,9 +5,7 @@ thumbnail: image:2024-09-01-stratumse-heide
 
 <span id='greetings'>**<span id='hello'>Hi, I'm</span> <span style="color: var(--c)">Nguyen Cung Thanh</span>! 👋**</span>
 
-I come from a little town in the countryside of Vietnam 🇻🇳. I’m a sophomore in VinUniversity who love mathematics in general, especially in machine learning theory, analytic number theory and dynamical system. In my spare time, I enjoy staying physically active or programming. 
-
-<!--more-->
+I come from a little town in the countryside of Vietnam 🇻🇳. I’m a sophomore in VinUniversity majoring in Computer Science and passionate about `Mathematics` and `Machine Learning` theory. Specifically, I am researching on statistical learning theory and in the past, I had a long time doing in analytic number theory and dynamical system. In my spare time, I enjoy staying physically active 💪 or programming 💻. 
 
 ![](TLAM2449.jpg)
 {width="2000" height="1500"}

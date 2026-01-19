@@ -8,7 +8,7 @@ tags:
   - Heuristic algorithm
 ---
 
-Given $n$ points in the plane. We want to find a point that minimizes the sum of distance between this point and all the given $n$ points. One of the easiest but efficient way to approach this problem is using `Local Search`.   
+Given $n$ points in the plane. We want to find a point that minimizes the sum of distance between this point and all of the given points. One of the easiest but efficient way to approach this problem is using `Local Search`.   
 <!--more--> 
 
 Local search is a heuristic method for solving computationally hard optimization problems. Indeed, sometimes we tackle an optimization problem that we cannot find the exactly minimization argument, local search is created to find a 'good enough' solution for the problem. The main ideas of algorithm can be expressed as follow: 

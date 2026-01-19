@@ -45,8 +45,11 @@ mjx-container[jax="SVG"][display="true"] {
   - [linkedin.com/in/hacdias](https://www.linkedin.com/in/th%C3%A0nh-nguy%E1%BB%85n-624769319/)
 
 </div>
-
-I am passionate about Mathematics and Machine Learning theory, and I enjoy sharing knowledge with others. I also love coding, especially competitive programming, and have a strong interest in policy and politics.
+<div id="printing-hint">
+  <span>🖨️ You can save or print the resume by going into the 
+    <a href="[CV]Nguyen_Cung_Thanh.pdf">printing menu</a>
+  </span>
+</div>
 
 ## 🎓 Education {#education}
 
