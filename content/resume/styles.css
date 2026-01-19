@@ -55,49 +55,36 @@
   }
 }
 
+#printing-hint {
+    padding: 13px;
+    background-color: #f0f7ff;
+    border: 1px solid #0056b3;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: #002d5e;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+#printing-hint a {
+    color: #0056b3;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 @media print {
-  :root,
-  :root.dark {
-    --c-h: 220;
-    --c-s: 50%;
-    --c-l: 42%;
-    --bg-l: 99%;
-    --fg-l: 92%;
-    --mg-l: 97%;
+  #printing-hint {
+    display: none !important;
+  }
+  
+  :root {
     --text: #000;
     --light-text: #555555;
   }
-
   h2 {
-    color: var(--c);
-    break-after: avoid;
-    line-height: 1.5;
-    border-bottom: 1px solid var(--fg);
+    border-bottom: 1px solid #ccc;
     margin: 1rem 0 0.5rem;
-  }
-
-  .resume-position > div  {
-    margin: 1rem 0 .25rem;
-  }
-
-  .resume-position h4 {
-    font-size: var(--f4)
-  }
-
-  .resume-position ul {
-    break-before: avoid;
-    font-size: var(--f5);
-    margin-top: .25rem;
-  }
-
-  #resume-header {
-    display: grid;
-  }
-
-  h2 .emoji,
-  main header,
-  #printing-hint {
-    display: none;
   }
 }
 
