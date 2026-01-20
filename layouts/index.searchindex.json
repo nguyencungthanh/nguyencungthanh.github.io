@@ -1,16 +1,17 @@
+{{- $list := slice -}}
 {{- $pages := .Site.RegularPages -}}
 {{- $pages = where $pages "Params.noindex" "ne" true -}}
 {{- $pages = where $pages "Params.headless" "ne" true -}}
-[
-  {{- range $index, $page := $pages -}}
-  {{- if gt $index 0 -}},{{- end -}}
-  {
-    "title": {{ .Title | jsonify }},
-    "permalink": {{ .RelPermalink | jsonify }},
-    "summary": {{ .Summary | plainify | jsonify }},
-    "content": {{ .Plain | jsonify }},
-    "date": {{ .Date.Format "2 January 2006" | jsonify }},
-    "tags": {{ .Params.tags | jsonify }}
-  }
-  {{- end -}}
-]
+{{- $pages = where $pages "Section" "ne" "watches" -}}
+{{- range $pages -}}
+  {{- $item := dict 
+    "title" .Title 
+    "permalink" .RelPermalink 
+    "summary" (.Summary | plainify) 
+    "content" .Plain 
+    "date" (.Date.Format "2 January 2006") 
+    "tags" .Params.tags 
+  -}}
+  {{- $list = $list | append $item -}}
+{{- end -}}
+{{- $list | jsonify -}}

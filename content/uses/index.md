@@ -1,7 +1,8 @@
+---
 title: Things That I Use
 thumbnail: image:2025-06-01-desk-home
 headless: true
-noIndex: true
+noindex: true
 ---
 
 This page is inspired in the [uses.tech](https://uses.tech/) movement and its main goal is to share with you what things I use on my daily life, from [hardware](#hardware) to [software](#software). It might not be accurate at all times, but I try to update it every now and then to make sure it is up to date.

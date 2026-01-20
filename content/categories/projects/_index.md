@@ -5,5 +5,5 @@ aliases:
   - /projects
 ---
 
-✏️ These are my blog projects. Visit the [archive](/writings/archive/) for an yearly overview.
+These are my blog projects and some other projects I have worked on 🛠️. Visit the [archive](/projects/archive/) for an yearly overview.
 {.box}
