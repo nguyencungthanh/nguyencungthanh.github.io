@@ -58,11 +58,6 @@ mjx-container[jax="SVG"][display="true"] {
   location="VinUniversity" href="https://tue.nl/"
   from="2024" to="2028" grade="8 out of 10" >}}
 - CPGA: 3.6/4.0, Dean’s List (Fall 24).
-
-<!-- Achievements
-- Consolation prize in the Vietnam National ICPC 2025
-- Silver medal in Calculus (Group A) at the Undergraduate Student Mathematics Olympiad 
-*(Valedictorian of the VinUni Calculus Team)*  -->
 {{</ resume-position >}}
 
 {{< resume-position
@@ -70,11 +65,6 @@ mjx-container[jax="SVG"][display="true"] {
   location="Hanoi University of Science High School for Gifted Students" href="https://tecnico.ulisboa.pt/"
   from="July 2021" to="May 2024" grade="16 out of 20" >}} 
   Specialized in Mathematics
-
-  <!-- Achievements
-- Participants of Vietnam Mathematics Olympiad
-- Second Prize in the Vietnam National University Choosing Excellent Student Competition (Mathematics
-Competition to select the Mathematics team in VMO)  -->
 {{</ resume-position >}}
 
 ## 📑 Publications \& Preprints {#experience}

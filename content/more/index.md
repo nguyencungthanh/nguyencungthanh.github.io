@@ -6,7 +6,7 @@ In addition to mathematics, AI and algorithm, I also want to share many other in
 
 - [📚 Readings](/readings/)
 - [🎓 Resume](/resume/)
-- [🌍 Trips](/trips/)
 {.buttons #more-list}
+<!-- - [🌍 Trips](/trips/) -->
 
 

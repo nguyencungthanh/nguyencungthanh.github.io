@@ -17,12 +17,12 @@ clean:
 	rm -rf assets/js/vendor
 
 favicon:
-	magick static/favicon.png -bordercolor white -border 0 \
+	magick static/favicon(1).png -bordercolor white -border 0 \
 		\( -clone 0 -resize 16x16 \) \
 		\( -clone 0 -resize 32x32 \) \
 		\( -clone 0 -resize 48x48 \) \
 		\( -clone 0 -resize 64x64 \) \
-		-delete 0 -alpha off -colors 256 static/favicon.ico
+		-delete 0 -alpha off -colors 256 static/favicon(1).ico
 
 ENVIRONMENT ?= production
 

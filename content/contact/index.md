@@ -2,10 +2,8 @@
 title: Contact
 noWebmentions: true
 ---
-<!--more-->
-
 ## 📧 E-mail {#email}
-<mark>**Contact for work**</mark>
+<mark>**Contact for work**</mark> 
 
 [✉️ nguyencungthanh11@gmail.com](mailto:nguyencungthanh11@gmail.com)
 {.buttons}

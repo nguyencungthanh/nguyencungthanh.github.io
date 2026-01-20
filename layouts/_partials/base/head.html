@@ -10,8 +10,8 @@
 {{- end }}
 <meta name='description' content='{{ partial "fns/description" .}}'>
 <link rel='canonical' href='{{ .Permalink }}'>
-<link rel='icon' href='{{ relURL "/favicon.png" }}' type='image/png'>
-<link rel='apple-touch-icon' href='{{ relURL "/favicon.png" }}'>
+<link rel='icon' href='{{ relURL "/favicon(3).png" }}' type='image/png'>
+<link rel='apple-touch-icon' href='{{ relURL "/favicon(3).png" }}'>
 
 {{- range .AlternativeOutputFormats -}}
   {{- printf `<link rel="%s" type="%s" href="%s" />` .Rel .MediaType.Type .RelPermalink | safeHTML }}
