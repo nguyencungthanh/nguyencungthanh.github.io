@@ -22,4 +22,4 @@ This page shares the books I have read, mainly in the field of Mathematics and A
 
 <!--more-->
 
-{{< logs data="readings" page="/tags/book-reviews/" >}}
+{{< logs data="books" page="/tags/book-reviews/" >}}

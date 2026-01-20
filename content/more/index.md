@@ -4,8 +4,10 @@ noWebmentions: true
 ---
 In addition to mathematics, AI and algorithm, I also want to share many other interesting things about myself. They are up for you to <span id='trigger'>discover</span>! ☘️🌻 
 
-- [📚 Readings](/readings/)
+- [📚 Books](/books/)
 - [🎓 Resume](/resume/)
+- [📰 Other Blogs](/otherblogs/)
+- [📄 Paper](/papers/)
 {.buttons #more-list}
 <!-- - [🌍 Trips](/trips/) -->
 
