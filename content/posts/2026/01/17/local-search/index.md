@@ -35,7 +35,7 @@ where $$w_i =  \dfrac{1}{\sqrt{(x-x_i)^2 + (y-y_i)^2}} \quad \forall i = \overli
 
 This give our idea of update from the k-iteration point $(z_k,w_k)$ to the next point $(z_{k+1}, w_{k+1})$ equal to $$\left(\dfrac{\sum_{i=1}^{n} w_{i,k}x_i}{\sum_{i=1}^n w_{i,k}}, \dfrac{\sum_{i=1}^{n} w_{i,k}x_i}{\sum_{i=1}^n w_{i,k}} \right)$$
 with $$w_{i,k} =  \dfrac{1}{\sqrt{(z_k-x_i)^2 + (w_k-y_i)^2}} \quad \forall i = \overline{1,n}$$
-Following that ideas, we can iterate 100 times and the condition to stop is the distance between the previous point and the new point is less than $10^{-6}$. The below C++ code is the example implementation code for that idea. 
+Following that idea, we can iterate 100 times and the condition to stop is the distance between the previous point and the new point is less than $10^{-6}$. The below C++ code is the example implementation code for that idea. 
 
 ```cpp
 long double  distance(const pair<long double, long double>& x, const pair<long double, long double>& y){
