@@ -1,0 +1,16 @@
+{{- $pages := .Site.RegularPages -}}
+{{- $pages = where $pages "Params.noindex" "ne" true -}}
+{{- $pages = where $pages "Params.headless" "ne" true -}}
+[
+  {{- range $index, $page := $pages -}}
+  {{- if gt $index 0 -}},{{- end -}}
+  {
+    "title": {{ .Title | jsonify }},
+    "permalink": {{ .RelPermalink | jsonify }},
+    "summary": {{ .Summary | plainify | jsonify }},
+    "content": {{ .Plain | jsonify }},
+    "date": {{ .Date.Format "2 January 2006" | jsonify }},
+    "tags": {{ .Params.tags | jsonify }}
+  }
+  {{- end -}}
+]

@@ -92,9 +92,16 @@ printPathWarnings = true
     rel = 'alternate'
     noUgly = true
     permalinkable = false
+
   [outputFormats.feedXsl]
     baseName = 'feed'
     mediaType = 'text/xsl'
+    isPlainText = true
+    notAlternative = true
+    noUgly = true
+  [outputFormats.SearchIndex]
+    baseName = 'search'
+    mediaType = 'application/json'
     isPlainText = true
     notAlternative = true
     noUgly = true
@@ -108,7 +115,7 @@ printPathWarnings = true
 [outputs]
   taxonomy = ['HTML']
   term = ['HTML', 'ATOM', 'JSON']
-  home = ['HTML', 'ATOM', 'JSON', 'FEEDXSL', 'SITEMAPXSL']
+  home = ['HTML', 'ATOM', 'JSON', 'FEEDXSL', 'SITEMAPXSL', 'SearchIndex']
   section = ['HTML']
   page = ['HTML']
 

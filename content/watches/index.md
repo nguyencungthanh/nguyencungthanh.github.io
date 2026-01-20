@@ -1,6 +1,7 @@
----
 title: Watches
 description: An extensive list of TV shows and movies I have or am watching right now.
+headless: true
+noIndex: true
 ---
 
 ![](https://media.hacdias.com/2021-02-01-popcorn.gif "Popcorn")

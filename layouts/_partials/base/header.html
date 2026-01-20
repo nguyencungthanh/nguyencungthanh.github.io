@@ -17,23 +17,17 @@
     </div>
   </div>
 
-  {{ if eq hugo.Environment "eagle" }}
-    <form action='{{ relURL "/search/" }}' method='get' class='inline-form'>
-      <input type='text' placeholder='Search…' id='query' name='query' />
-      <button alt='Search'>🔎</button>
-    </form>
-  {{ else }}
-    <form action="https://duckduckgo.com/html/" method="get" class='inline-form'>
-      <input type='search' placeholder="Search…" name='q' value="site:nguyencungthanh.github.io " />
-      <button alt='Search'>🔎</button>
-    </form>
-  {{ end }}
+  <form action='{{ relURL "/search/" }}' method='get' class='inline-form'>
+    <input type='text' placeholder='Search…' id='query' name='query' />
+    <button alt='Search'>🔎</button>
+  </form>
 </div>
 
 <input type='checkbox' id='toggler' hidden="hidden" />
 <nav id='navbar'>
   <label for='toggler'>🍔 Menu</label>
   {{ range .Site.Menus.main -}}
-    <a href='{{ if .Page }}{{ .Page.RelPermalink }}{{ else }}{{ .URL }}{{ end }}' class='nl'{{ if $.IsMenuCurrent .Menu . }} aria-current='page'{{ end }}>{{ .Name }}</a>
+  <a href='{{ if .Page }}{{ .Page.RelPermalink }}{{ else }}{{ .URL }}{{ end }}' class='nl' {{ if $.IsMenuCurrent .Menu .
+    }} aria-current='page' {{ end }}>{{ .Name }}</a>
   {{ end }}
 </nav>

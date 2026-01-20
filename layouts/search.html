@@ -1,0 +1,16 @@
+{{ define "main" }}
+<eagle-page>
+    <form id='search-form' class='inline-form' action='{{ .Permalink }}' method='get'>
+        <input required type='search' name='q' placeholder="Search…" />
+        <button>Search</button>
+    </form>
+
+    <div id="search-status"></div>
+    <div id="search-results">
+        <!-- Results will be populated here by JS -->
+    </div>
+</eagle-page>
+
+{{ $search := resources.Get "js/search.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+{{ end }}
