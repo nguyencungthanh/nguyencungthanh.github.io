@@ -5,7 +5,7 @@ update: 2026-01-18
 categories:
   - projects
 tags:
-  - Heuristic algorithm
+  - Heuristic Algorithm
 ---
 
 Given $n$ points in the plane. We want to find a point that minimizes the sum of distance between this point and all of the given points. One of the easiest but efficient way to approach this problem is using `Local Search`.   

@@ -4,29 +4,10 @@ date: 2025-10-06
 categories:
   - writings
 tags:
-  - functional equation
+  - Functional Equation
 ---
 
-<script>
-window.MathJax = {
-    loader: {load: ['[tex]/ams']},
-    tex: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        packages: {'[+]': ['ams']}
-    },
-    svg: {fontCache: 'global'},
-    useLabelIds: true
-};
-</script>
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <!--more-->
-<style>
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em auto;
-}
-</style>
 
 ## 1. Bài toán
 

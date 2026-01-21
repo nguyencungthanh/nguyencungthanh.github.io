@@ -96,7 +96,7 @@
 
 - Sections are kept minimal; most lists are explicit via partials/shortcodes
 - The `/posts/` section itself does not render a listing; posts are accessed by permalink
-- Archive pages (`writings-archive`, `photos-archive`) are thin content pages that delegate to templates
+- Archive pages (`writings-archive`, `projects-archive`) are thin content pages that delegate to templates
 
 ## License
 
