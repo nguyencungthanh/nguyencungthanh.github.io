@@ -1,7 +1,7 @@
 ---
 title: Welcoming the V60
 date: 2025-06-30T14:00:50.62212223+02:00
-draft: true 
+draft: true  
 location:
   latitude: 51.44592
   longitude: 5.46139

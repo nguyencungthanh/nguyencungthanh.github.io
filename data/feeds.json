@@ -14,6 +14,16 @@
       "title": "Andrej Karpathy",
       "site": "https://karpathy.ai",
       "feed": "https://karpathy.ai/feed.xml"
+    },
+    {
+      "title": "Chris Olah",
+      "site": "https://colah.github.io/",
+      "feed": "https://colah.github.io/feed.xml"
+    },
+    {
+      "title": "Lê Việt Hùng",
+      "site": "https://www.askmeanything.cc/hungleumass",
+      "feed": "https://www.askmeanything.cc/hungleumass/feed.xml"
     }
   ],
   "General": [
@@ -49,7 +59,7 @@
     },
     {
       "title": "The Go Blog",
-      "site": "https://go.dev/blog/feed.atom",
+      "site": "https://go.dev/blog",
       "feed": "https://go.dev/blog/feed.atom"
     },
     {
