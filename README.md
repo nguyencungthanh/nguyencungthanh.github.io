@@ -101,4 +101,4 @@
 ## License
 
 Codebase licensed with [MIT License](LICENSE) © Nguyen Cung Thanh.
-Content (e.g., articles, images, photos) is copyrighted unless otherwise noted.
+Content (e.g., articles, images) is copyrighted unless otherwise noted.
