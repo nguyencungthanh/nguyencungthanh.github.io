@@ -96,7 +96,7 @@ Therefore, we derive that $$2M = 2(p_1p_2\cdots p_m)^{p_m} \mid S_M$$ as desired
 
 ## 4. Conclusion
 ---
-I generalized the reference problem by considering the extension of algebraic number field. On the other hand, on the aforementioned paper, [Amirali Fatehizadeh & Daniel Yaqubi](https://cs.uwaterloo.ca/journals/JIS/VOL25/Yaqubi/yaq6.pdf) also conjectured that for infinitely many odd numbers $n$ also satisfied the problem. This was proved recently by [Oisın Flynn-Connolly](https://arxiv.org/abs/2504.09938). Therefore, if I have time, I will consider to extend the result for odd positive integer.
+I generalized the reference problem by considering the extension of algebraic number field. On the other hand, on the aforementioned paper, [Amirali Fatehizadeh & Daniel Yaqubi](https://cs.uwaterloo.ca/journals/JIS/VOL25/Yaqubi/yaq6.pdf) also conjectured that for infinitely many odd numbers $n$ also satisfied the problem. This was proved recently by [Oisın Flynn-Connolly](https://arxiv.org/abs/2504.09938). Therefore, if I have time, I will consider to extend the result for odd positive integer in a similar way. 
 
 ## References
 ---
