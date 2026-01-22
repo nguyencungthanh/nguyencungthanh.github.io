@@ -5,7 +5,6 @@ noIndex: true
 noWebmentions: true
 ---
 
-</div>
 <div id="printing-hint">
   <span>🖨️ You can save or print the resume by going into the 
     <a href="[CV]Nguyen_Cung_Thanh.pdf">printing menu</a>

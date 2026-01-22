@@ -45,13 +45,7 @@
 {{ partialCached "assets/css.html" . }}
 
 {{ with .Resources.GetMatch "styles.css" }}
-<style>
-  {
-      {
-      .Content | safeCSS
-    }
-  }
-</style>
+<style>{{ .Content | safeCSS }}</style>
 {{ end }}
 
 {{ if .IsHome }}
