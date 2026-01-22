@@ -18,8 +18,8 @@ printPathWarnings = true
   category = 'categories'
 
 [permalinks]
-  tags = '/tags/:contentbasename/'
-  categories = '/:contentbasename/'
+  tags = '/tags/:slug/'
+  categories = '/categories/:slug/'
   posts = '/:year/:month/:day/:slug/'
 
 [markup]
