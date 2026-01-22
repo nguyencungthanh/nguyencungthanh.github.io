@@ -10,4 +10,4 @@ favoritePosts:
 thumbnail: image:2024-09-01-stratumse-heide
 ---
 
-**Hi, I’m Thanh 👋**, a sophomore in VinUniversity majored in Computer Scienece. Welcome to my personal website where I aim to rewrite the knowledge I have learned in Mathematic ♾️ and AI 🖥️ in order to at least consolidate it and, further, share it with others. 
+**Hi, I’m Thanh 👋**, a sophomore in VinUniversity majored in Computer Scienece. Welcome to my personal website where I aim to rewrite the knowledge I have learned in Mathematics ♾️ and AI 🖥️ in order to at least consolidate it and, further, share it with others. 
