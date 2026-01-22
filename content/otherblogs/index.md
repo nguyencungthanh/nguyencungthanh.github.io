@@ -5,7 +5,7 @@ description: List of people that I follow.
 
 This page shares the blogs of many famous and reputable researcher that I follow.
 
-## 🖊️ Blogs {#blogs}
+## 📰 Blogs {#blogs}
 
 Personal websites from others.
 

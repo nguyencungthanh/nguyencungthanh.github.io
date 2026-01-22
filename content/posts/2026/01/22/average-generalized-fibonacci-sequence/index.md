@@ -60,6 +60,7 @@ As a consequence, we have the following corollary:
 
 **Corollary.** For a prime $p$ such that $p \mid S_{k}$ then $p^{n+1} \mid S_{kp^n}$ for all $n \in \mathbb{N}.$
 ## 3. Main result
+---
 
 Consider the case $m = 1.$ Then, we only need to choose $N = p$ where $p$ is a prime divisor of $\Delta$ then of course, we have 
 $$p \mid S_{p - (\frac{\Delta}{p})} = S_p.$$ 
@@ -77,7 +78,7 @@ S_1+\ldots+S_n &= \sum_{i = 1}^n \dfrac{\alpha^n-\beta^n}{\alpha-\beta} \\\\
 &= \dfrac{S_M(T_{M+1}-T_M)}{a-2}. 
 \end{align*}
 $$
-Note that $T_0 \equiv T_1 \equiv 2 \pmod{(a-2)}$ so by induction, $T_n \equiv 2 \pmod{(a-2)}$ for all nonnegative integer $n$.
+Note that $T_0 \equiv T_1 \equiv 2 \pmod{a-2}$ so by induction, $T_n \equiv 2 \pmod{a-2}$ for all nonnegative integer $n$.
 Therefore, $S_1+\ldots+S_n$ is divisible by $n$ is equivalent to $2M \mid S_M$.
 
 Now, consider $p_1 = 2$ then since $a-2$ is not divisible by 4 so $S_2=a$ or $S_3=a^2-1$ is divisible by 4. From this and following lemma 3, we derive that $2^{p_m+1} \mid S_M$. On the other hand, we fix an index $i \ge 2$ then there must exist nonnegative integer numbers $\alpha_{j,i}$ less than $p_m$ for all $j = \overline{1,i}$ such that $$p_i - \left( \frac{\Delta}{p} \right) = p_1^{\alpha_{1,i}} p_2^{\alpha_{2,i}}\cdots p_{i-1}^{\alpha_{i-1,i}} p_i^{\alpha_{i,i}}$$ 
@@ -94,9 +95,11 @@ $$
 Therefore, we derive that $$2M = 2(p_1p_2\cdots p_m)^{p_m} \mid S_M$$ as desired. 
 
 ## 4. Conclusion
-Odd $n$: [Oisın Flynn-Connolly](https://arxiv.org/abs/2504.09938)
+---
+I generalized the reference problem by considering the extension of algebraic number field. On the other hand, on the aforementioned paper, [Amirali Fatehizadeh & Daniel Yaqubi](https://cs.uwaterloo.ca/journals/JIS/VOL25/Yaqubi/yaq6.pdf) also conjectured that for infinitely many odd numbers $n$ also satisfied the problem. This was proved recently by [Oisın Flynn-Connolly](https://arxiv.org/abs/2504.09938). Therefore, if I have time, I will consider to extend the result for odd positive integer.
 
 ## References
+---
 
 [1] Fatehizadeh, A., & Yaqubi, D. (2022). *Average of the Fibonacci Numbers. Journal of Integer Sequences*, 25(2), Article 22.2.6, 10 pp. Retrieved from https://cs.uwaterloo.ca/journals/JIS/VOL25/Yaqubi/yaq6.html
 

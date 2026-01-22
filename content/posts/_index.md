@@ -3,8 +3,3 @@ build:
   list: never
   render: never
 ---
-
-<div class="lemma">
-  <b>Lemma {{ .Get 0 }}.</b> 
-  {{ .Inner | markdownify }}
-</div>
