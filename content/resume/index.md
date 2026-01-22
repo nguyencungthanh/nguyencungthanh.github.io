@@ -5,24 +5,6 @@ noIndex: true
 noWebmentions: true
 ---
 
-<!--more-->
-
-<div id="resume-header">
-
-  ![](/avatar/512.jpg)
-
-<div>
-
-  Nguyen Cung Thanh
-
-  Hanoi, Vietnam - [nguyencungthanh11@gmail.com](nguyencungthanh11@gmail.com)
-
-  </div>
-
-  - [nguyencungthanh.github.io](https://nguyencungthanh.github.io)
-  - [github.com/hacdias](https://github.com/ThanhNguyen-HsgsK56Math)
-  - [linkedin.com/in/hacdias](https://www.linkedin.com/in/th%C3%A0nh-nguy%E1%BB%85n-624769319/)
-
 </div>
 <div id="printing-hint">
   <span>🖨️ You can save or print the resume by going into the 
