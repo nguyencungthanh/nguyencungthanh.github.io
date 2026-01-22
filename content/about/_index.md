@@ -1,6 +1,5 @@
 ---
 title: About
-thumbnail: image:2024-09-01-stratumse-heide
 ---
 
 <span id='greetings'>**<span id='hello'>Hi, I'm</span> <span style="color: var(--c)">Nguyen Cung Thanh</span>! 👋**</span>
