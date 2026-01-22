@@ -3,8 +3,10 @@
 {{- end -}}
 {{- with (index .Params "bookmark-of") -}}
   <p><em>Bookmarked <a href="{{ . }}">{{- . -}}</a>.</em></p>
-{{- else with .Params.read -}}
-  <p><em>Read {{ $.Title }} by {{ .author }}.</em></p>
+{{- else -}}
+  {{- with .Params.read -}}
+    <p><em>Read {{ $.Title }} by {{ .author }}.</em></p>
+  {{- end -}}
 {{- end }}
 {{- partialCached "post/content" . .Permalink }}
 <p>
