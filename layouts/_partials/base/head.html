@@ -45,7 +45,7 @@
 {{ partialCached "assets/css.html" . }}
 
 {{ with .Resources.GetMatch "styles.css" }}
-<style>{{ .Content | safeCSS }}</style>
+<style> {{ .Content | safeCSS }} </style>
 {{ end }}
 
 {{ if .IsHome }}
@@ -57,7 +57,4 @@
 {{ range .Site.Params.author.identities -}}
 <link rel='me' href='{{ . }}' />
 {{ end -}}
-{{ end }}
-
-<link rel='webmention' href='https://webmention.io/hacdias.com/webmention'>
-<link rel='pingback' href='https://webmention.io/hacdias.com/xmlrpc'>
+{{ end }} 

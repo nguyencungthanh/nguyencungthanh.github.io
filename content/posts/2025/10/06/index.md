@@ -11,7 +11,7 @@ tags:
 
 ## 1. Bài toán
 
-<div style="border: 2px solid #ccc; border-radius: 8px; padding: 8px; background-color: #f9f9f9;">
+<div style="border: 2px solid #ccccccbc; border-radius: 5px; padding: 1px; background-color:rgba(35, 117, 224, 0.12);">
 Tìm tất cả các hàm nhân tính số học $f: \mathbb{Z}^+ \to \mathbb{R}$, không đồng nhất 0, thoả mãn: 
 $$f(a^2+b^2+c^2+d^2) = f(a^2+b^2)+f(c^2+d^2)\quad \forall a, b, c, d \in \mathbb{Z}^+.$$ 
 </div>

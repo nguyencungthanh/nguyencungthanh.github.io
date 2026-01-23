@@ -30,7 +30,7 @@ noWebmentions: true
 ## 📑 Publications \& Preprints {#experience}
 
 {{< resume-position 
-  title="Presenter of a first author paper submitted to International Statistical Conference, Malaysia"
+  title="Presenter of a first author paper submitted to International Statistical Conference"
   location="" href="https://animo.id/"
   from="August" to="2025" >}}
 

@@ -18,10 +18,11 @@ Local search is a heuristic method for solving computationally hard optimization
 
 Back to the initial problem, we can express it as follow: 
 
-<div style="border: 2px solid #ccc; border-radius: 5px; padding: 5px; background-color:rgba(210, 210, 232, 0.08);">
-Find $(x, y)$ that minizes 
+<div style="border: 2px solid #ccccccbc; border-radius: 5px; padding: 1px; background-color:rgba(35, 117, 224, 0.12);">
+Given $n$ points $(x_i,y_i)$ on the plane. Find a point $(x, y)$ that minizes 
 $$f(x, y) = \sum_{i = 1}^{n} \sqrt{(x-x_i)^2 + (y-y_i)^2}$$ 
 </div>
+
 
 Taking the partial derivative of $f$ with respect to $x$ and $y$ yields: 
 $$\begin{cases}
