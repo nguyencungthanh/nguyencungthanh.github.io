@@ -8,6 +8,7 @@ In addition to mathematics, AI and algorithm, I also want to share many other in
 - [🎓 Resume](/resume/)
 - [📰 Other Blogs](/otherblogs/)
 - [📄 Papers](/papers/)
+- [🧮 Grade Calculator](/grade-calculator/)
 {.buttons #more-list}
 <!-- - [🌍 Trips](/trips/) -->
 

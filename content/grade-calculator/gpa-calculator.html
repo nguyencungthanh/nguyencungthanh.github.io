@@ -1,0 +1,145 @@
+<div class="grade-calculator-container">
+    <div class="input-group">
+        <input type="text" id="courseName" placeholder="Course Name">
+        <input type="text" id="courseCredits" placeholder="Credits" min="0" style="max-width: 200px;">
+        <select id="letterGrade" style="max-width: 70px;">
+            <option value="4.0">A</option>
+            <option value="3.7">A-</option>
+            <option value="3.3">B+</option>
+            <option value="3.0">B</option>
+            <option value="2.7">B-</option>
+            <option value="2.3">C+</option>
+            <option value="2.0">C</option>
+            <option value="1.7">C-</option>
+            <option value="1.3">D+</option>
+            <option value="1.0">D</option>
+            <option value="0.0">F</option>
+        </select>
+        <button class="btn-add" onclick="addCourse()">Add</button>
+    </div>
+
+    <table id="courseTable">
+        <thead>
+            <tr>
+                <th>Course</th>
+                <th>Credits</th>
+                <th>Grade</th>
+                <th>Points</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Courses will be added here -->
+        </tbody>
+    </table>
+
+    <div class="gpa-display">
+        <b>CGPA:</b> <span id="totalGPA">0.00</span>
+    </div>
+</div>
+
+<script>
+    let courses = [];
+
+    function addCourse() {
+        const nameInput = document.getElementById('courseName');
+        const creditsInput = document.getElementById('courseCredits');
+        const gradeSelect = document.getElementById('letterGrade');
+
+        const courseName = nameInput.value.trim();
+        const credits = parseFloat(creditsInput.value);
+        const gradePoints = parseFloat(gradeSelect.value);
+        const gradeLetter = gradeSelect.options[gradeSelect.selectedIndex].text;
+
+        if (!courseName) {
+            alert("Please enter a course name.");
+            return;
+        }
+
+        if (isNaN(credits) || credits < 0) {
+            alert("Please enter valid credits.");
+            return;
+        }
+
+        courses.push({ name: courseName, credits: credits, grade: gradeLetter, points: gradePoints });
+
+        nameInput.value = ''; // Clear input
+        creditsInput.value = ''; 
+        gradeSelect.selectedIndex = 0; // Reset select
+
+        renderTable();
+        calculateGPA();
+    }
+
+    function removeCourse(index) {
+        courses.splice(index, 1);
+        renderTable();
+        calculateGPA();
+    }
+
+    function renderTable() {
+        const tbody = document.querySelector('#courseTable tbody');
+        tbody.innerHTML = '';
+
+        courses.forEach((course, index) => {
+            const row = document.createElement('tr');
+            // Helper to check if option is selected
+            const isSelected = (val) => Math.abs(course.points - val) < 0.001 ? 'selected' : '';
+
+            row.innerHTML = `
+        <td>${course.name}</td>
+        <td>${course.credits}</td>
+        <td>
+            <select onchange="updateCourseGrade(${index}, this)" style="padding: 4px;">
+                <option value="4.0" ${isSelected(4.0)}>A</option>
+                <option value="3.7" ${isSelected(3.7)}>A-</option>
+                <option value="3.3" ${isSelected(3.3)}>B+</option>
+                <option value="3.0" ${isSelected(3.0)}>B</option>
+                <option value="2.7" ${isSelected(2.7)}>B-</option>
+                <option value="2.3" ${isSelected(2.3)}>C+</option>
+                <option value="2.0" ${isSelected(2.0)}>C</option>
+                <option value="1.7" ${isSelected(1.7)}>C-</option>
+                <option value="1.3" ${isSelected(1.3)}>D+</option>
+                <option value="1.0" ${isSelected(1.0)}>D</option>
+                <option value="0.0" ${isSelected(0.0)}>F</option>
+            </select>
+        </td>
+        <td id="course-points-${index}">${course.points.toFixed(1)}</td>
+        <td><button onclick="removeCourse(${index})" class="btn-delete" title="Remove course">❌</button></td>
+      `;
+            tbody.appendChild(row);
+        });
+    }
+
+    function updateCourseGrade(index, selectElement) {
+        const newPoints = parseFloat(selectElement.value);
+        const newLetter = selectElement.options[selectElement.selectedIndex].text;
+
+        courses[index].points = newPoints;
+        courses[index].grade = newLetter;
+
+        // Update points display
+        document.getElementById(`course-points-${index}`).innerText = newPoints.toFixed(1);
+
+        calculateGPA();
+    }
+
+    function calculateGPA() {
+        if (courses.length === 0) {
+            document.getElementById('totalGPA').innerText = "0.00";
+            return;
+        }
+
+        let totalPoints = 0;
+        let totalCredits = 0;
+
+        courses.forEach(course => {
+            totalPoints += course.points * course.credits;
+            totalCredits += course.credits;
+        });
+
+        const gpa = totalCredits === 0 ? 0 : totalPoints / totalCredits;
+
+        document.getElementById('totalGPA').innerText = gpa.toFixed(2);
+    }
+</script>

@@ -1,0 +1,141 @@
+<h2>Course Point Calculator</h2>
+<div class="grade-calculator-container">
+    <div class="input-group" style="flex-wrap: wrap;">
+        <input type="text" id="taskName" placeholder="Assignment/Exams" style="min-width: 140px;">
+        <input type="text" id="taskScore" placeholder="Score" min="0" style="max-width: 80px;">
+        <input type="text" id="taskMax" placeholder="Max" min="0" style="max-width: 80px;">
+        <input type="text" id="taskWeight" placeholder="Weight %" min="0" max="100" style="max-width: 110px;">
+        <button class="btn-add" onclick="addTask()">Add Task</button>
+    </div>
+
+    <table id="taskTable">
+        <thead>
+            <tr>
+                <th>Assignment/Exams</th>
+                <th>Score</th>
+                <th>Max</th>
+                <th>Weight</th>
+                <th>Points</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Tasks will be added here -->
+        </tbody>
+    </table>
+
+    <div class="gpa-display">
+        <b>Total Points:</b> <span id="totalTaskPoints">0.00</span> / 100
+    </div>
+</div>
+
+<script>
+    let tasks = [];
+
+    function addTask() {
+        const nameInput = document.getElementById('taskName');
+        const scoreInput = document.getElementById('taskScore');
+        const maxInput = document.getElementById('taskMax');
+        const weightInput = document.getElementById('taskWeight');
+
+        const taskName = nameInput.value.trim();
+        const score = parseFloat(scoreInput.value);
+        const maxScore = parseFloat(maxInput.value);
+        const weight = parseFloat(weightInput.value);
+
+        if (!taskName) {
+            alert("Please enter a task name.");
+            return;
+        }
+
+        if (isNaN(score) || score < 0) {
+            alert("Please enter a valid score.");
+            return;
+        }
+
+        if (isNaN(maxScore) || maxScore <= 0) {
+            alert("Please enter a valid max score.");
+            return;
+        }
+
+        if (isNaN(weight) || weight < 0) {
+            alert("Please enter a valid weight.");
+            return;
+        }
+
+        tasks.push({ name: taskName, score: score, max: maxScore, weight: weight });
+
+        nameInput.value = '';
+        scoreInput.value = '';
+        maxInput.value = '';
+        weightInput.value = '';
+
+        renderTaskTable();
+        calculateTotalPoints();
+    }
+
+    function removeTask(index) {
+        tasks.splice(index, 1);
+        renderTaskTable();
+        calculateTotalPoints();
+    }
+
+    function renderTaskTable() {
+        const tbody = document.querySelector('#taskTable tbody');
+        tbody.innerHTML = '';
+
+        tasks.forEach((task, index) => {
+            const contribution = (task.score / task.max) * task.weight;
+            const row = document.createElement('tr');
+            row.innerHTML = `
+        <td>${task.name}</td>
+        <td>
+            <input type="text" 
+                   value="${task.score}" 
+                   min="0" 
+                   style="width: 70px; padding: 4px;" 
+                   onchange="updateTaskScore(${index}, this)"
+                   onwheel="event.preventDefault(); this.blur();"
+            >
+        </td>
+        <td>${task.max}</td>
+        <td>${task.weight}%</td>
+        <td id="task-points-${index}">${contribution.toFixed(2)}</td>
+        <td><button onclick="removeTask(${index})" class="btn-delete" title="Remove task">❌</button></td>
+      `;
+            tbody.appendChild(row);
+        });
+    }
+
+    function updateTaskScore(index, inputElement) {
+        const newScore = parseFloat(inputElement.value);
+
+        if (isNaN(newScore) || newScore < 0) {
+            alert("Please enter a valid score.");
+            inputElement.value = tasks[index].score; // Revert
+            return;
+        }
+
+        tasks[index].score = newScore;
+
+        // Recalculate this task's contribution
+        const contribution = (tasks[index].score / tasks[index].max) * tasks[index].weight;
+        document.getElementById(`task-points-${index}`).innerText = contribution.toFixed(2);
+
+        calculateTotalPoints();
+    }
+
+    function calculateTotalPoints() {
+        if (tasks.length === 0) {
+            document.getElementById('totalTaskPoints').innerText = "0.00";
+            return;
+        }
+
+        let total = 0;
+        tasks.forEach(task => {
+            total += (task.score / task.max) * task.weight;
+        });
+
+        document.getElementById('totalTaskPoints').innerText = total.toFixed(2);
+    }
+</script>
