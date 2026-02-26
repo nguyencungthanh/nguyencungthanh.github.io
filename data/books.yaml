@@ -21,3 +21,13 @@
   date: 2025-11-24
   rating: 
   publisher: 
+
+- name: Complex Analysis
+  author: Theodore W.Gamelin
+  date: 2026-01-31
+  rating: 
+  publisher: Springer 
+
+- name: Perturbation Theory for Linear Operators
+  author: Tosio Kato
+  date: 2026-02-03 
