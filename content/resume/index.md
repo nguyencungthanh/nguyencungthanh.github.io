@@ -96,14 +96,14 @@ Professor.Pierre Auger (IRD, Sorbonne Université).
 
 {{</ resume-position >}}
 
-{{< resume-position
+<!-- {{< resume-position
   title="Research Assistant"
   location="" href=""
   from="September" to="2025" >}}
 Supervisor: Assist.Prof.Nguyen Tuan Binh (VinUniversity)
 - Weekly presentations on high-dimensional probability and machine learning theory. 
 
-{{</ resume-position >}}
+{{</ resume-position >}} -->
 
 ## 🌟 Activities {#volunteering}
 
