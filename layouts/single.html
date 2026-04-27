@@ -1,7 +1,22 @@
 {{ define "main" }}
-  <article class='h-entry'>
+  <article class='h-entry post-with-toc'>
     {{- partialCached "post/header" (dict "Listing" false "Page" .) .Permalink false -}}
-    {{- partialCached "post/content" . .Permalink }}
+    
+    <div class="post-layout">
+      <!-- TOC Sidebar -->
+      <aside class="toc-sidebar">
+        <div class="toc-sticky">
+          <h4 class="toc-heading">Table of Contents</h4>
+          {{ .TableOfContents }}
+        </div>
+      </aside>
+      
+      <!-- Main Content -->
+      <div class="post-body">
+        {{- partialCached "post/content" . .Permalink }}
+      </div>
+    </div>
+
     {{- partialCached "post/footer" . .Permalink }}
   </article>
 {{ end }}

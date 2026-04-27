@@ -890,3 +890,86 @@ nav a[aria-current='page'] {
 .roman-paren li::marker {
   content: counter(list-item, lower-roman) ") ";
 }
+
+/* TOC Layout */
+.post-layout {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.toc-sidebar {
+  flex: 0 0 px;
+  display: none; /* Hidden by default on mobile */
+}
+
+.post-body {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Show TOC on larger screens */
+@media screen and (min-width: 75rem) {
+  .post-layout {
+    position: relative;
+    display: block;
+  }
+
+  .toc-sidebar {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 250px;
+    height: 100%;
+    padding-right: 2rem;
+  }
+}
+
+/* TOC Styles */
+.toc-sticky {
+  /* No longer sticky, will scroll out of view */
+}
+
+.toc-heading {
+  margin-top: 0;
+  font-size: var(--f4);
+  color: var(--c);
+  text-transform: uppercase;
+}
+
+.toc-sticky nav {
+  display: block; /* Override global nav flex */
+  font-weight: normal;
+  overflow: visible;
+}
+
+.toc-sticky nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.toc-sticky nav ul ul {
+  padding-left: 1rem;
+}
+
+.toc-sticky nav li {
+  margin: 0; /* Override global li margin */
+}
+
+.toc-sticky nav a {
+  text-decoration: none;
+  font-size: var(--f5);
+  color: var(--light-text);
+  display: block;
+  padding: 0.25rem 0;
+  line-height: 1.4;
+  text-align: left; /* Override global nav a center align */
+  font-weight: normal;
+}
+
+.toc-sticky nav a:hover {
+  color: var(--c);
+  background: transparent; /* Override global nav a background hover if any */
+}

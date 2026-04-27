@@ -21,7 +21,7 @@ A normed space $X$ is a vector space with a norm defined on it. A Banach space i
 
 A norm on $X$ defines a metric $d$ on $X$ by
 $$
-d(x, y) = \\|x - y\\|,
+\mathrm{d}(x, y) = \\|x - y\\|,
 $$
 called the *metric induced* by the norm. The normed space thus defined is denoted by $(X, \\| \cdot\\|)$, or simply $X$.
 
@@ -34,7 +34,7 @@ $$
 $$
 $\mathbb{R}^n$ and $\mathbb{C}^n$ are complete and the induced metric is
 $$
-d(x, y) = \\|x - y\\| = \left( \sum_{i=1}^{n} |x_i - y_i|^2 \right)^{\frac{1}{2}}.
+\mathrm{d}(x, y) = \\|x - y\\| = \left( \sum_{i=1}^{n} |x_i - y_i|^2 \right)^{\frac{1}{2}}.
 $$
 
 **2.** Space $\ell^p$
@@ -43,7 +43,7 @@ Banach space with norm
 $$ \\|x\\| = \left( \sum_{i = 1}^{\infty} \|x_i\|^p \right)^{\frac{1}{p}} $$ is a Banach space with 
 and the induced metric is 
 $$
-d(x, y) = \\|x - y\\| = \left( \sum_{i=1}^{n} |x_i - y_i|^p \right)^{\frac{1}{p}}.
+\mathrm{d}(x, y) = \\|x - y\\| = \left( \sum_{i=1}^{n} |x_i - y_i|^p \right)^{\frac{1}{p}}.
 $$
 
 **3.** Space $\ell^{\infty}$
@@ -61,13 +61,13 @@ where $J = [a,b]$.
 
 **5.** Incomplete normed space
 
-$d(x,y) = \int _{0}^{1} \| x(t) - y(t) \| dt$ induce the norm 
-$$\int _{0}^{1} \|x(t)\| dt$$
+$\mathrm{d}(x,y) = \int _{0}^{1} \| x(t) - y(t) \| dt$ induce the norm 
+$$\int _{0}^{1} \|x(t)\| \mathrm{d}t$$
 
 **6.** Incomplete normed space and its completion $L^p[a,b]$
 
 The Banach space $L^p[a,b]$ with norm 
-$$ \\|x\\| _p = \left( \int _{a}^{b} \|x(t)\| dt  \right)^{\frac{1}{p}} $$
+$$ \\|x\\| _p = \left( \int _{a}^{b} \|x(t)\| \mathrm{d}t  \right)^{\frac{1}{p}} $$
 
 **7.** Space $s$
 
