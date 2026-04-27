@@ -44,8 +44,7 @@ $\tilde{d}$ is called the metric induced on $y$ by $d$
 
 ### Example 
 
-<div class="example">
-<b>1.</b> Euclidean space $\mathbb{R}^{n}$, unitary space $\mathbb{C}^{n}$, complex plan $\mathbb{C}$
+**1. Euclidean space $\mathbb{R}^{n}$, unitary space $\mathbb{C}^{n}$, complex plan $\mathbb{C}.$**
 
 Take the set of all ordered $n$-tuples of real numbers, written
 $$
@@ -59,10 +58,8 @@ $n$ - dimensional unitary space $\mathbb{C}^{n}$ has the metric defined by
 $$
 d(x, y)=\sqrt{\left|x_{1}-y_{1}\right|^{2}+\left|x_{2}-y_{2}\right|^{2}+\ldots+\left|x_{n}-y_{n}\right|^{2}}
 $$
-</div>
 
-<div class="example">
-<b>2.</b> Sequence space $l^{\infty}$
+**2. Sequence space $l^{\infty}$.**
 
 Take the set of all bounded sequences of complex numbers; every element of $X$ is a complex sequence
 $$
@@ -78,19 +75,15 @@ $$
 d(x, y)=\sup_{j \in \mathbb{N}^{*}}|x_{j}-y_{j}|
 $$
 where $y=\left(y_{j}\right) \in X$.
-</div>
 
-<div class="example">
-<b>3.</b> Function space $C[a, b]$
+**3. Function space $C[a, b]$.**
 
 Take the set of all real-valued function $x, y, \ldots$ and are defined and continuous on a given closed interval $J=[a, b]$ The metric defined by
 $$
 d(x, y)=\max _{t \in J}|x(t)-y(t)|
 $$
-</div>
 
-<div class="example">
-<b>4.</b> Sequence spaces
+**4. Sequence spaces.**
 
 The space consists of the set of all (bounded or unbounded) sequences of complex numbers and the metric $d$ defined by
 where $x=\left(x_{j}\right), y=\left(y_{j}\right)$
@@ -98,7 +91,7 @@ $$
 d(x, y)=\sum_{j=1}^{\infty} \frac{1}{2^{j}} \frac{\left|x_{j}-y_{j}\right|}{1+\left|x_{j}-y_{j}\right|}
 $$
 
-<b>Prove:</b>
+*Proof.*
 
 $f(t)=\frac{t}{1+t}$ is monotone increasing; $|a+b| \leqslant|a|+|b|$ implies $f(|a+b|) \leqslant f(|a|+|b|).$
 Then we have:
@@ -114,14 +107,14 @@ Then
 $$ \sum_{j=1}^{\infty} \frac{1}{2^{j}} \frac{\left|x_{j}-y_{j}\right|}{1+\left|x_{j}-y_{j}\right|} \leqslant \sum_{j=1}^{\infty} \frac{1}{2^{j}} \frac{\left|x_{j}-z_{j}\right|}{1+\left|x_{j}-z_{j}\right|}+\sum_{j=1}^{\infty} \frac{1}{2^{j}} \frac{\left|z_{j}-y_{j}\right|}{1+\left|z_{j}-y_{j}\right|}$$
 or $$d(x, y) \leq d(x, z)+d(z, y).$$
 
-<b>5.</b> Space $B(A)$ of bounded function
+**5. Space $B(A)$ of bounded function.**
 
 Each element $x \in B(A)$ is a function defined and bounded on a given set $A$, the metric is defined:
 $$
 d(x, y)=\sup _{t \in A}|x(t)-y(t)|
 $$
 
-<b>6.</b> Space $l^{p}$, Hillbert sequence space $l^{2}$, Holder and Minkowski inequalities for sums.
+**6. Space $l^{p}$, Hillbert sequence space $l^{2}$, Holder and Minkowski inequalities for sums.**
 
 Each element in the space $\ell^{p}$ is a sequence $x=\left(x_{i}\right)=\left(x_{1}, x_{2}, \ldots\right)$ of numbers such that
 $$
@@ -131,17 +124,17 @@ and the metric is defined by
 $$
 d(x, y)=\left(\sum_{j=1}^{\infty}\left|x_{j}-y_{j}\right|^{p}\right)^{\frac{1}{p}}
 $$
-<b>Prove:</b>
+*Proof.*
 
 $l^{p}$ is a metric space
 
-a) Auxiliary in equality
+$\text{(a)} \quad$ Auxiliary in equality
 $\frac{1}{p}+\frac{1}{q}=1$ ($p, q$ are called conjugate exponents). Then
 $$
 \alpha \beta \leqslant \frac{\alpha^{p}}{p}+\frac{\beta^{q}}{q}
 $$
 
-b) Holder inequality
+$\text{(b)} \quad$ Holder inequality
 $$
 \sum_{j=1}^{\infty}\left|x_{j} y_{j}\right| \leqslant\left(\sum_{j=1}^{\infty}\left|x_{j}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{j=1}^{\infty}\left|y_{j}\right|^{q}\right)^{\frac{1}{q}}
 $$
@@ -178,7 +171,7 @@ $$
 \sum_{j=1}^{\infty}\left|x_{j} y_{j}\right| \leqslant\left(\sum_{k=1}^{\infty}\left|x_{k}\right|^{p}\right)^{\frac{1}{p}}\left(\sum_{m=1}^{\infty}\left|y_{m}\right|^{q}\right)^{\frac{1}{q}}
 $$
 
-c) Minkowski inequality
+$\text{(c)} \quad$ Minkowski inequality
 $$
 \begin{equation}
 \left(\sum_{j=1}^{\infty}\left|x_{j}+y_{j}\right|^{p}\right)^{\frac{1}{p}} \leqslant\left(\sum_{k=1}^{\infty}\left|x_{k}\right|^{p}\right)^{\frac{1}{p}}+\left(\sum_{m=1}^{\infty}\left|y_{m}\right|^{p}\right)^{\frac{1}{p}} \tag{4}
@@ -205,7 +198,7 @@ $$
 
 Dividing by the last factor and noting that $1-\frac{1}{q}=\frac{1}{p}$, we obtain (4).
 
-d) From c)
+$\text{(d)} \quad$ From $\text{(c)}$
 $$
 \begin{align}
 d(x, y) & =\left(\sum\left|x_{j}-y_{j}\right|^{p}\right)^{\frac{1}{p}} \\\
@@ -214,7 +207,6 @@ d(x, y) & =\left(\sum\left|x_{j}-y_{j}\right|^{p}\right)^{\frac{1}{p}} \\\
 & =d(x, z)+d(z, y)
 \end{align}
 $$
-</div> 
 
 ### Diameter, bounded set 
 The diameter $\delta(A)$ of a nonempty set $A$ in a metric space $(X, d)$ is defined to be
@@ -235,12 +227,11 @@ $D$ does not define a metric on the power set of $X$
 The Cartesian product $X=X_{1} \times X_{2}$ of two metric spaces $\left(X_{1}, d_{1}\right)$ and $\left(X_{2}, d_{2}\right)$ can be made into a metric space $(X, d)$.
 
 ### Example
+**1.** $d(x, y)=d_{1}\left(x_{1}, y_{1}\right)+d_{2}\left(x_{2}, y_{2}\right)$
 
-1. $d(x, y)=d_{1}\left(x_{1}, y_{1}\right)+d_{2}\left(x_{2}, y_{2}\right)$
+**2.** $\tilde{d}(x, y)=\sqrt{d_{1}\left(x_{1}, y_{1}\right)^{2}+d_{2}\left(x_{2}, y_{2}\right)^{2}}$
 
-2. $\tilde{d}(x, y)=\sqrt{d_{1}\left(x_{1}, y_{1}\right)^{2}+d_{2}\left(x_{2}, y_{2}\right)^{2}}$
-
-3. $\tilde{d}(x, y)=\max \left[d_{1}\left(x_{1}, y_{1}\right), d_{2}\left(x_{2}, y_{2}\right)\right]$ 
+**3.** $\tilde{d}(x, y)=\max \left[d_{1}\left(x_{1}, y_{1}\right), d_{2}\left(x_{2}, y_{2}\right)\right]$ 
 
 ## 2. Open Set, Closed Set, Neighborhood
 
@@ -248,12 +239,12 @@ The Cartesian product $X=X_{1} \times X_{2}$ of two metric spaces $\left(X_{1}, 
 
 Given a point $x_{0} \in X$ and a real number $r>0$, we define three types of sets
 
-a) $B\left(x_{0}, r\right)=\left\\{x \in X \mid d\left(x, x_{0}\right)<r\right\\} \quad$ (Open ball)
+$\text{(a)} \quad$ $B\left(x_{0}, r\right)=\left\\{x \in X \mid d\left(x, x_{0}\right)<r\right\\} \quad$ (Open ball)
 
-b) $\tilde{B}\left(x_{0}, r\right)=\left\\{x \in X \mid d\left(x, x_{0}\right) \leq r\right\\} 
+$\text{(b)} \quad$ $\tilde{B}\left(x_{0}, r\right)=\left\\{x \in X \mid d\left(x, x_{0}\right) \leq r\right\\} 
 \quad$ (Closed ball)
 
-c) $S\left(x_{0}, r\right)=\left\\{x \in X \mid d\left(x, x_{0}\right)=r\right\\} \quad$ (Sphere)
+$\text{(c)} \quad$ $S\left(x_{0}, r\right)=\left\\{x \in X \mid d\left(x, x_{0}\right)=r\right\\} \quad$ (Sphere)
 
 $x_{0}$ : center; $r$ : radius. 
 $S\left(x_{0}, r\right)=\tilde{B}\left(x_{0}, r\right)-B\left(x_{0}, r\right)$.
@@ -295,13 +286,17 @@ A subset $M$ of a metric space $X$ is said to be dense in $X$ if $\bar{M}=X$.
 $X$ is said to be separable if it has countable subset which is dense in $X$
 
 ### Example
-1. Real line $\mathbb{R}$. The real line $\mathbb{R}$ is separable.
+**1. Real line $\mathbb{R}$.** The real line $\mathbb{R}$ is separable.
 -- The set $\mathbb{Q}$ of all rational numbers is countable and is dense in $\mathbb{R}$.
-2. Complex plane $\mathbb{C}$. The complex plane $\mathbb{C}$ is se parable
+
+**2. Complex plane $\mathbb{C}$.** The complex plane $\mathbb{C}$ is se parable
 -- A countable dense subset of $\mathbb{C}$ is the set of all complex numbers whose real and imaginary parts are both rational.
-3 Discrete metric space. A discre metric space $X$ is separable if and only if $X$ is countable.
-4. Space $l^{\infty}$. The space $l^{\infty}$ is not separable.
-5. Space $\ell^{p}$. The space $\ell^{p}$ with $1 \leqslant p<\infty$ is separable
+
+**3 Discrete metric space.** A discre metric space $X$ is separable if and only if $X$ is countable.
+
+**4. Space $l^{\infty}$.** The space $l^{\infty}$ is not separable.
+
+**5. Space $\ell^{p}$.** The space $\ell^{p}$ with $1 \leqslant p<\infty$ is separable
 
 ## 3. Convergence, Cauchy Sequence, Completeness.
 
@@ -323,9 +318,9 @@ Hence, if $x_{n} \rightarrow x$, an $\varepsilon>0$ being given, there is an $N=
 ### 3.2 Lemma (Boundedness limit) 
 Let $(x, d)$ be a metric space. Then: 
 
-a) A convergent sequence in $x$ is bounded and its limit is unique.
+$\text{(a)} \quad$ A convergent sequence in $x$ is bounded and its limit is unique.
 
-b) If $x_{n} \rightarrow x$ and $y_{n} \rightarrow y$ in $x$, then $d\left(x_{n}, y_{n}\right) \rightarrow d(x, y)$.
+$\text{(b)} \quad$ If $x_{n} \rightarrow x$ and $y_{n} \rightarrow y$ in $x$, then $d\left(x_{n}, y_{n}\right) \rightarrow d(x, y)$.
 
 ### 3.3 Definition (Cauchy sequence, completeness) 
 A sequence $\left(x_{n}\right)$ in a metric space $X=(x, d)$ is said to be cauchy if for every $\varepsilon>0$, there is a $N=N(\varepsilon)$ such that
@@ -341,9 +336,9 @@ Every convergent sequence in a metric space is a Cauchy sequence.
 ### 3.5 Theorem (Closure, closed set) 
 Let $M$ be a nonempty subset of metric space ( $X, d$ ) and $\bar{M}$ its closure.
 
-a) $x \in \bar{M}$ if and only if there is a sequence $\left(x_{n}\right)$ in $M$ such that $x_{n} \rightarrow x$.
+$\text{(a)} \quad$ $x \in \bar{M}$ if and only if there is a sequence $\left(x_{n}\right)$ in $M$ such that $x_{n} \rightarrow x$.
 
-b) $M$ is closed if and only if the situation $x_{n} \in M, x_{n} \rightarrow x$ implies that $x \in M$.
+$\text{(b)} \quad$ $M$ is closed if and only if the situation $x_{n} \in M, x_{n} \rightarrow x$ implies that $x \in M$.
 
 ### 3.6 Theorem (Complete space) 
 A subspace $M$ of a complete metric space $X$ is itself complete if and only if the set $M$ is closed in $X$.
@@ -352,8 +347,7 @@ A subspace $M$ of a complete metric space $X$ is itself complete if and only if 
 A mapping $T: X \rightarrow Y$ of a metric space $(X, d)$ into a metric space $(Y, \tilde{d})$ is continuous at a point $x_{0} \in X$ if and only if $x_{n} \rightarrow x_{0}$ implies $Tx_{n} \rightarrow Tx_{0}$.
 
 ### Example 
-<div class="example">
-<b>1.</b> Completeness of $\mathbb{R}^{n}$ and $\mathbb{C}^{n}$
+**1. Completeness of $\mathbb{R}^{n}$ and $\mathbb{C}^{n}$**
 
 -- Consider $\mathbb{R}^{n}$. The metric on $\mathbb{R}^{n}$ is defined by
 $$
@@ -381,24 +375,25 @@ $$
 
 This show that $x$ is the limit of $\left(x_{m}\right)$.
 
-<b>2.</b> Completeness of $l^{\infty}$. The space $l^{\infty}$ is complete.
+**2. Completeness of $l^{\infty}$.** The space $l^{\infty}$ is complete.
 
-<b>3.</b> Completeness of $c$. The space $c$ consists of all convergent sequence $x=\left(x_{j}\right)$ of complex numbers, with the metric induced from the space $l^{\infty}$. The space $c$ is complete.
+**3. Completeness of $c$.** The space $c$ consists of all convergent sequence $x=\left(x_{j}\right)$ of complex numbers, with the metric induced from the space $l^{\infty}$. The space $c$ is complete.
 
-<b>4.</b> Completeness of $l^{p}$ The space $l^{p}$ is complete.
+**4. Completeness of $l^{p}$.** The space $l^{p}$ is complete.
 
-<b>5.</b> Completeness of $C[a, b]$. The function space $C[a, b]$ is complete.
-</div> 
+**5. Completeness of $C[a, b]$.** The function space $C[a, b]$ is complete.
 
 ### 3.8 Incomplete metric spaces
-1. Space Q - set of all rational numbers
-2. Polynomials. Let $X$ be the set of all polynomials considered as functions on $t$ on some finite closed interval $T=[a, b]$ and define a metric $d$ on $X$ by
+**1. Space $\mathbb{Q}$** - set of all rational numbers
+
+**2. Polynomials.** Let $X$ be the set of all polynomials considered as functions on $t$ on some finite closed interval $T=[a, b]$ and define a metric $d$ on $X$ by
 $$
-d(x, y)=\max _{t \in J}|x(t)-y(t)|
+d(x, y)=\max_{t \in J}|x(t)-y(t)|
 $$
-3. Continuous functions. Let $x$ be the set of all continuous real-valued function on $J=[0,1]$, and let
+
+**3. Continuous functions.** Let $x$ be the set of all continuous real-valued function on $J=[0,1]$, and let
 $$
-d(x, y)=\int_{0}^{1}|x(t)-y(t)| dt
+d(x, y)=\int_{0}^{1}|x(t)-y(t)| \mathrm{d}t
 $$
 
 ## 4. Completion of Metric Spaces
@@ -406,11 +401,11 @@ $$
 ### 4.1 Definition (Isometric mapping, isometric spaces). 
 Let $X=(x, d)$ and $\tilde{X}=(\tilde{X}, \tilde{d})$ be metric spaces. Then
 
-a) A mapping $T$ of $X$ into $\tilde{X}$ is said to be isometric or an isometry if $T$ preserves distances, that is if for all $x, y \in X$
+$\text{(a)} \quad$ A mapping $T$ of $X$ into $\tilde{X}$ is said to be isometric or an isometry if $T$ preserves distances, that is if for all $x, y \in X$
 $$
 \tilde{d}(T x, T y)=d(x, y)
 $$
-b) The space $X$ is said to be isometric with the space $\tilde{X}$ if there exists a bijective isometry of $X$ onto $\tilde{X}.$ The space $X$ and $\tilde{X}$ are then called isometric spaces.
+$\text{(b)} \quad$ The space $X$ is said to be isometric with the space $\tilde{X}$ if there exists a bijective isometry of $X$ onto $\tilde{X}.$ The space $X$ and $\tilde{X}$ are then called isometric spaces.
 
 ### 4.2 Theorem (Completion) 
 For a metro space $X=(X, d)$ there exists a complete metric space $\hat{X}=(\hat{X}, \hat{d})$ which has a subspace $W$ thas is isometric with $X$ and is dense in $\hat{X}$. This space $\hat{X}$ is unique except for isometries, that is, if $\tilde{X}$ is any complete metric space having a dense subspace $\tilde{W}$ isometric with $X$, then $X$ and $\tilde{X}$ are isometric.

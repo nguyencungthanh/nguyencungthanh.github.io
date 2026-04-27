@@ -1,15 +1,17 @@
 {{ define "main" }}
-  <article class='h-entry post-with-toc'>
+  <article class='h-entry {{ if eq .Section "posts" }}post-with-toc{{ end }}'>
     {{- partialCached "post/header" (dict "Listing" false "Page" .) .Permalink false -}}
     
     <div class="post-layout">
       <!-- TOC Sidebar -->
+      {{ if eq .Section "posts" }}
       <aside class="toc-sidebar">
         <div class="toc-sticky">
           <h4 class="toc-heading">Table of Contents</h4>
           {{ .TableOfContents }}
         </div>
       </aside>
+      {{ end }}
       
       <!-- Main Content -->
       <div class="post-body">

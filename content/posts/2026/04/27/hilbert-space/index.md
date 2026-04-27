@@ -72,7 +72,7 @@ $$
 
 ### Examples
 
-1. Euclidean space $\mathbb{R}^n$. Hilbert space with inner product:
+**1. Euclidean space $\mathbb{R}^n$.** Hilbert space with inner product:
 $$
 \langle x,y\rangle = \xi_1 \eta_1 + \ldots + \xi_n \eta_n
 $$
@@ -81,7 +81,7 @@ Then
 $$\\\|x\\\| = \langle x,x\rangle^{1/2} = (\xi_1^2 + \cdots + \xi_n^2)^{1/2}$$
 with Euclidean metric $$\mathrm{d}(x, y) = \\\| x - y \\|| = \langle x-y, x-y \rangle^{1/2} = [(\xi_1 - \eta_1)^2 + \ldots +(\xi_n - \eta_n)^2]^{1/2}$$ 
 
-2. Unitary space $\mathbb{C}^n$. Hilbert space with inner product:
+**2. Unitary space $\mathbb{C}^n$.** Hilbert space with inner product:
 $$
 \langle x,y\rangle = \sum_ {i=1}^n \xi_i \overline{\eta_i}
 $$
@@ -91,7 +91,7 @@ $$
 = \left(\sum_{i=1}^n |\xi_i|^2\right)^{1/2}
 $$
 
-3. Space $L^2[a,b]$. Hilbert space with norm:
+**3. Space $L^2[a,b]$.** Hilbert space with norm:
 $$
 \\\|x\\\| = \left(\int_a^b x(t)^2\ \mathrm{d}t\right)^{1/2}
 $$
@@ -104,7 +104,7 @@ $$
 \langle x,y\rangle = \int_a^b x(t)\overline{y(t)}\mathrm{d}t
 $$
 
-4. Hilbert sequence space $\ell^2$. Hilbert space with inner product:
+**4. Hilbert sequence space $\ell^2$.** Hilbert space with inner product:
 $$
 \langle x,y\rangle = \sum_{j=1}^{\infty} \xi_j \overline{\eta_j}
 $$
@@ -119,13 +119,13 @@ $$
 ## 2. Further Properties of Inner Product Space
 
 ### 2.1 Lemma (Schwarz inequality, triangle inequality)
-(a) We have:
+$\text{(a)}$ We have:
 $$
 \\|\langle x,y\rangle\\| \le \\\|x\\\|\ \\\|y\\\|
 $$
 The equality sign holds if and only if $\\{x,y\\}$ is a linearly dependent set.
 
-(b) The norm also satisfies:
+$\text{(b)}$ The norm also satisfies:
 $$
 \\|x+y\\| \le \\|x\\| + \\|y\\|
 $$
@@ -165,11 +165,11 @@ $$
 ### 2.4 Theorem (Subspace)
 Let $Y$ be a subspace of a Hilbert space $H$. Then:
 
-(a) $Y$ is complete if and only if $Y$ is closed in $H$.
+$\text{(a)} \quad$ $Y$ is complete if and only if $Y$ is closed in $H$.
 
-(b) If $Y$ is finite dimensional, then $Y$ is complete.
+$\text{(b)} \quad$ If $Y$ is finite dimensional, then $Y$ is complete.
 
-(c) If $H$ is separable, so is $Y$. More generally, every subset of a separable inner product space is separable.
+$\text{(c)} \quad$ If $H$ is separable, so is $Y$. More generally, every subset of a separable inner product space is separable.
 
 ---
 

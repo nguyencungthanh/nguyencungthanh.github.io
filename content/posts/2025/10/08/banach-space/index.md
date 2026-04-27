@@ -21,65 +21,61 @@ A normed space $X$ is a vector space with a norm defined on it. A Banach space i
 
 A norm on $X$ defines a metric $d$ on $X$ by
 $$
-\mathrm{d}(x, y) = \\|x - y\\|,
+d(x,y) = \\|x - y\\|,
 $$
 called the *metric induced* by the norm. The normed space thus defined is denoted by $(X, \\| \cdot\\|)$, or simply $X$.
 
 ### Example
-**1.** Euclidean space  $\mathbb{R}^n$ and unitary space $\mathbb{C}^n$
-
+**1. Euclidean space  $\mathbb{R}^n$ and unitary space $\mathbb{C}^n$**. 
 Banach space with norm 
 $$
 \\|x\\| = \left( \sum_{i=1}^{n} \|x_i\|^2 \right)^{\frac{1}{2}}
 $$
 $\mathbb{R}^n$ and $\mathbb{C}^n$ are complete and the induced metric is
 $$
-\mathrm{d}(x, y) = \\|x - y\\| = \left( \sum_{i=1}^{n} |x_i - y_i|^2 \right)^{\frac{1}{2}}.
+d(x,y) = \\|x - y\\| = \left( \sum_{i=1}^{n} |x_i - y_i|^2 \right)^{\frac{1}{2}}.
 $$
 
-**2.** Space $\ell^p$
-
+**2. Space $\ell^p$.**
 Banach space with norm  
-$$ \\|x\\| = \left( \sum_{i = 1}^{\infty} \|x_i\|^p \right)^{\frac{1}{p}} $$ is a Banach space with 
+$$ \\|x\\| = \left( \sum_{i = 1}^{\infty} \|x_i\|^p \right)^{\frac{1}{p}} $$ is a 
 and the induced metric is 
 $$
-\mathrm{d}(x, y) = \\|x - y\\| = \left( \sum_{i=1}^{n} |x_i - y_i|^p \right)^{\frac{1}{p}}.
+d(x, y) = \\|x - y\\| = \left( \sum_{i=1}^{n} |x_i - y_i|^p \right)^{\frac{1}{p}}.
 $$
 
-**3.** Space $\ell^{\infty}$
+**3. Space $\ell^{\infty}$.**
 Banach space with norm  
 $$
 \\|x\\|_\infty = \sup _{i}\\|x_i\\|
 $$
 
-**4.** Space $\ell^{\infty}$
+**4 Space $\ell^{\infty}$.**
 Banach space with norm  
 $$
 \\|x\\| = \max _{t \in J}\\|x(t)\\|
 $$
 where $J = [a,b]$.
 
-**5.** Incomplete normed space
+**5. Incomplete normed space.**
 
-$\mathrm{d}(x,y) = \int _{0}^{1} \| x(t) - y(t) \| dt$ induce the norm 
+$d(x, y) = \int _{0}^{1} \| x(t) - y(t) \| \mathrm{d}t$ induce the norm 
 $$\int _{0}^{1} \|x(t)\| \mathrm{d}t$$
 
-**6.** Incomplete normed space and its completion $L^p[a,b]$
-
+**6. Incomplete normed space and its completion $L^p[a,b]$.**
 The Banach space $L^p[a,b]$ with norm 
 $$ \\|x\\| _p = \left( \int _{a}^{b} \|x(t)\| \mathrm{d}t  \right)^{\frac{1}{p}} $$
 
-**7.** Space $s$
-
+**7. Space $s$.**
 Metric defined by $$d(x,y) = \sum _{j = 1}^{\infty} \dfrac{1}{2^j} \dfrac{\|x_j-y_j\|}{1 + \|x_j-y_j\|}$$ 
 cannot be obtained a norm
 
 ### 1.1 Lemma (Translation invariance)
 A metric $d$ induced by a norm on a normed space $X$ satisfies 
 
-a) $d(x+a,y+a) = d(x,y)$
+$\text{(a)} \quad$ $d(x+a,y+a) = d(x,y)$
 
-b) $d(\alpha x, \alpha y) = \|\alpha\| d(x,y)$
+$\text{(b)} \quad$ $d(\alpha x, \alpha y) = \|\alpha\| d(x,y)$
 
 for all $x,y \in X$ and every scalar $\alpha$. 
 
@@ -371,9 +367,9 @@ A continuous mapping $T$ of a compact subset $M$ of a metric space $X$ into $\ma
 
 A linear operator $T$ is an operator such that
 
-i) The domain $\mathcal{D}(T)$ of $T$ is a vector space and the range $\mathcal{R}(T)$ lies in a vector space over the same field.
+$\text{(i)} \quad$ The domain $\mathcal{D}(T)$ of $T$ is a vector space and the range $\mathcal{R}(T)$ lies in a vector space over the same field.
 
-ii) For all $x,y \in \mathcal{D}(T)$ and scalars $\alpha$,
+$\text{(ii)} \quad$ For all $x,y \in \mathcal{D}(T)$ and scalars $\alpha$,
 $$
 T(x+y) = Tx + Ty
 $$
@@ -381,37 +377,37 @@ $$
 T(\alpha x) = \alpha Tx
 $$
 
-**Note.** $N(T)$ denotes the null space of $T$, the set of all $x \in \mathcal{D}(T)$ such that $Tx = 0$ (Kernel).
+**Note.** $\mathcal{N}(T)$ denotes the null space of $T$, the set of all $x \in \mathcal{D}(T)$ such that $Tx = 0$ (Kernel).
 
 $T$ is a homomorphism of a vector space (its domain) into another space, that is $T$ preserves the two operations of vector space.
 
 ### Example
 
-1. **Identity operator.** The identity operator $I_X : X \to X$ is defined by $I_X x = x$ for all $x \in X$. Write simply $I$ for $I_X$, thus $Ix = x$.
+**1. Identity operator.** The identity operator $I_X : X \to X$ is defined by $I_X x = x$ for all $x \in X$. Write simply $I$ for $I_X$, thus $Ix = x$.
 
-2. **Differentiation.** Let $X$ be the vector space of all polynomials on $[a,b]$. We may define a linear operator $T$ on $X$ by setting
+**2. Differentiation.** Let $X$ be the vector space of all polynomials on $[a,b]$. We may define a linear operator $T$ on $X$ by setting
 $$
 T x(t) = x'(t)
 $$
 for every $x \in X$.
 
-3. **Integration.** A linear operator $T$ from $C[a,b]$ into itself can be defined by
+**3. Integration.** A linear operator $T$ from $C[a,b]$ into itself can be defined by
 $$
 T x(t) = \int_a^t x(\tau)\ \mathrm{d}\tau
 $$
 
-4. **Multiplication by $t$.** Another linear operator from $C[a,b]$ into itself is defined by
+**4. Multiplication by $t$.** Another linear operator from $C[a,b]$ into itself is defined by
 $$
 T x(t) = t x(t)
 $$
 
-5. **Elementary vector algebra.** Cross product with one factor kept fixed defines a linear operator $T_1 : \mathbb{R}^3 \to \mathbb{R}^3$. Similarly, the dot product with one fixed factor defines a linear operator $T_2 : \mathbb{R}^3 \to \mathbb{R}$, say
+**5. Elementary vector algebra.** Cross product with one factor kept fixed defines a linear operator $T_1 : \mathbb{R}^3 \to \mathbb{R}^3$. Similarly, the dot product with one fixed factor defines a linear operator $T_2 : \mathbb{R}^3 \to \mathbb{R}$, say
 $$
 T_2 x = x \cdot a = \xi_1 \alpha_1 + \xi_2 \alpha_2 + \xi_3 \alpha_3
 $$
 where $\alpha = (\alpha_j) \in \mathbb{R}^3$ is fixed.
 
-6. **Matrices.** A real matrix $A = (\alpha_{jk})$ with $r$ rows and $n$ columns defines an operator $T : \mathbb{R}^n \to \mathbb{R}^r$ by means of
+**6. Matrices.** A real matrix $A = (\alpha_{jk})$ with $r$ rows and $n$ columns defines an operator $T : \mathbb{R}^n \to \mathbb{R}^r$ by means of
 $$
 y = Ax
 $$
@@ -442,11 +438,11 @@ $$
 
 Let $T$ be a linear operator, then
 
-a) The range $\mathcal{R}(T)$ is a vector space.
+$\text{(a)} \quad$ The range $\mathcal{R}(T)$ is a vector space.
 
-b) If $\dim \mathcal{D}(T) = n < \infty$, then $\dim \mathcal{R}(T) \le n$.
+$\text{(b)} \quad$ If $\dim \mathcal{D}(T) = n < \infty$, then $\dim \mathcal{R}(T) \le n$.
 
-c) The null space $N(T)$ is a vector space.
+$\text{(c)} \quad$ The null space $\mathcal{N}(T)$ is a vector space.
 
 **Inverse of linear operator.** $T : \mathcal{D}(T) \to Y$ is injective or one-to-one, there exists the mapping 
 
@@ -463,15 +459,15 @@ $$
 
 Let $X, Y$ be vector spaces, both real or complex. Let $T : \mathcal{D}(T) \to Y$ be a linear operator with domain $\mathcal{D}(T) \subset X$ and $\mathcal{R}(T) \subset Y$. Then:
 
-a) The inverse $T^{-1} : \mathcal{R}(T) \to \mathcal{D}(T)$ exists if and only if
+$\text{(a)} \quad$ The inverse $T^{-1} : \mathcal{R}(T) \to \mathcal{D}(T)$ exists if and only if
 
 $$
 Tx = 0 \Rightarrow x = 0
 $$
 
-b) If $T^{-1}$ exists, it is a linear operator.
+$\text{(b)} \quad$ If $T^{-1}$ exists, it is a linear operator.
 
-c) If $\dim \mathcal{D}(T) = n < \infty$ and $T^{-1}$ exists, then
+$\text{(c)} \quad$ If $\dim \mathcal{D}(T) = n < \infty$ and $T^{-1}$ exists, then
 $
 \dim \mathcal{R}(T) = \dim \mathcal{D}(T)
 $
@@ -518,23 +514,23 @@ $$
 
 ### Example
 
-1. **Identity operator.** The identity operator $I : X \to X$ on a normed space $X \ne \{0\}$ is bounded and has norm $\|I\| = 1$.
+**1. Identity operator.** The identity operator $I : X \to X$ on a normed space $X \ne \\{0\\}$ is bounded and has norm $\\|I\\| = 1$.
 
-2. **Differentiation operator.** Let $X$ be the normed space of all polynomials on $I = [0,1]$ with norm given $\|x\| = \max |x(t)|$, $t \in I$. A differentiation operator $T$ is defined on $X$ by
+**2. Differentiation operator.** Let $X$ be the normed space of all polynomials on $J = [0,1]$ with norm given $\\|x\\| = \max |x(t)|$, $t \in J$. A differentiation operator $T$ is defined on $X$ by
 $$
 Tx(t) = x'(t)
 $$
 This operator is linear but not bounded.
 
-3. **Integral operator.**  Define an integral operator
+**3. Integral operator.**  Define an integral operator
 $
 T: C[0,1] \to C[0,1]
 $
 by
 $$
-y = Tx, \text{ where} \quad  y(t)=\int_0^1 h(t,\tau)\\,\mathrm{d}\tau.
+y = Tx, \text{ where} \quad  y(t)=\int_0^1 k(t,\tau)x(\tau) \mathrm{d}\tau.
 $$
-Here $h$ is a given function, which is called the *kernel* of $T$, and it is assumed to be continuous on the closed square
+Here $k$ is a given function, which is called the *kernel* of $T$, and it is assumed to be continuous on the closed square
 $
 G = J \times J
 $
@@ -542,9 +538,10 @@ in the $t\tau$-plane, where
 $
 J=[0,1].
 $
-This operator is linear. $T$ is bounded.
 
-4. **Matrix.** A real matrix
+This operator is linear, $T$ is bounded.
+
+**4. Matrix.** A real matrix
 $
 A=(\alpha_{jk})
 $
@@ -575,11 +572,11 @@ and consider any linear operator $T$ on $X$. Since $T$ is linear,
 \\|Tx\\|=\left\\| \sum \xi_i Te_i \right\\| & \le \sum |\xi_i|\ \\|Te_i\\| \\\\
 & \le \max_k \\|Te_k\\| \sum |\xi_i| \\\\
 & \le \max_k \\|Te_k\\| \frac{1}{c}\left\\|\sum \xi_i e_i\right\\|
-= \delta \|x\|.
+= \delta \\|x\\|.
 \end{align} 
 where
 $
-\delta=\frac{1}{c}\max_k \\|Te_k\\|.
+\delta=\frac{1}{c}\max\limits_k \\|Te_k\\|.
 $
 
 ### 6.4 Theorem (Continuity and boundedness)
@@ -589,16 +586,16 @@ T:\mathcal{D}(T)\to Y
 $
 be a linear operator, where $\mathcal{D}(T)\subset X$ and $X,Y$ are normed spaces. Then:
 
-a) $T$ is continuous if and only if $T$ is bounded.
+$\text{(a)} \quad$ $T$ is continuous if and only if $T$ is bounded.
 
-b) If $T$ is continuous at a single point, it is continuous.
+$\text{(b)} \quad$ If $T$ is continuous at a single point, it is continuous.
 
 ### 6.5 Corollary (Continuity, null space)
 Let $T$ be a bounded linear operator. Then:
 
-a) $x_n\to x$ $( \text{where } x_n,x\in \mathcal{D}(T))$ implies $Tx_n\to Tx$.
+$\text{(a)} \quad$ $x_n\to x$ $( \text{where } x_n,x\in \mathcal{D}(T))$ implies $Tx_n\to Tx$.
 
-b) The null space $\mathcal{N}(T)$ is closed.
+$\text{(b)} \quad$ The null space $\mathcal{N}(T)$ is closed.
 
 ### 6.6 Theorem (Bounded linear extension)
 Let
@@ -649,9 +646,9 @@ A linear functional $f$ with domain $\mathcal{D}(f)$ in a normed space is contin
 
 ### Examples
 
-1. **Norm.** The norm $\\|\cdot\\|:X\to\mathbb{R}$ on a normed space $(X,\\|\cdot\\|)$ is a functional on $X$ which is not linear.
+**1. Norm.** The norm $\\|\cdot\\|:X\to\mathbb{R}$ on a normed space $(X,\\|\cdot\\|)$ is a functional on $X$ which is not linear.
 
-2. **Dot product.** The dot product with one factor kept fixed defines a functional
+**2. Dot product.** The dot product with one factor kept fixed defines a functional
 $
 f:\mathbb{R}^3\to\mathbb{R}
 $
@@ -665,7 +662,7 @@ $$
 \Rightarrow \\|f\\|=\\|a\\|.
 $$
 
-3. **Definite integral.** Consider integral for all functions in a certain function space, $f$ is defined by
+**3. Definite integral.** Consider integral for all functions in a certain function space, $f$ is defined by
 $$
 f(x)=\int_a^b x(t)\ \mathrm{d}t, \qquad x\in C[a,b].
 $$
@@ -674,7 +671,7 @@ $
 \\|f\\|=b-a.
 $
 
-4. **Space $C[a,b]$.** Choose a fixed $t_0\in J=[a,b]$ and set
+**4. Space $C[a,b]$.** Choose a fixed $t_0\in J=[a,b]$ and set
 $$
 f_t(x)=x(t_0), \qquad x\in C[a,b].
 $$
@@ -683,7 +680,7 @@ $
 \\|f_t\\|=1.
 $
 
-5. **Space $\ell^2$.** We can obtain a linear functional $f$ on the Hilbert space $\ell^2$ by choosing a fixed
+**5. Space $\ell^2$.** We can obtain a linear functional $f$ on the Hilbert space $\ell^2$ by choosing a fixed
 $
 a=(a_j)\in \ell^2
 $
@@ -697,7 +694,7 @@ x=(\xi_j)\in \ell^2.
 $
 This series converges absolutely and $f$ is bounded.
 
--- The set of all linear functionals defined on a vector space $X$ can itself be made into a vector space. This space is denoted by $X^*$ and is called the *algebraic dual space* of $X$.
+-- The set of all linear functionals defined on a vector space $X$ can itself be made into a vector space. This space is denoted by $X^*$ and is called the **algebraic dual space** of $X$.
 + The sum $f_1+f_2$ of two functionals $f_1$ and $f_2$ is the functional $s$ whose value at every $x\in X$ is
 $$
 s(x)=(f_1+f_2)(x)=f_1(x)+f_2(x).
@@ -707,7 +704,7 @@ $$
 p(x)=(\alpha f)(x)=\alpha f(x).
 $$
 
--- Consider the algebraic dual $(X^{\*})^{\*}$ of $X^\*$, whose elements are the linear functionals defined on $X^\*$. Denote $(X^\*)^\*$ by $X^{\* \*}$ and call it the *second algebraic dual space* of $X$.
+-- Consider the algebraic dual $(X^{\*})^{\*}$ of $X^\*$, whose elements are the linear functionals defined on $X^\*$. Denote $(X^\*)^\*$ by $X^{\* \*}$ and call it the **second algebraic dual space** of $X$.
 + We can obtain a $g\in X^{\*\*}$ which is a linear functional defined on $X^\*$ by choosing a fixed $x\in X$ and setting
 $$
 g(f)=g_x(f)=f(x) \qquad (x\in X \text{ fixed}\, f\in X^* \text{ variable}).
@@ -719,9 +716,7 @@ C:\quad  & X \to X^{**} \\\\
 & x \text{ } \mapsto g_x.
 \end{align} 
 
-$C$ is called the *canonical mapping* of $X$ into $X^{\*\*}$.
-
----
+$C$ is called the **canonical mapping** of $X$ into $X^{\*\*}$.
 
 **Isomorphism**. A bijective mapping of $X$ onto $\tilde X$ which preserves the structure.
 
@@ -736,8 +731,6 @@ T(x+y)=Tx+Ty, \qquad T(\alpha x)=\alpha Tx.
 $$
 
 $X$ and $\tilde X$ are called isomorphic vector spaces.
-
----
 
 -- Canonical mapping $C$ is injective. Since $C$ is linear, it is an isomorphism of $X$ onto the range $\mathcal{R}(C)\subset X^{\*\*}$.
 
@@ -823,7 +816,7 @@ f_j(e_k)=\delta_{jk}=
 $$
 (Kronecker delta).
 
-$\\{f_1,\dots,f_n\\}$ is called the *dual basis* of the basis $\\{e_1,\dots,e_n\\}$ of $X$.
+$\\{f_1,\dots,f_n\\}$ is called the **dual basis** of the basis $\\{e_1,\dots,e_n\\}$ of $X$.
 
 ### 8.1 Theorem (Dimension of $X^*$)
 Let $X$ be an $n$-dimensional vector space and $E=\\{e_1,\dots,e_n\\}$ a basis for $X$. Then
@@ -870,6 +863,7 @@ $$
 If $Y$ is a Banach space, then $B(X,Y)$ is a Banach space.
 
 *Proof.*
+
 Consider an arbitrary Cauchy sequence $(T_n)$ in $B(X,Y)$ and show that $(T_n)$ converges to an operator $T\in B(X,Y)$.
 
 Since $(T_n)$ is Cauchy, for every $\varepsilon>0$ there is an $N$ such that
@@ -936,9 +930,10 @@ $
 
 ### Example
 
-1. Space $\mathbb{R}^n$. The dual space of $\mathbb{R}^n$ is $\mathbb{R}^n$.
+**1. Space $\mathbb{R}^n$.** The dual space of $\mathbb{R}^n$ is $\mathbb{R}^n$.
 
 *Proof.*
+
 We have $(\mathbb{R}^{n})^{\'}=(\mathbb{R}^{n})^\*$ and every $f\in (\mathbb{R}^{n})^\*$ has a representation
 
 $$
@@ -965,6 +960,6 @@ This proves that norm of $f$ is the Euclidean norm, $\\|f\\|=\\|c\\|$ where $c=(
 
 Hence the mapping of $(\mathbb{R}^{n})^{'}$ onto $\mathbb{R}^n$ defined by $f\mapsto c=(\gamma_k)$, $\gamma_k=f(e_k)$, is norm preserving, it is linear and bijective, it is an isomorphism.
 
-2. Space $\ell^1$. The dual space of $\ell^1$ is $\ell^\infty$.
+**2. Space $\ell^1$.** The dual space of $\ell^1$ is $\ell^\infty$.
 
-3. Space $\ell^p$. The dual space of $\ell^p$ is $\ell^q$; here, $1 < p < +\infty$ and $q$ is the conjugate of $p$, that is, $1/p + 1/q = 1.$
+**3. Space $\ell^p$.** The dual space of $\ell^p$ is $\ell^q$; here, $1 < p < +\infty$ and $q$ is the conjugate of $p$, that is, $1/p + 1/q = 1.$
