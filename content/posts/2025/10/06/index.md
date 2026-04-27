@@ -1,6 +1,11 @@
 ---
 title: Lời giải một bài toán phương trình hàm 
 date: 2025-10-06
+---
+build:
+  list: never
+  render: never
+---
 categories:
   - writings
 tags:
