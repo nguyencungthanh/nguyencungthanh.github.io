@@ -66,8 +66,6 @@ printPathWarnings = true
     identities = [
       'https://github.com/nguyencungthanh',
       'https://instagram.com/nguyencungthanh',
-      'https://fosstodon.org/@hacdias',
-      'https://linkedin.com/in/hacdias',
       'mailto:nguyencungthanh11@gmail.com'
     ]
 

@@ -149,8 +149,12 @@ small {
   font-size: var(--f5);
 }
 
+sup{
+  color: gray
+}
+
 a {
-  color: inherit;
+  color: gray;
   text-decoration: underline;
   word-wrap: break-word;
   overflow-wrap: anywhere;
@@ -978,9 +982,9 @@ nav a[aria-current='page'] {
 .sidenote {
   float: right;
   clear: right;
-  margin-right: -380px; 
-  width: 300px;
-  margin-bottom: 20px; 
-  font-size: 1em;
-  color: gray;
+  margin-right: -250px; 
+  width: 250px;
+  margin-bottom: 15px; 
+  font-size: 0.9em;
+  color: black;
 }
