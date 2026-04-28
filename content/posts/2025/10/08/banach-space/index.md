@@ -6,6 +6,7 @@ categories:
   - writings
 tags:
   - functional analysis 
+  - banach space
 ---
 
 <!--more--> 
@@ -807,14 +808,16 @@ $$
 $$
 
 This gives $n$ functionals, denote $f_1,\dots,f_n$, with values
+<span class="sidenote" id="note1">
+    1. Kronecker delta 
+</span>
 $$
-f_j(e_k)=\delta_{jk}=
+f_j(e_k)=\delta_{jk}^{\hspace{0.2cm} \color{gray}{1}}=
 \begin{cases}
 0 & \text{if } j\ne k,\\\\
 1 & \text{if } j=k,
 \end{cases}
 $$
-(Kronecker delta).
 
 $\\{f_1,\dots,f_n\\}$ is called the **dual basis** of the basis $\\{e_1,\dots,e_n\\}$ of $X$.
 

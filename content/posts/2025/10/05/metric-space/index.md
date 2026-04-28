@@ -6,6 +6,7 @@ categories:
   - writings
 tags:
   - functional analysis 
+  - metric space
 ---
 
 <script>

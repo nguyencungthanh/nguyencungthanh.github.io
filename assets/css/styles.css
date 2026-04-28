@@ -973,3 +973,14 @@ nav a[aria-current='page'] {
   color: var(--c);
   background: transparent; /* Override global nav a background hover if any */
 }
+
+/* Side note  */
+.sidenote {
+  float: right;
+  clear: right;
+  margin-right: -380px; 
+  width: 300px;
+  margin-bottom: 20px; 
+  font-size: 1em;
+  color: gray;
+}

@@ -6,6 +6,7 @@ categories:
   - writings
 tags:
   - functional analysis 
+  - hilbert space
 ---
 
 <!--more--> 
@@ -78,7 +79,7 @@ $$
 $$
 where $x = (\xi_i) = (\xi_1,\ldots,\xi_n); \quad y = (\eta_i) = (\eta_1,\ldots,\eta_n)$.
 Then
-$$\\\|x\\\| = \langle x,x\rangle^{1/2} = (\xi_1^2 + \cdots + \xi_n^2)^{1/2}$$
+$$\\\|x\\\| = \langle x,x\rangle^{1/2} = (\xi_1^2 + \ldots + \xi_n^2)^{1/2}$$
 with Euclidean metric $$\mathrm{d}(x, y) = \\\| x - y \\|| = \langle x-y, x-y \rangle^{1/2} = [(\xi_1 - \eta_1)^2 + \ldots +(\xi_n - \eta_n)^2]^{1/2}$$ 
 
 **2. Unitary space $\mathbb{C}^n$.** Hilbert space with inner product:
@@ -183,3 +184,13 @@ In a normed space this becomes:
 $$
 \delta = \inf_{\tilde y \in M} \\|x - \tilde y\\|.
 $$
+
+<div class="content">
+  <p>
+    follow instructions<sup>1</sup><span class="sidenote" id="note1">
+      1. Alpaca: A Strong, Replicable Instruction-Following Model
+    </span>, reason on math<sup>2</sup><span class="sidenote" id="note2">
+      2. OpenThoughts: Data Recipes for Reasoning Models
+    </span>
+  </p>
+</div> 
