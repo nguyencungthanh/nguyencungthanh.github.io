@@ -154,7 +154,7 @@ sup{
 }
 
 a {
-  color: gray;
+  color: inherit;
   text-decoration: underline;
   word-wrap: break-word;
   overflow-wrap: anywhere;

@@ -10,3 +10,11 @@
 .roman-paren li::marker {
   content: counter(list-item, lower-roman) ") ";
 }
+
+a {
+  color: gray;
+  text-decoration: underline;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
