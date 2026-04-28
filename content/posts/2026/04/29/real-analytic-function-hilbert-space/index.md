@@ -28,7 +28,7 @@ Consider a function
 $$
 f(x) = \sum_{k=0}^{\infty} a_k x^k
 $$
-where the series converges for all $x \in \mathbb{R}$. There exist a Hilbert space $H$ and transformations $\Phi, \Psi : \mathbb{R}^n \to H$ such that
+where the series absolutely converges for all $x \in \mathbb{R}$. There exist a Hilbert space $H$ and transformations $\Phi, \Psi : \mathbb{R}^n \to H$ such that
 $$
 \langle \Phi(u), \Psi(v) \rangle = f(\langle u, v \rangle)
 \quad \text{for all } u, v \in \mathbb{R}^n.
@@ -40,7 +40,7 @@ $$ \\|\Phi(u)\\|_H^2 = \\|\Psi(u)\\|_H^2 =\sum _{k=0}^{\infty} \|a_k\| .$$
 For each $k \ge 0$, let $V_k = \mathbb{R}^{n^k}$ and define
 $$
 H = \bigoplus_{k=0}^{\infty} V_k =
-\left\\{ (w_0, w_1, \dots) : w_k \in V_k,\ \sum_{k=0}^{\infty} \|w_k\|^2 < \infty \right\\}
+\left\\{ (w_0, w_1, \dots) : w_k \in V_k,\ \sum_{k=0}^{\infty} \\|w_k\\|^2 < \infty \right\\}
 $$
 
 with inner product
@@ -59,11 +59,11 @@ $$
 
 Then we prove that $\Phi(u), \Psi(v) \in H$. Indeed, we have: 
 $$
-\\|\sqrt{|a_k|} u^{\otimes k}\\|^2 = |a_k| \\|u^{\otimes k}\\|^2 = |a_k| \\|u\\|^{2k}.
+\left\\|\sqrt{|a_k|} u^{\otimes k}\right\\|^2 = |a_k| \left\\|u^{\otimes k}\right\\|^2 = |a_k| \\|u\\|^{2k}.
 $$
 
 Thus,
-$$ \sum_{k=0}^{\infty}\\|\sqrt{|a_k|} u^{\otimes k}\\|^2 = \sum_{k=0}^{\infty} |a_k| \\|u\\|^{2k}
+$$ \sum_{k=0}^{\infty}\left\\|\sqrt{|a_k|} u^{\otimes k}\right\\|^2 = \sum_{k=0}^{\infty} |a_k| \\|u\\|^{2k}
 $$
 converges, so $\Phi(u) \in H$. Similarly, $\Psi(v) \in H$.
 
@@ -121,7 +121,7 @@ $$
 \langle \Phi(u), \Phi(v) \rangle = K(u,v)^{\textcolor{gray} 1}  \quad \text{for all } u, v \in \mathcal{X}?
 $$
 
-The answer is given by <a href="https://dornsife.usc.edu/sergey-lototsky/wp-content/uploads/sites/211/2023/11/Mercer-original-compressed_compressed.pdf">Mercer theorem</a><sup>2</sup>
+The answer is given by Mercer theorem<sup>2</sup>
 <span class="sidenote" id="note2">
     2. <a href="https://dornsife.usc.edu/sergey-lototsky/wp-content/uploads/sites/211/2023/11/Mercer-original-compressed_compressed.pdf"> Functions of positive and negative type and their connection with the theory of integral equations</a> (Mercer, 1909).
 </span> and, more precisely, Moore-Aronszajn theorem:
@@ -131,7 +131,7 @@ $ (K(u_i, u_j))_{i,j=1}^N $ is symmetric and positive semidefinite.
 
 $-$ Transformation $\Phi$ is called a *feature map*.
 
-$-$ The Hilbert space $H$ is called a <a href="https://arxiv.org/abs/2106.08443">*reproducing kernel Hilbert space*</a><sup>3</sup> (RKHS). 
+$-$ The Hilbert space $H$ is called a *reproducing kernel Hilbert space*<sup>3</sup> (RKHS). 
 <span class="sidenote" id="note3">
     3. <a href="https://arxiv.org/abs/2106.08443"> Reproducing Kernel Hilbert Space, Mercer's Theorem, Eigenfunctions, Nyström Method, and Use of Kernels in Machine Learning: Tutorial and Survey</a> (Ghojogh et al, 2021).
 </span>

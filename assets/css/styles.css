@@ -988,10 +988,7 @@ nav a[aria-current='page'] {
   color: black;
 }
 
-.post-with-toc a {
-  color: gray;
-}
-
-.post-with-toc a:hover {
+/* Applies ONLY to posts under /content/posts/ */
+article.post-with-toc a {
   color: gray;
 }
