@@ -475,7 +475,6 @@ main pre {
   border-radius: 0 0 var(--radius) var(--radius);
   display: block;
 }
-
 .box {
   padding: var(--hms) var(--ms);
 }
@@ -987,4 +986,12 @@ nav a[aria-current='page'] {
   margin-bottom: 15px; 
   font-size: 0.9em;
   color: black;
+}
+
+.post-with-toc a {
+  color: gray;
+}
+
+.post-with-toc a:hover {
+  color: gray;
 }

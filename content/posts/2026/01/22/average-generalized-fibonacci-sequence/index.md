@@ -9,7 +9,7 @@ tags:
 
 <center><b>Abstract</b></center>
 
-[Amirali Fatehizadeh & Daniel Yaqubi](https://cs.uwaterloo.ca/journals/JIS/VOL25/Yaqubi/yaq6.pdf) answered the question when does we have the average of first $n$ Fibonacci numbers are integer. In this post, I will generalize that result. 
+$\quad$ [Amirali Fatehizadeh & Daniel Yaqubi](https://cs.uwaterloo.ca/journals/JIS/VOL25/Yaqubi/yaq6.pdf) answered the question when does we have the average of first $n$ Fibonacci numbers are integer. In this post, I will generalize that result. 
 
 <!--more--> 
 

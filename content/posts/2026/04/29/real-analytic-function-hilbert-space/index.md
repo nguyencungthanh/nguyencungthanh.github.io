@@ -7,20 +7,23 @@ categories:
 tags:
   - functional analysis 
   - tensor
+  - feature map
 ---
 
-<center><b>Abstract</b>
+<center><b>Abstract</b></center>
 
-There exist a Hilbert space $H$ and transformations $\Phi, \Psi : \mathbb{R}^n \to H$ such that
-</center>
-$$
-\langle \Phi(u), \Psi(v) \rangle = f(\langle u, v \rangle)
-\quad \text{for all } u, v \in \mathbb{R}^n.
-$$
-
+$\quad$ We study representations of functions of inner products via embeddings into Hilbert spaces. While polynomials with nonnegative coefficients admit a single feature map realization, this approach fails when negative coefficients are present. To address this limitation, we introduce a two-map framework. Specifically, for any analytic function $f(x) = \sum_{k=0}^{\infty} a_k x^k$ with global convergence, we construct a Hilbert space $H$ and transformations $\Phi, \Psi: \mathbb{R}^n \to H$ such that 
+$$\langle \Phi(u), \Psi(v) \rangle = f(\langle u, v \rangle)
+\quad \text{for all } u, v \in \mathbb{R}^n.$$ 
 <!--more--> 
 
 ## 1. Real analytic function 
+We start with the following problem: 
+
+Let $P(x)$ be a polynomial with nonnegative coefficients, then there exists a Hilbert space $H$ and a transformation $\Phi : \mathbb{R}^n \to H$ such that: 
+$$\langle \Phi(u), \Phi(v) \rangle = P(\langle u, v \rangle) \quad \text{for all } u, v \in \mathbb{R^n}.$$ 
+But our task can be impossible if $P$ has a negative coefficient since $\langle \Phi(u), \Phi(v) \rangle$ is always nonnegative. Therefore, a natural question is what if we consider two transformations $\Phi, \Psi: \mathbb{R}^n \to H?$ This leads us to a more general problem about analytic function as follow. 
+
 Consider a function
 $$
 f(x) = \sum_{k=0}^{\infty} a_k x^k
@@ -76,13 +79,36 @@ $$
 \end{aligned}
 $$
 
-**Note.** Norm when $u$ is a unit vector. If $\\|u\\| = 1$, then
+**Note.** Norm when $u$ is a unit vector: If $\\|u\\| = 1$, then
 $$
 \\|u^{\otimes k}\\|^2 = \\|u\\|^{2k} = 1.
 $$
 
 Hence, 
 $$\\|\Phi(u)\\|_H^2 = \sum _{k=0}^{\infty} \|a_k\| \\| u^{\otimes k} \\|^2 = \sum _{k=0}^{\infty} \|a_k\|.$$
+
+### Example
+
+**Sine.**  Let $c > 0$. Then function $ f(x) = \sin(cx) $ is real analytic 
+$$
+\sin(cx) = cx - \frac{(cx)^3}{3!} + \frac{(cx)^5}{5!} - \ldots
+$$
+
+Thus, there exists a Hilbert space $H$ and transformation $\Phi, \Psi: \mathbb{R}^n \to H$ such that
+$$
+\langle \Phi(u), \Psi(v) \rangle = \sin(c \langle u, v \rangle)\quad \text{for all } u, v \in \mathbb{R}^n.
+$$
+
+Also, $\Phi$ and $\Psi$ map unit vectors to unit vectors if
+$$ 
+1 = c + \frac{c^3}{3!} + \frac{c^5}{5!} + \ldots = \frac{e^c - e^{-c}}{2}.
+$$
+
+Hence,
+$$
+c = \ln(1 + \sqrt{2}).
+$$
+
 
 ## 2. Kernels and feature maps
 Given a function of two variables $ K : \mathcal{X} \times \mathcal{X} \to \mathbb{R},$ on some set sets $\mathcal{X}$, when can we find a Hilbert space $H$ and a transformation $\Phi : \mathcal{X} \to H$ so that
@@ -115,24 +141,3 @@ $$
 K(u,v) = \exp \left( -\frac{\\|u - v\\|^2}{2\sigma^2} \right), \quad K(u,v) = (\langle u, v \rangle + r)^k, \quad u, v \in \mathbb{R}^n.
 $$
 where $\sigma > 0, r > 0,$ and $k \in \mathbb{N}$ are parameters. 
-### Example
-
-**Sine.**  Let $c > 0$. Then function $ f(x) = \sin(cx) $ is real analytic 
-$$
-\sin(cx) = cx - \frac{(cx)^3}{3!} + \frac{(cx)^5}{5!} - \ldots
-$$
-
-Thus, there exists a Hilbert space $H$ and transformation $\Phi, \Psi: \mathbb{R}^n \to H$ such that
-$$
-\langle \Phi(u), \Psi(v) \rangle = \sin(c \langle u, v \rangle)\quad \text{for all } u, v \in \mathbb{R}^n.
-$$
-
-Also, $\Phi$ and $\Psi$ map unit vectors to unit vectors if
-$$ 
-1 = c - \frac{c^3}{3!} + \frac{c^5}{5!} + \ldots = \frac{e^c - e^{-c}}{2}.
-$$
-
-Hence,
-$$
-c = \ln(1 + \sqrt{2}).
-$$
