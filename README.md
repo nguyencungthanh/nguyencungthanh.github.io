@@ -1,104 +1,128 @@
-# nguyencungthanh.com (Hugo site)
+# nguyencungthanh.github.io
 
-> Source for the personal website of Nguyen Cung Thanh
+> Personal website of **Nguyen Cung Thanh** — built with [Hugo](https://gohugo.io).  
+> Mathematics ♾️ · Computer Science 🖥️ · VinUniversity, Vietnam.
 
-## Quick start
+🌐 **Live site**: [nguyencungthanh.github.io](https://nguyencungthanh.github.io)
 
-- Install Hugo (extended): https://gohugo.io/getting-started/installing
-- Run locally (include drafts and future):
-  - `hugo server -D -F`
-  - If 1313 is busy: `hugo server -D -F -p 1314`
-- Build: `hugo` (outputs to `public/`)
+---
 
-## Project layout
+## Quick Start
 
-- `config.toml`: Site config (title, author, menus, taxonomies, permalinks)
-- `content/`: Markdown content
-  - `posts/YYYY/MM/DD/…/index.md`: blog posts (leaf bundles)
-  - `categories/`: section landing pages and copy
-  - `writings-archive/`, `photos-archive/`: archive entry pages
-  - `more/`, `about/`, `contact/`, etc.: standalone pages
-- `layouts/`: Hugo templates and partials
-  - `baseof.html`: base template; head/header/footer
-  - `home.html`: homepage (recent writings/photos)
-  - `_partials/`: reusable partials (post rendering, logs, helpers)
-  - `_shortcodes/`: shortcodes (e.g., `logs`)
-  - `tabular.html`: grouped list layout used by archives
-- `assets/`: CSS/JS sources (processed by Hugo Pipes)
-- `static/`: files served as-is (favicons, minisites, robots.txt)
-- `data/`: structured data for pages (readings, watches, feeds)
-- `public/`: build output
-- `archetypes/`: content blueprints for `hugo new`
+**Prerequisites**: [Hugo extended](https://gohugo.io/getting-started/installing/) installed.
 
-## Content model
+```bash
+# Clone the repo
+git clone https://github.com/nguyencungthanh/nguyencungthanh.github.io.git
+cd nguyencungthanh.github.io
 
-- Posts live under `content/posts/YYYY/MM/DD/…/index.md`
-  - Front matter keys commonly used:
-    - `title`, `date`, `categories`, `tags`
-    - `photos`: list of `{ url, title, width, height }`
-    - `syndication`: list of URLs
-  - URL pattern is configured in `config.toml`:
-    - `[permalinks] posts = '/:year/:month/:day/:slug/'`
-    - Set `slug:` in front matter or use a named bundle folder
+# Download vendor assets (normalize.css + twemoji.js)
+make all
 
-### Images
+# Serve locally (includes drafts and future-dated posts)
+make watch-all
+# → Visit http://localhost:1313
+```
 
-- External media (preferred): use `image:` scheme
-  - Example: `![Alt](image:2024-01-06-coffee-station)`
-  - Resolved by `layouts/_partials/helpers/figure.html` to `https://media.hacdias.com`
-- Local images: place next to `index.md` and reference by filename
-  - Example: `![Alt](photo.jpg)`
-  - Or place under `static/` and reference `/img/photo.jpg`
+| Command             | Description                                          |
+|---------------------|------------------------------------------------------|
+| `make watch-all`    | Serve with drafts + future posts (development)       |
+| `make watch`        | Serve production-like (no drafts or future)          |
+| `make build`        | Build to `public/` with minification                 |
+| `hugo server -D -F` | Alternative: serve drafts + future (port 1313)       |
+| `hugo server -D -F -p 1314` | Use port 1314 if 1313 is busy              |
 
-## Key templates and partials
+---
 
-- Base/layout
-  - `layouts/baseof.html`: wraps pages; includes `_partials/base/head|header|footer`
-  - `layouts/_partials/base/head.html`: meta/OG tags; inlines page `styles.css` if present
-  - `layouts/_partials/base/header.html`: site name/handle from `params.author`
-  - `layouts/_partials/base/footer.html`: copyright, theme toggles
-- Post rendering
-  - `layouts/_partials/post/header.html`: title/date block
-  - `layouts/_partials/post/content.html`: main content; photos grid via `.Params.photos` and `helpers/figure`
-  - `layouts/_partials/post/footer.html`: tags, reply links (email, fediverse, bsky)
-- Lists/archives
-  - `layouts/tabular.html`: archive layout; pulls `layoutPage` and renders grouped logs
-  - `layouts/_partials/logs.html`: list renderer with optional yearly grouping and counts
-  - `layouts/_partials/fns/group-date-year.html`: grouping helper
-- Helpers
-  - `layouts/_partials/helpers/figure.html`: responsive images; supports `image:` scheme and local resources
-  - `layouts/_partials/fns/title.html`, `fns/description.html`: computed page title/description
+## Creating Content
 
-## Shortcodes
+### New Blog Post
 
-- `layouts/_shortcodes/logs.html`: `{{< logs ... >}}` to render lists
-  - Used on `content/readings/index.md`: `{{< logs data="readings" page="/tags/book-reviews/" >}}`
+```bash
+make new name=your-post-slug kind=article
+# Creates: content/posts/YYYY/MM/DD/your-post-slug/index.md
+```
 
-## Data-driven pages
+### Front Matter
 
-- `data/readings.yaml`: entries for Readings page
-- `data/watches/{live,movies,shows}.yaml`: Watches pages
-- `data/feeds.json`, `data/external-links.json`: external references
+```yaml
+---
+title: "Your Post Title"
+date: 2026-04-30T00:00:00+07:00
+categories:
+  - writings    # math/blog posts → appears in "Mathematic Blog"
+  - projects    # coding projects → appears in "Algorithm Project"
+tags:
+  - mathematics
+  - analysis
+draft: false    # set true to hide from production build
+---
+```
 
-## Navigation and taxonomies
+### Post URL Pattern
 
-- Menus: `config.toml` → `[menu.main]` blocks (order via `weight`)
-- Taxonomies: `config.toml` → `[taxonomies]` (default `tag`, `category`)
-- Tag and category pages use `layouts/taxonomy.html` and `layouts/term.html`
+```
+/:year/:month/:day/:slug/
+→ https://nguyencungthanh.github.io/2026/04/30/your-post-slug/
+```
 
-## Styling and scripts
+---
 
-- Global CSS: `assets/css/styles.css` (colors, layout, `.box`, `.buttons`, `.fg` grid)
-- Page bundle CSS: add `styles.css` next to a page’s `index.md`; it will be inlined by `head.html`
-- JS: `assets/js/app.js` if needed; page bundle JS can be included as resources
+## Project Structure
 
-## Notes/Peculiarities
+```
+├── config.toml          # Site config: title, menus, URLs, taxonomies
+├── Makefile             # Dev/build/vendor commands
+├── FRAMEWORK.md         # Detailed workflow & architecture guide ← READ THIS
+│
+├── content/             # All Markdown content
+│   ├── _index.md        # Homepage (intro text + featured posts list)
+│   └── posts/YYYY/MM/DD/slug/
+│       ├── index.md     # Post content + front matter
+│       └── styles.css   # (Optional) per-post custom CSS, auto-inlined
+│
+├── layouts/             # Hugo HTML templates
+│   ├── baseof.html      # Root wrapper (head/header/main/footer)
+│   ├── single.html      # Post layout (with TOC sidebar)
+│   ├── home.html        # Homepage layout
+│   ├── _partials/       # Reusable components
+│   └── shortcodes/      # Custom shortcodes
+│
+├── assets/
+│   ├── css/styles.css   # Global stylesheet (Hugo Pipes)
+│   └── js/app.js        # Theme toggle, Twemoji, search
+│
+├── static/              # Files served as-is (favicon, robots.txt, avatar)
+├── data/                # Structured data for books, watches, feeds
+├── archetypes/          # Templates for `hugo new`
+└── public/              # Build output (auto-generated, do not edit)
+```
 
-- Sections are kept minimal; most lists are explicit via partials/shortcodes
-- The `/posts/` section itself does not render a listing; posts are accessed by permalink
-- Archive pages (`writings-archive`, `projects-archive`) are thin content pages that delegate to templates
+> 📖 For the full architecture, layout system, and workflow details, see [**FRAMEWORK.md**](FRAMEWORK.md).
+
+---
+
+## Key Features
+
+- **Math support** — MathJax renders LaTeX inline (`$...$`) and display (`$$...$$`)
+- **TOC sidebar** — Auto-generated table of contents for all blog posts
+- **Math shortcodes** — `{{< lemma >}}` and `{{< proof >}}` blocks
+- **Per-page CSS** — Add `styles.css` next to any `index.md` for isolated styles
+- **Search** — Full-text search powered by a JSON index
+- **Atom + JSON feeds** — Subscribe at `/feed.xml` or `/feed.json`
+- **Dark mode** — Automatic via `prefers-color-scheme`
+- **Taxonomy** — Posts organized by `tags` and `categories`
+
+---
+
+## Deployment
+
+Deployed automatically to **GitHub Pages** via GitHub Actions on every push to `main`.  
+You never need to commit the `public/` directory.
+
+---
 
 ## License
 
-Codebase licensed with [MIT License](LICENSE) © Nguyen Cung Thanh.
-Content (e.g., articles, images) is copyrighted unless otherwise noted.
+Code: [MIT License](LICENSE) © Nguyen Cung Thanh  
+Content (articles, images): All rights reserved unless otherwise noted.

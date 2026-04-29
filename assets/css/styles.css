@@ -988,7 +988,7 @@ nav a[aria-current='page'] {
   color: black;
 }
 
-/* Applies ONLY to links inside post content body, not footer tags */
-.post-body a {
+/* Applies ONLY to links inside post content, not header, footer, or non-post pages */
+article.post-with-toc .post-body a {
   color: gray;
 }

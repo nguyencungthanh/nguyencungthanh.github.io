@@ -2,28 +2,23 @@
   "Blogs": [
     {
       "title": "Terrence Tao",
-      "site": "https://terrytao.wordpress.com",
-      "feed": "https://terrytao.wordpress.com/feed.xml"
+      "site": "https://terrytao.wordpress.com"
     },
     {
       "title": "Lilian Weng",
-      "site": "https://lilianweng.github.io",
-      "feed": "https://lilianweng.github.io/feed.xml"
+      "site": "https://lilianweng.github.io"
     },
     {
       "title": "Andrej Karpathy",
-      "site": "https://karpathy.ai",
-      "feed": "https://karpathy.ai/feed.xml"
+      "site": "https://karpathy.ai"
     },
     {
       "title": "Chris Olah",
-      "site": "https://colah.github.io/",
-      "feed": "https://colah.github.io/feed.xml"
+      "site": "https://colah.github.io/"
     },
     {
       "title": "Lê Việt Hùng",
-      "site": "https://www.askmeanything.cc/hungleumass",
-      "feed": "https://www.askmeanything.cc/hungleumass/feed.xml"
+      "site": "https://www.askmeanything.cc/hungleumass"
     },
     {
       "title": "John Schulman",
