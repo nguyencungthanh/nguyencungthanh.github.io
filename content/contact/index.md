@@ -5,7 +5,7 @@ noWebmentions: true
 ## 📧 E-mail {#email}
 <mark>**Contact for work**</mark> 
 
-[✉️ nguyencungthanh11@gmail.com](mailto:nguyencungthanh11@gmail.com)
+[{{< favicon "gmail.com" >}} nguyencungthanh11@gmail.com](mailto:nguyencungthanh11@gmail.com)
 [✉️ 24thanh.nc@vinuni.edu.vn](mailto:24thanh.nc@vinuni.edu.vn)
 {.buttons}
 
