@@ -55,6 +55,7 @@ body {
   background-color: var(--bg);
   background-attachment: fixed;
   min-height: 100vh;
+  /* font-family: "Computer Modern Serif" */
 }
 
 @view-transition {
@@ -991,4 +992,8 @@ nav a[aria-current='page'] {
 /* Applies ONLY to links inside post content, not header, footer, or non-post pages */
 article.post-with-toc .post-body a {
   color: gray;
+}
+
+article.post-with-toc .post-body {
+  font-family: "Computer Modern Serif"; 
 }

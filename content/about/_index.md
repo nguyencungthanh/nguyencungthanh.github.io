@@ -2,7 +2,7 @@
 title: About
 ---
 
-<span id='greetings'>**<span id='hello'>Hi, I'm</span> <span style="color: var(--c)">Nguyen Cung Thanh</span>! 👋**</span>
+<span id='greetings'>**<span id='hello'>Hi, I'm</span> <span style="color: var(--c)" id='NCT'>Nguyen Cung Thanh</span>! 👋**</span>
 
 I come from a little town in the countryside of Vietnam 🇻🇳. I’m a sophomore in VinUniversity majoring in Computer Science and passionate about `Mathematics` and `Machine Learning` theory. Specifically, I am researching on statistical learning theory and in the past, I had a long time doing in analytic number theory and dynamical system. In my spare time, I enjoy staying physically active 💪 or programming 💻. 
 
