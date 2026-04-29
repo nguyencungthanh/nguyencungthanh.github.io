@@ -15,7 +15,7 @@ tags:
 
 ### 1.1 Definition (Inner product space, Hilbert space)
 
--- An inner product space is a vector space $X$ with an inner product defined on $X$. A Hilbert space is a complete inner product space. An inner product on $X$ is a mapping of $X \times X$ into the scalar field $K$ of $X$, that is, with every pair of vectors $x$ and $y$ there is associated a scalar which is written $\langle x,y\rangle$.
+-- An inner product space is a vector space $X$ with an inner product defined on $X$. A Hilbert space is a complete inner product space. An **inner product** on $X$ is a mapping of $X \times X$ into the scalar field $K$ of $X$; that is, with every pair of vectors $x$ and $y$ there is associated a scalar which is written $\langle x,y\rangle$. For all vectors $x, y, z$ and scalar $\alpha,$ we have  
 
 $
 (\mathrm{IP}1)\quad \langle x+y,z\rangle = \langle x,z\rangle + \langle y,z\rangle
@@ -30,15 +30,15 @@ $
 $
 
 $
-(\mathrm{IP}4)\quad \langle x,x\rangle > 0, \qquad \langle x,x\rangle = 0 \iff x = 0
+(\mathrm{IP}4)\quad \langle x,x\rangle \ge 0, \qquad \langle x,x\rangle = 0 \iff x = 0
 $
 
-An inner product on $X$ defines a norm on $X$ given by
+An inner product on $X$ defines a *norm* on $X$ given by
 $$
 \\|x\\| = \sqrt{\langle x,x\rangle}
 $$
 
-and a metric on $X$ given by
+and a *metric* on $X$ given by
 $$
 d(x,y) = \\\|x-y\\\| = \sqrt{\langle x-y, x-y\rangle}
 $$

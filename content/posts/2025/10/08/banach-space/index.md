@@ -138,16 +138,18 @@ Let $X = (X, \\|\cdot\\|)$ be a normed space. Then there exists a Banach space $
 
 ### 3.1 Lemma (Linear combination)
 Let $\\{ x_1, \ldots, x_n \\}$ be a linearly independent set of vectors in a normed space $X$ (of any dimension). Then there is a number $c > 0$ such that for every choice of scalars $\alpha_1, \ldots, \alpha_n$ we have  
-$$\\| \alpha_1x_1 + \ldots + \alpha_n x_n \\| \ge c(\| \alpha_1 \| + \ldots + \|\alpha_n\|) \qquad (1)$$
+\begin{equation}
+\\| \alpha_1x_1 + \ldots + \alpha_n x_n \\| \ge c(\| \alpha_1 \| + \ldots + \|\alpha_n\|) \tag{1}
+\end{equation} 
 
 *Proof.*
 
 We write $S = |a_1| + \cdots + |a_n|$. If $S = 0$, all $\alpha_j$ are zero, so (1) holds for any $c$. Let $S > 0$. Then (1) is equivalent to the inequality which we obtain from (1) by dividing $S$ and writing $\beta_j = \dfrac{\alpha_j}{S}$, that is
 
-$$
+\begin{equation}
 \left\\| \beta_1 x_1 + \cdots + \beta_n x_n \right\\| \ge c
-\qquad \left( \sum_{j=1}^n |\beta_j| = 1 \right) \qquad (2) 
-$$
+\qquad \left( \sum_{j=1}^n |\beta_j| = 1 \right)  \tag{2} 
+\end{equation} 
 
 Suppose for the contradiction, there exists a sequence $(y_m)$ of vectors
 
@@ -875,9 +877,9 @@ $$
 $$
 
 For all $x\in X$ and $m,n>N$ we obtain
-$$
-\\|T_n x - T_m x\\| = \\|(T_n - T_m)x\\| \le \\|T_n - T_m\\|\\|x\\| < \varepsilon \\|x\\| \qquad (1).
-$$
+\begin{equation}
+\\|T_n x - T_m x\\| = \\|(T_n - T_m)x\\| \le \\|T_n - T_m\\|\\|x\\| < \varepsilon \\|x\\| \tag{1}.
+\end{equation}
 
 $\Rightarrow$ for fixed $x$, $(T_n x)$ is Cauchy in $Y$. Since $Y$ is complete, $(T_n x)$ converges, say
 $$
@@ -896,12 +898,12 @@ $$
 $$
 
 We prove that $T$ is bounded and $T_n \to T$, that is, $\\|T_n - T\\|\to 0$. Since (1) holds for every $m>N$ and $T_m x \to Tx$, let $m\to\infty$. Using the continuity of the norm, for every $n>N$ and all $x\in X$,
-$$
+\begin{equation}
 \\|T_n x - Tx\\|
 = \\|T_n x - \lim_{m\to\infty} T_m x\\|
 = \lim_{m\to\infty} \\|T_n x - T_m x\\|
-\le \varepsilon \\|x\\|. \qquad (2)
-$$
+\le \varepsilon \\|x\\|. \tag{2} 
+\end{equation}
 
 $\Rightarrow (T_n - T)$ with $n>N$ is a bounded linear operator. Since $T_n$ is bounded, $T = T_n - (T_n - T)$ is bounded, hence $T\in B(X,Y)$. In (2), take the supremum over all $x$ of norm $1$, we obtain
 $$

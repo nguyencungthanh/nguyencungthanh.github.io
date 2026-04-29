@@ -234,6 +234,8 @@ The Cartesian product $X=X_{1} \times X_{2}$ of two metric spaces $\left(X_{1}, 
 
 **3.** $\tilde{d}(x, y)=\max \left[d_{1}\left(x_{1}, y_{1}\right), d_{2}\left(x_{2}, y_{2}\right)\right]$ 
 
+---
+
 ## 2. Open Set, Closed Set, Neighborhood
 
 ### 2.1 Definition (Ball and sphere)
@@ -298,6 +300,8 @@ $X$ is said to be separable if it has countable subset which is dense in $X$
 **4. Space $l^{\infty}$.** The space $l^{\infty}$ is not separable.
 
 **5. Space $\ell^{p}$.** The space $\ell^{p}$ with $1 \leqslant p<\infty$ is separable
+
+---
 
 ## 3. Convergence, Cauchy Sequence, Completeness.
 
@@ -396,6 +400,8 @@ $$
 $$
 d(x, y)=\int_{0}^{1}|x(t)-y(t)| \mathrm{d}t
 $$
+
+---
 
 ## 4. Completion of Metric Spaces
 

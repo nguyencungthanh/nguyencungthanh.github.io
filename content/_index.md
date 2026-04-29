@@ -3,10 +3,10 @@ title: Home
 description: 
 noWebmentions: true
 favoritePosts:
+  - /posts/2026/04/29/real-analytic-function-hilbert-space
   - /posts/2026/01/22/average-generalized-fibonacci-sequence
   - /posts/2026/01/17/local-search
   - /posts/2025/10/08/banach-space
-  - /posts/2025/10/05/metric-space
 thumbnail: image:2024-09-01-stratumse-heide
 ---
 
