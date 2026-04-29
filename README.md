@@ -6,34 +6,6 @@
 🌐 **Live site**: [nguyencungthanh.github.io](https://nguyencungthanh.github.io)
 
 ---
-
-## Quick Start
-
-**Prerequisites**: [Hugo extended](https://gohugo.io/getting-started/installing/) installed.
-
-```bash
-# Clone the repo
-git clone https://github.com/nguyencungthanh/nguyencungthanh.github.io.git
-cd nguyencungthanh.github.io
-
-# Download vendor assets (normalize.css + twemoji.js)
-make all
-
-# Serve locally (includes drafts and future-dated posts)
-make watch-all
-# → Visit http://localhost:1313
-```
-
-| Command             | Description                                          |
-|---------------------|------------------------------------------------------|
-| `make watch-all`    | Serve with drafts + future posts (development)       |
-| `make watch`        | Serve production-like (no drafts or future)          |
-| `make build`        | Build to `public/` with minification                 |
-| `hugo server -D -F` | Alternative: serve drafts + future (port 1313)       |
-| `hugo server -D -F -p 1314` | Use port 1314 if 1313 is busy              |
-
----
-
 ## Creating Content
 
 ### New Blog Post
