@@ -923,9 +923,9 @@ nav a[aria-current='page'] {
     position: absolute;
     top: 0;
     right: 100%;
-    width: 250px;
+    width: 270px;
     height: 100%;
-    padding-right: 2rem;
+    padding-right: 3rem;
   }
 }
 
@@ -979,13 +979,13 @@ nav a[aria-current='page'] {
 
 /* Side note  */
 .sidenote {
+  color: inherit;
   float: right;
   clear: right;
-  margin-right: -250px; 
+  margin-right: -300px; 
   width: 250px;
   margin-bottom: 15px; 
   font-size: 0.9em;
-  color: black;
 }
 
 /* Applies ONLY to links inside post content, not header, footer, or non-post pages */

@@ -184,13 +184,3 @@ In a normed space this becomes:
 $$
 \delta = \inf_{\tilde y \in M} \\|x - \tilde y\\|.
 $$
-
-<div class="content">
-  <p>
-    follow instructions<sup>1</sup><span class="sidenote" id="note1">
-      1. Alpaca: A Strong, Replicable Instruction-Following Model
-    </span>, reason on math<sup>2</sup><span class="sidenote" id="note2">
-      2. OpenThoughts: Data Recipes for Reasoning Models
-    </span>
-  </p>
-</div> 
