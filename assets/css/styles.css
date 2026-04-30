@@ -1,3 +1,36 @@
+/* =============================================================================
+   TABLE OF CONTENTS
+   1.  CSS Variables (Design Tokens)
+   2.  Base / Reset
+   3.  Typography
+   4.  Links & Utilities
+   5.  Form Elements
+   6.  Layout — Header & Navbar
+   7.  Layout — Container & Float Helpers
+   8.  Components — Buttons & Box
+   9.  Components — Code & Syntax Highlighting
+  10.  Components — Image Preview Overlay
+  11.  Components — Figure Grid (.fg)
+  12.  Components — Table
+  13.  Components — Blockquote & Details
+  14.  Components — List Table (.tb)
+  15.  Components — Nav
+  16.  Components — Skip-to-content
+  17.  Components — Footer
+  18.  Dark Mode
+  19.  Responsive — Mobile (max 53rem)
+  20.  Responsive — Print
+  21.  Utilities — Roman List
+  22.  TOC — Layout (.post-layout / .toc-sidebar)
+  23.  TOC — Styles (.toc-sticky)
+  24.  Sidenote
+  25.  Post-specific Overrides
+   ============================================================================= */
+
+
+/* =============================================================================
+   1. CSS VARIABLES (DESIGN TOKENS)
+   ============================================================================= */
 :root {
   /* Font sizes: https://type-scale.com/, Minor Third */
   --f1: 2.074rem;
@@ -39,6 +72,10 @@
   --radius: 0.4rem;
 }
 
+
+/* =============================================================================
+   2. BASE / RESET
+   ============================================================================= */
 html {
   min-height: 100%;
   -webkit-font-smoothing: antialiased;
@@ -60,21 +97,6 @@ body {
 
 @view-transition {
   navigation: auto;
-}
-
-code,
-kbd,
-samp,
-pre {
-  font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console,
-    monospace;
-}
-
-:not(pre)>code {
-  border-radius: calc(var(--radius) / 2);
-  padding: 1px 2px;
-  background: var(--mg);
-  border: var(--border) solid var(--fg);
 }
 
 svg,
@@ -116,6 +138,33 @@ figure img {
   height: 100%;
 }
 
+hr {
+  border: 0;
+  border-top: 1px solid var(--fg);
+  margin: 1.2em auto;
+}
+
+ul,
+ol {
+  padding-left: 2em;
+}
+
+figcaption {
+  text-align: center;
+  font-size: var(--f5);
+  color: var(--text);
+  margin: 0.25rem 0;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+
+/* =============================================================================
+   3. TYPOGRAPHY
+   ============================================================================= */
 .footnotes::before,
 h1,
 h2,
@@ -154,129 +203,28 @@ sup{
   color: gray
 }
 
-a {
-  color: inherit;
-  text-decoration: underline;
-  word-wrap: break-word;
-  overflow-wrap: anywhere;
-  cursor: pointer;
+code,
+kbd,
+samp,
+pre {
+  font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console,
+    monospace;
+}
+
+:not(pre)>code {
+  border-radius: calc(var(--radius) / 2);
+  padding: 1px 2px;
+  background: var(--mg);
+  border: var(--border) solid var(--fg);
 }
 
 li {
   margin: 0.25em 0;
 }
 
-:target {
-  border: 1px dashed var(--c);
-  background: var(--fg);
-}
-
-::marker {
-  color: var(--c);
-}
-
 mark {
   background-color: var(--c);
   color: var(--bg);
-}
-
-.nl,
-.nl:active,
-.nl:visited {
-  text-decoration: none;
-  color: inherit;
-}
-
-.lh:hover {
-  text-decoration: underline;
-}
-
-.dn {
-  display: none !important;
-}
-
-.db {
-  display: block;
-}
-
-.br {
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.lg {
-  color: var(--light-text);
-}
-
-.wn {
-  font-weight: 400;
-}
-
-.ah {
-  opacity: 0.1;
-}
-
-input,
-select,
-textarea {
-  padding: 0.5rem;
-  border: 1px solid var(--fg);
-  outline: 0;
-  min-width: 0;
-  border-radius: var(--radius);
-  background: var(--bg);
-  color: var(--text);
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: var(--c);
-}
-
-input:disabled,
-select:disabled,
-textarea:disabled {
-  background-color: var(--mg);
-  cursor: not-allowed;
-}
-
-textarea {
-  resize: vertical;
-}
-
-#footer {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-#footer>div {
-  margin-bottom: var(--hms);
-}
-
-.pixelated {
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-}
-
-hr {
-  border: 0;
-  border-top: 1px solid var(--fg);
-  margin: 1.2em auto;
-}
-
-ul,
-ol {
-  padding-left: 2em;
-}
-
-figcaption {
-  text-align: center;
-  font-size: var(--f5);
-  color: var(--text);
-  margin: 0.25rem 0;
 }
 
 main header {
@@ -312,36 +260,6 @@ main ul {
   line-height: 1.5;
 }
 
-table {
-  width: 100%;
-  margin: 1rem 0;
-  overflow: auto;
-  border-collapse: collapse;
-}
-
-table thead {
-  background-color: var(--fg);
-  font-weight: 700;
-}
-
-table th,
-table td {
-  padding: var(--hms);
-  border: var(--border) solid var(--fg);
-}
-
-table tr {
-  border-top: var(--border) solid var(--fg);
-}
-
-table tr:nth-child(2n) {
-  background-color: var(--mg);
-}
-
-table img {
-  background-color: transparent;
-}
-
 blockquote {
   font-style: italic;
   margin-left: 2rem;
@@ -354,6 +272,126 @@ details summary {
   cursor: pointer;
 }
 
+
+/* =============================================================================
+   4. LINKS & UTILITIES
+   ============================================================================= */
+a {
+  color: inherit;
+  text-decoration: underline;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+:target {
+  border: 1px dashed var(--c);
+  background: var(--fg);
+}
+
+::marker {
+  color: var(--c);
+}
+
+/* No-underline link */
+.nl,
+.nl:active,
+.nl:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Link hover underline */
+.lh:hover {
+  text-decoration: underline;
+}
+
+/* Display helpers */
+.dn {
+  display: none !important;
+}
+
+.db {
+  display: block;
+}
+
+/* Border radius helper */
+.br {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* Light gray text */
+.lg {
+  color: var(--light-text);
+}
+
+/* Normal font weight */
+.wn {
+  font-weight: 400;
+}
+
+/* Almost hidden (faded) */
+.ah {
+  opacity: 0.1;
+}
+
+/* Tabular / monospaced number alignment */
+.tab {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.012em;
+  white-space: pre;
+}
+
+
+/* =============================================================================
+   5. FORM ELEMENTS
+   ============================================================================= */
+input,
+select,
+textarea {
+  padding: 0.5rem;
+  border: 1px solid var(--fg);
+  outline: 0;
+  min-width: 0;
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--c);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background-color: var(--mg);
+  cursor: not-allowed;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.inline-form {
+  display: flex;
+}
+
+.inline-form input:first-of-type {
+  flex-grow: 1;
+}
+
+.inline-form button {
+  margin-left: var(--hms);
+}
+
+
+/* =============================================================================
+   6. LAYOUT — HEADER & NAVBAR
+   ============================================================================= */
 #header,
 #header #home {
   display: flex;
@@ -407,6 +445,10 @@ details summary {
   display: none;
 }
 
+
+/* =============================================================================
+   7. LAYOUT — CONTAINER & FLOAT HELPERS
+   ============================================================================= */
 .container {
   width: 100%;
   background-color: var(--bg);
@@ -433,18 +475,10 @@ details summary {
   margin-left: 1rem;
 }
 
-.inline-form {
-  display: flex;
-}
 
-.inline-form input:first-of-type {
-  flex-grow: 1;
-}
-
-.inline-form button {
-  margin-left: var(--hms);
-}
-
+/* =============================================================================
+   8. COMPONENTS — BUTTONS & BOX
+   ============================================================================= */
 .box,
 nav,
 button,
@@ -476,6 +510,7 @@ main pre {
   border-radius: 0 0 var(--radius) var(--radius);
   display: block;
 }
+
 .box {
   padding: var(--hms) var(--ms);
 }
@@ -528,6 +563,23 @@ button:hover,
   display: block;
 }
 
+.tb,
+.box,
+.fg,
+.buttons,
+.card,
+.card header,
+figure,
+.embedded-video,
+.media,
+nav {
+  margin: var(--ms) 0;
+}
+
+
+/* =============================================================================
+   9. COMPONENTS — CODE & SYNTAX HIGHLIGHTING
+   ============================================================================= */
 .highlight>pre,
 main pre {
   overflow: auto;
@@ -539,6 +591,7 @@ main pre {
   display: flex;
 }
 
+/* Numbers */
 .highlight .m,
 .highlight .mb,
 .highlight .mf,
@@ -549,6 +602,7 @@ main pre {
   color: var(--h-a);
 }
 
+/* Strings */
 .highlight .s,
 .highlight .sa,
 .highlight .sb,
@@ -566,6 +620,7 @@ main pre {
   color: var(--h-b);
 }
 
+/* Keywords */
 .highlight .k,
 .highlight .kc,
 .highlight .kd,
@@ -577,6 +632,7 @@ main pre {
   color: var(--h-c);
 }
 
+/* Comments */
 .highlight .c,
 .highlight .ch,
 .highlight .cm,
@@ -587,6 +643,10 @@ main pre {
   color: var(--h-d);
 }
 
+
+/* =============================================================================
+   10. COMPONENTS — IMAGE PREVIEW OVERLAY
+   ============================================================================= */
 #preview,
 #preview::after {
   left: 0;
@@ -625,6 +685,10 @@ main pre {
   max-height: 100%;
 }
 
+
+/* =============================================================================
+   11. COMPONENTS — FIGURE GRID (.fg)
+   ============================================================================= */
 .fg {
   display: grid;
   grid-gap: 1rem;
@@ -648,12 +712,44 @@ main pre {
   height: 100%;
 }
 
-.tab {
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.012em;
-  white-space: pre;
+
+/* =============================================================================
+   12. COMPONENTS — TABLE
+   ============================================================================= */
+table {
+  width: 100%;
+  margin: 1rem 0;
+  overflow: auto;
+  border-collapse: collapse;
 }
 
+table thead {
+  background-color: var(--fg);
+  font-weight: 700;
+}
+
+table th,
+table td {
+  padding: var(--hms);
+  border: var(--border) solid var(--fg);
+}
+
+table tr {
+  border-top: var(--border) solid var(--fg);
+}
+
+table tr:nth-child(2n) {
+  background-color: var(--mg);
+}
+
+table img {
+  background-color: transparent;
+}
+
+
+/* =============================================================================
+   13. COMPONENTS — LIST TABLE (.tb / .tbh)
+   ============================================================================= */
 .tbh {
   position: sticky;
   top: 0;
@@ -714,19 +810,10 @@ main pre {
   background-color: var(--fg);
 }
 
-.tb,
-.box,
-.fg,
-.buttons,
-.card,
-.card header,
-figure,
-.embedded-video,
-.media,
-nav {
-  margin: var(--ms) 0;
-}
 
+/* =============================================================================
+   14. COMPONENTS — NAV
+   ============================================================================= */
 nav {
   display: flex;
   font-weight: 700;
@@ -756,6 +843,10 @@ nav a[aria-current='page'] {
   font-weight: 700;
 }
 
+
+/* =============================================================================
+   15. COMPONENTS — SKIP-TO-CONTENT (Accessibility)
+   ============================================================================= */
 #skip-to-content {
   position: absolute;
   top: -20em;
@@ -774,6 +865,25 @@ nav a[aria-current='page'] {
   font-weight: 700;
 }
 
+
+/* =============================================================================
+   16. COMPONENTS — FOOTER
+   ============================================================================= */
+#footer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#footer>div {
+  margin-bottom: var(--hms);
+}
+
+
+/* =============================================================================
+   17. DARK MODE
+   ============================================================================= */
 :root.dark {
   --c-h: 200;
   --c-s: 100%;
@@ -796,6 +906,10 @@ nav a[aria-current='page'] {
   display: none;
 }
 
+
+/* =============================================================================
+   18. RESPONSIVE — MOBILE (max-width: 53rem)
+   ============================================================================= */
 @media screen and (max-width: 53rem) {
   :root {
     --ls: 1rem;
@@ -859,6 +973,10 @@ nav a[aria-current='page'] {
   }
 }
 
+
+/* =============================================================================
+   19. RESPONSIVE — PRINT
+   ============================================================================= */
 @media print {
 
   html,
@@ -887,6 +1005,10 @@ nav a[aria-current='page'] {
   }
 }
 
+
+/* =============================================================================
+   20. UTILITIES — ROMAN LIST
+   ============================================================================= */
 .roman-paren {
   list-style-type: lower-roman;
 }
@@ -895,16 +1017,20 @@ nav a[aria-current='page'] {
   content: counter(list-item, lower-roman) ") ";
 }
 
-/* TOC Layout */
+
+/* =============================================================================
+   21. TOC — LAYOUT (.post-layout / .toc-sidebar)
+   ============================================================================= */
 .post-layout {
   display: flex;
   gap: 2.5rem;
   align-items: flex-start;
 }
 
+/* Hidden by default on mobile */
 .toc-sidebar {
   flex: 0 0 px;
-  display: none; /* Hidden by default on mobile */
+  display: none;
 }
 
 .post-body {
@@ -930,9 +1056,12 @@ nav a[aria-current='page'] {
   }
 }
 
-/* TOC Styles */
+
+/* =============================================================================
+   22. TOC — STYLES (.toc-sticky)
+   ============================================================================= */
 .toc-sticky {
-  /* No longer sticky, will scroll out of view */
+  /* Not sticky — scrolls out of view with the page */
 }
 
 .toc-heading {
@@ -942,8 +1071,9 @@ nav a[aria-current='page'] {
   text-transform: uppercase;
 }
 
+/* Override global nav flex for TOC nav */
 .toc-sticky nav {
-  display: block; /* Override global nav flex */
+  display: block;
   font-weight: normal;
   overflow: visible;
 }
@@ -958,8 +1088,9 @@ nav a[aria-current='page'] {
   padding-left: 1rem;
 }
 
+/* Override global li margin */
 .toc-sticky nav li {
-  margin: 0; /* Override global li margin */
+  margin: 0;
 }
 
 .toc-sticky nav a {
@@ -975,25 +1106,35 @@ nav a[aria-current='page'] {
 
 .toc-sticky nav a:hover {
   color: var(--c);
-  background: transparent; /* Override global nav a background hover if any */
+  background: transparent; /* Override global nav a hover background */
 }
 
-/* Side note  */
+
+/* =============================================================================
+   23. SIDENOTE
+   ============================================================================= */
 .sidenote {
   color: inherit;
   float: right;
   clear: right;
-  margin-right: -300px; 
+  margin-right: -300px;
   width: 250px;
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
   font-size: 0.9em;
 }
 
-/* Applies ONLY to links inside post content, not header, footer, or non-post pages */
+
+/* =============================================================================
+   24. POST-SPECIFIC OVERRIDES
+       Scoped to article.post-with-toc to avoid bleeding into other pages.
+   ============================================================================= */
+
+/* Muted link color inside post body */
 article.post-with-toc .post-body a {
   color: gray;
 }
 
+/* Use Computer Modern Serif font inside post body */
 article.post-with-toc .post-body {
-  font-family: "Computer Modern Serif"; 
+  font-family: "Computer Modern Serif";
 }
