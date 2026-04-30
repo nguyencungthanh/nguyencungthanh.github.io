@@ -184,3 +184,7 @@ In a normed space this becomes:
 $$
 \delta = \inf_{\tilde y \in M} \\|x - \tilde y\\|.
 $$
+
+## References
+
+[1] Kreyszig, E. (1978). *Introductory functional analysis with applications*. John Wiley & Sons.

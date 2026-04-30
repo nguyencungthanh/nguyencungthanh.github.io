@@ -968,3 +968,7 @@ Hence the mapping of $(\mathbb{R}^{n})^{'}$ onto $\mathbb{R}^n$ defined by $f\ma
 **2. Space $\ell^1$.** The dual space of $\ell^1$ is $\ell^\infty$.
 
 **3. Space $\ell^p$.** The dual space of $\ell^p$ is $\ell^q$; here, $1 < p < +\infty$ and $q$ is the conjugate of $p$, that is, $1/p + 1/q = 1.$
+
+## References
+
+[1] Kreyszig, E. (1978). *Introductory functional analysis with applications*. John Wiley & Sons.

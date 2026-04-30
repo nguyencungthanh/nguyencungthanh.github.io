@@ -1137,4 +1137,5 @@ article.post-with-toc .post-body a {
 /* Use Computer Modern Serif font inside post body */
 article.post-with-toc .post-body {
   font-family: "Computer Modern Serif";
+  font-size: 1.1em
 }

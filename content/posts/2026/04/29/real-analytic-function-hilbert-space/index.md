@@ -141,3 +141,7 @@ $$
 K(u,v) = \exp \left( -\frac{\\|u - v\\|^2}{2\sigma^2} \right), \quad K(u,v) = (\langle u, v \rangle + r)^k, \quad u, v \in \mathbb{R}^n.
 $$
 where $\sigma > 0, r > 0,$ and $k \in \mathbb{N}$ are parameters. 
+
+## References 
+
+[1] Vershynin, R. (2026). *High-dimensional probability: An introduction with applications in data science* (2nd ed.). Cambridge University Press.

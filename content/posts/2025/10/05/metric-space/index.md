@@ -416,3 +416,7 @@ $\text{(b)} \quad$ The space $X$ is said to be isometric with the space $\tilde{
 
 ### 4.2 Theorem (Completion) 
 For a metro space $X=(X, d)$ there exists a complete metric space $\hat{X}=(\hat{X}, \hat{d})$ which has a subspace $W$ thas is isometric with $X$ and is dense in $\hat{X}$. This space $\hat{X}$ is unique except for isometries, that is, if $\tilde{X}$ is any complete metric space having a dense subspace $\tilde{W}$ isometric with $X$, then $X$ and $\tilde{X}$ are isometric.
+
+## References 
+
+[1] Kreyszig, E. (1978). *Introductory functional analysis with applications*. John Wiley & Sons.
