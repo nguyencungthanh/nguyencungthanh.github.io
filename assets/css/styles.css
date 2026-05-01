@@ -92,12 +92,12 @@ body {
   background-color: var(--bg);
   background-attachment: fixed;
   min-height: 100vh;
-  /* font-family: "Computer Modern Serif" */
 }
 
-@view-transition {
+/* Transition between pages  */
+/* @view-transition {
   navigation: auto;
-}
+} */
 
 svg,
 video,
@@ -891,6 +891,7 @@ nav a[aria-current='page'] {
   --fg-l: 15%;
   --mg-l: 9%;
   --bg-l: 2%;
+  --bg: #0f172a;
   --text: #eee;
   --light-text: #ccc;
 
@@ -899,6 +900,10 @@ nav a[aria-current='page'] {
   --h-c: #d0a8ff;
   --h-d: #6c7986;
   --h-e: #fd8f3f;
+
+  /* --accent: #60a5fa;
+  --border: #334155;
+  --sidebar-bg: #020617; */
 }
 
 :root.dark .only-light,
@@ -1136,6 +1141,6 @@ article.post-with-toc .post-body a {
 
 /* Use Computer Modern Serif font inside post body */
 article.post-with-toc .post-body {
-  font-family: "Computer Modern Serif";
+  font-family: "Computer Modern Serif", serif;
   font-size: 1.1em
 }
