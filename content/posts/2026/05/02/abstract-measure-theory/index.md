@@ -112,12 +112,12 @@ for every collection of subsets $B_i \subset Y$, indexed by a set $I$.
 
 ### 2.1 Definition (Measurable Function)
 
-$\text{(i)} \quad$ Let $(X, \mathcal{A}_X)$ and $(Y, \mathcal{A}_Y)$ be measurable spaces. A map $f : X \to Y$ is called *measurable* if the pre-image of every measurable subset of $Y$ under $f$ is a measurable subset of $X$, i.e.,
+$\text{(i)} \quad$ Let $(X, \mathcal{A}_X)$ and $(Y, \mathcal{A}_Y)$ be measurable spaces. A map $f : X \to Y$ is called **measurable** if the pre-image of every measurable subset of $Y$ under $f$ is a measurable subset of $X$, i.e.,
 $$
 B \in \mathcal{A}_Y \;\Rightarrow\; f^{-1}(B) \in \mathcal{A}_X.
 $$
 
-$\text{(ii)} \quad$ Let $(X, \mathcal{A}_X)$ be a measurable space. A function $f : X \to \mathbb{R}$ is called **measurable** if it is measurable with respect to the Borel $\sigma$-algebra on $\mathbb{R}$ associated to the standard topology. 
+$\text{(ii)} \quad$ Let $(X, \mathcal{A}_X)$ be a measurable space. A function $f : X \to \overline{\mathbb{R}}$ is called **measurable** if it is measurable with respect to the Borel $\sigma$-algebra on $\overline{\mathbb{R}}$ associated to the standard topology. 
 
 $\text{(iii)} \quad$ Let $(X, \mathcal{U}_X)$ and $(Y, \mathcal{U}_Y)$ be topological spaces. A map $f : X \to Y$ is called **Borel measurable** if the pre-image of every Borel measurable subset of $Y$ under $f$ is a Borel measurable subset of $X$.
 
