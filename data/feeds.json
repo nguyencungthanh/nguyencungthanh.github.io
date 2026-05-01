@@ -23,57 +23,16 @@
     {
       "title": "John Schulman",
       "site": "http://joschu.net"
-    },
-    {
-      "title": "Emergent Mind",
-      "site": "https://www.emergentmind.com/"
     }
   ],
   "General": [
     {
-      "title": "Alpine Linux",
-      "site": "https://alpinelinux.org/atom.xml",
-      "feed": "https://alpinelinux.org/atom.xml"
+      "title": "Emergent Mind",
+      "site": "https://www.emergentmind.com/"
     },
     {
-      "title": "Annoying Technology",
-      "site": "https://annoying.technology/",
-      "feed": "https://annoying.technology/index.xml"
-    },
-    {
-      "title": "Engineers Need Art",
-      "site": "https://www.engineersneedart.com",
-      "feed": "https://www.engineersneedart.com/rss.xml"
-    },
-    {
-      "title": "Golang Weekly",
-      "site": "https://golangweekly.com/",
-      "feed": "https://cprss.s3.amazonaws.com/golangweekly.com.xml"
-    },
-    {
-      "title": "Jon Worth",
-      "site": "https://jonworth.eu/",
-      "feed": "https://jonworth.eu/feed/"
-    },
-    {
-      "title": "Miniflux",
-      "site": "https://miniflux.app",
-      "feed": "https://miniflux.app/feed.xml"
-    },
-    {
-      "title": "The Go Blog",
-      "site": "https://go.dev/blog",
-      "feed": "https://go.dev/blog/feed.atom"
-    },
-    {
-      "title": "This Week in the IndieWeb",
-      "site": "https://indieweb.org/this-week",
-      "feed": "https://indieweb.org/this-week/feed.xml"
-    },
-    {
-      "title": "zdimension",
-      "site": "https://zdimension.fr/",
-      "feed": "https://zdimension.fr/feed.xml"
+      "title": "Thinking Machines",
+      "site": "https://thinkingmachines.ai/"
     }
   ]
 }

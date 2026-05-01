@@ -1,5 +1,5 @@
 ---
-title: "Grade Calculator"
+title: "Calculator"
 date: 2026-01-28T23:00:00+07:00
 draft: false
 layout: "single" 

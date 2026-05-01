@@ -11,8 +11,8 @@ Personal websites from others.
 
 {{< feeds "Blogs" >}}
 
-<!-- ## 📡 General {#general}
+## 📡 General {#general}
 
 Websites slightly more generic than personal websites.
 
-{{< feeds "General" >}} -->
+{{< feeds "General" >}}
