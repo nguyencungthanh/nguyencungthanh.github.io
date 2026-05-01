@@ -1,9 +1,68 @@
 @media screen and (min-width: 53.001rem) {
-  body {
-    /* background-image: url(/writings/pencils.svg); */
-    background-repeat: repeat-x;
-    background-position: bottom;
-    background-attachment: fixed;
-    background-size: 25rem;
+
+  .network {
+    position: fixed;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    pointer-events: none;
+    opacity: 1; /* Increased to 1.0 for clearer edge colors */
   }
+
+  .network.left {
+    left: auto;
+    right: calc(50% + 27rem);
+  }
+
+  .network.right {
+    right: auto;
+    left: calc(50% + 27rem);
+  }
+
+  .network.right svg {
+    transform: scaleX(-1);
+  }
+
+  .network svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ===== edges ===== */
+  .edges .edge-pos {
+    stroke: rgba(255, 140, 66, 0.5); /* Clearer orange */
+    stroke-width: 1.2px;
+    fill: none;
+  }
+  .edges .edge-neg {
+    stroke: rgba(79, 172, 254, 0.5); /* Clearer cyan */
+    stroke-width: 1.2px;
+    fill: none;
+  }
+
+  /* ===== nodes ===== */
+  .nodes circle {
+    r: 5;
+    stroke: var(--bg); /* Punches out background cleanly in both light/dark mode */
+    stroke-width: 2px;
+  }
+  .node-l1 { fill: #4facfe; filter: drop-shadow(0 0 3px #4facfe); }
+  .node-l2 { fill: #43e97b; filter: drop-shadow(0 0 3px #43e97b); }
+  .node-l3 { fill: #f6d365; filter: drop-shadow(0 0 3px #f6d365); }
+  .node-l4 { fill: #ff8c42; filter: drop-shadow(0 0 3px #ff8c42); }
+
+  /* ===== SIGNALS ===== */
+  .signals .signal-l1 {
+    fill: #4facfe;
+    filter: drop-shadow(0 0 6px #4facfe);
+  }
+  .signals .signal-l2 {
+    fill: #43e97b;
+    filter: drop-shadow(0 0 6px #43e97b);
+  }
+  .signals .signal-l3 {
+    fill: #f6d365;
+    filter: drop-shadow(0 0 6px #f6d365);
+  }
+
 }

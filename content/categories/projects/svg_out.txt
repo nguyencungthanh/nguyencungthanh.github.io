@@ -1,0 +1,160 @@
+<svg viewBox="0 0 240 800">
+  <!-- EDGES -->
+  <g class="edges">
+    <path d="M20 160 L86 100"/>
+    <path d="M20 160 L86 220"/>
+    <path d="M20 160 L86 340"/>
+    <path d="M20 160 L86 460"/>
+    <path d="M20 160 L86 580"/>
+    <path d="M20 160 L86 700"/>
+    <path d="M20 280 L86 100"/>
+    <path d="M20 280 L86 220"/>
+    <path d="M20 280 L86 340"/>
+    <path d="M20 280 L86 460"/>
+    <path d="M20 280 L86 580"/>
+    <path d="M20 280 L86 700"/>
+    <path d="M20 400 L86 100"/>
+    <path d="M20 400 L86 220"/>
+    <path d="M20 400 L86 340"/>
+    <path d="M20 400 L86 460"/>
+    <path d="M20 400 L86 580"/>
+    <path d="M20 400 L86 700"/>
+    <path d="M20 520 L86 100"/>
+    <path d="M20 520 L86 220"/>
+    <path d="M20 520 L86 340"/>
+    <path d="M20 520 L86 460"/>
+    <path d="M20 520 L86 580"/>
+    <path d="M20 520 L86 700"/>
+    <path d="M20 640 L86 100"/>
+    <path d="M20 640 L86 220"/>
+    <path d="M20 640 L86 340"/>
+    <path d="M20 640 L86 460"/>
+    <path d="M20 640 L86 580"/>
+    <path d="M20 640 L86 700"/>
+    <path d="M86 100 L154 100"/>
+    <path d="M86 100 L154 220"/>
+    <path d="M86 100 L154 340"/>
+    <path d="M86 100 L154 460"/>
+    <path d="M86 100 L154 580"/>
+    <path d="M86 100 L154 700"/>
+    <path d="M86 220 L154 100"/>
+    <path d="M86 220 L154 220"/>
+    <path d="M86 220 L154 340"/>
+    <path d="M86 220 L154 460"/>
+    <path d="M86 220 L154 580"/>
+    <path d="M86 220 L154 700"/>
+    <path d="M86 340 L154 100"/>
+    <path d="M86 340 L154 220"/>
+    <path d="M86 340 L154 340"/>
+    <path d="M86 340 L154 460"/>
+    <path d="M86 340 L154 580"/>
+    <path d="M86 340 L154 700"/>
+    <path d="M86 460 L154 100"/>
+    <path d="M86 460 L154 220"/>
+    <path d="M86 460 L154 340"/>
+    <path d="M86 460 L154 460"/>
+    <path d="M86 460 L154 580"/>
+    <path d="M86 460 L154 700"/>
+    <path d="M86 580 L154 100"/>
+    <path d="M86 580 L154 220"/>
+    <path d="M86 580 L154 340"/>
+    <path d="M86 580 L154 460"/>
+    <path d="M86 580 L154 580"/>
+    <path d="M86 580 L154 700"/>
+    <path d="M86 700 L154 100"/>
+    <path d="M86 700 L154 220"/>
+    <path d="M86 700 L154 340"/>
+    <path d="M86 700 L154 460"/>
+    <path d="M86 700 L154 580"/>
+    <path d="M86 700 L154 700"/>
+    <path d="M154 100 L220 160"/>
+    <path d="M154 100 L220 280"/>
+    <path d="M154 100 L220 400"/>
+    <path d="M154 100 L220 520"/>
+    <path d="M154 100 L220 640"/>
+    <path d="M154 220 L220 160"/>
+    <path d="M154 220 L220 280"/>
+    <path d="M154 220 L220 400"/>
+    <path d="M154 220 L220 520"/>
+    <path d="M154 220 L220 640"/>
+    <path d="M154 340 L220 160"/>
+    <path d="M154 340 L220 280"/>
+    <path d="M154 340 L220 400"/>
+    <path d="M154 340 L220 520"/>
+    <path d="M154 340 L220 640"/>
+    <path d="M154 460 L220 160"/>
+    <path d="M154 460 L220 280"/>
+    <path d="M154 460 L220 400"/>
+    <path d="M154 460 L220 520"/>
+    <path d="M154 460 L220 640"/>
+    <path d="M154 580 L220 160"/>
+    <path d="M154 580 L220 280"/>
+    <path d="M154 580 L220 400"/>
+    <path d="M154 580 L220 520"/>
+    <path d="M154 580 L220 640"/>
+    <path d="M154 700 L220 160"/>
+    <path d="M154 700 L220 280"/>
+    <path d="M154 700 L220 400"/>
+    <path d="M154 700 L220 520"/>
+    <path d="M154 700 L220 640"/>
+  </g>
+
+  <!-- FORWARD SIGNALS -->
+  <g class="signals">
+    <circle class="forward" r="3">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="0s" path="M20 160 L86 220 L154 340 L220 280"/>
+    </circle>
+    <circle class="forward" r="3">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="0.7s" path="M20 400 L86 460 L154 580 L220 520"/>
+    </circle>
+    <circle class="forward" r="3">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="1.4s" path="M20 640 L86 700 L154 460 L220 640"/>
+    </circle>
+    <circle class="forward" r="3">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="2.1s" path="M20 280 L86 100 L154 100 L220 160"/>
+    </circle>
+  </g>
+
+  <!-- BACKWARD SIGNALS -->
+  <g class="signals">
+    <circle class="backward" r="3">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="0.3s" path="M220 160 L154 220 L86 340 L20 280"/>
+    </circle>
+    <circle class="backward" r="3">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="1.1s" path="M220 400 L154 340 L86 460 L20 520"/>
+    </circle>
+    <circle class="backward" r="3">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="1.8s" path="M220 640 L154 700 L86 580 L20 640"/>
+    </circle>
+    <circle class="backward" r="3">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="2.5s" path="M220 280 L154 100 L86 220 L20 400"/>
+    </circle>
+  </g>
+
+  <!-- NODES -->
+  <g class="nodes">
+    <circle class="node-l1" cx="20" cy="160"/>
+    <circle class="node-l1" cx="20" cy="280"/>
+    <circle class="node-l1" cx="20" cy="400"/>
+    <circle class="node-l1" cx="20" cy="520"/>
+    <circle class="node-l1" cx="20" cy="640"/>
+    <circle class="node-l2" cx="86" cy="100"/>
+    <circle class="node-l2" cx="86" cy="220"/>
+    <circle class="node-l2" cx="86" cy="340"/>
+    <circle class="node-l2" cx="86" cy="460"/>
+    <circle class="node-l2" cx="86" cy="580"/>
+    <circle class="node-l2" cx="86" cy="700"/>
+    <circle class="node-l3" cx="154" cy="100"/>
+    <circle class="node-l3" cx="154" cy="220"/>
+    <circle class="node-l3" cx="154" cy="340"/>
+    <circle class="node-l3" cx="154" cy="460"/>
+    <circle class="node-l3" cx="154" cy="580"/>
+    <circle class="node-l3" cx="154" cy="700"/>
+    <circle class="node-l4" cx="220" cy="160"/>
+    <circle class="node-l4" cx="220" cy="280"/>
+    <circle class="node-l4" cx="220" cy="400"/>
+    <circle class="node-l4" cx="220" cy="520"/>
+    <circle class="node-l4" cx="220" cy="640"/>
+  </g>
+
+</svg>

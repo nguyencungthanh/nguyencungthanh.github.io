@@ -1,9 +1,19 @@
 @media screen and (min-width: 53.001rem) {
   body {
-    /* background-image: url(/writings/pencils.svg); */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" width="100" height="20"><path d="M 0 10 Q 12.5 -5, 25 10 T 50 10 T 75 10 T 100 10" fill="none" stroke="%23007bff" stroke-width="3" stroke-linecap="round"/></svg>');
     background-repeat: repeat-x;
-    background-position: bottom;
+    background-position: 0 bottom;
     background-attachment: fixed;
-    background-size: 25rem;
+    background-size: 10rem 2rem;
+    animation: wave-bg 2s linear infinite;
+  }
+}
+
+@keyframes wave-bg {
+  0% { 
+    background-position: 0 bottom;
+  }
+  100% { 
+    background-position: -5rem bottom; 
   }
 }
