@@ -1,13 +1,11 @@
 ---
 title: Abstract measure theory 
 date: 2026-05-02
-# update: 2026-04-27
 categories:
   - writings
 tags:
   - measure theory 
   - lebesgue integral 
-draft: True 
 ---
 
 <!--more--> 
