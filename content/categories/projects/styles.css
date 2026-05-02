@@ -42,7 +42,7 @@
 
   /* ===== nodes ===== */
   .nodes circle {
-    r: 5;
+    r: 7;
     stroke: var(--bg); /* Punches out background cleanly in both light/dark mode */
     stroke-width: 2px;
   }
