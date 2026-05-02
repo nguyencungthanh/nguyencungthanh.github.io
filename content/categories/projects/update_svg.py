@@ -117,7 +117,7 @@ with open('content/categories/projects/_index.md', 'r') as f:
     content = f.read()
 
 # Modify the parameter for each layer and distance between node 
-new_svg = generate_svg([5, 10, 7, 4], 25)
+new_svg = generate_svg([5, 10, 8, 4], 25)
 new_network = f'<div class="network left">\n{new_svg}\n</div>\n\n<div class="network right">\n{new_svg}\n</div>'
 
 pattern = re.compile(r'<div class="network left">.*?</div>\n\n<div class="network right">.*?</div>', re.DOTALL)
