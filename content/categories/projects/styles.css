@@ -11,12 +11,12 @@
 
   .network.left {
     left: auto;
-    right: calc(50% + 27rem);
+    right: calc(50% + 26rem);
   }
 
   .network.right {
     right: auto;
-    left: calc(50% + 27rem);
+    left: calc(50% + 26rem);
   }
 
   .network.right svg {
@@ -30,12 +30,12 @@
 
   /* ===== edges ===== */
   .edges .edge-pos {
-    stroke: rgba(255, 140, 66, 0.5); /* Clearer orange */
+    stroke: rgba(255, 140, 66, 0.4); /* Clearer orange */
     stroke-width: 1.2px;
     fill: none;
   }
   .edges .edge-neg {
-    stroke: rgba(79, 172, 254, 0.5); /* Clearer cyan */
+    stroke: rgba(79, 172, 254, 0.4); /* Clearer cyan */
     stroke-width: 1.2px;
     fill: none;
   }
