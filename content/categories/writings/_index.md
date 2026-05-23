@@ -1,6 +1,7 @@
 ---
-title: Writings
+title: Mathematic Posts
 description: My blog posts.
+slug: writings
 aliases:
   - /articles/
   - /fragments/

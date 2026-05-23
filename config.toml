@@ -48,6 +48,10 @@ printPathWarnings = true
   pageRef = '/categories/projects'
   weight = 3
 [[menu.main]]
+  name = '💭 Random Thought'
+  pageRef = '/categories/random-thought'
+  weight = 4
+[[menu.main]]
   name = '🌈 More'
   pageRef = '/more'
   weight = 5
