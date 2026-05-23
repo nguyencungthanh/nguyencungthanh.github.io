@@ -398,8 +398,18 @@ textarea {
   align-items: center;
 }
 
-#header form {
+.contact-header-btn {
   margin-left: auto;
+  margin-right: 0.5rem;
+  font-size: var(--f5);
+  padding: 0.2rem 0.5rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+#header form {
   font-size: var(--f5);
   margin-bottom: 0;
 }

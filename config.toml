@@ -40,10 +40,6 @@ printPathWarnings = true
   pageRef = '/about'
   weight = 1
 [[menu.main]]
-  name = '📩 Contact'
-  pageRef = '/contact'
-  weight = 4
-[[menu.main]]
   name = '♾️ Mathematic Blog'
   pageRef = '/categories/writings'
   weight = 2
