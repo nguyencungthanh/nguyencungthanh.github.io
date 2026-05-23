@@ -30,26 +30,26 @@
 
   /* ===== edges ===== */
   .edges .edge-pos {
-    stroke: rgba(255, 140, 66, 0.4); /* Clearer orange */
-    stroke-width: 1.2px;
+    stroke: rgba(255, 140, 66, 0.5);
+    stroke-width: 1.5px;
     fill: none;
   }
   .edges .edge-neg {
-    stroke: rgba(79, 172, 254, 0.4); /* Clearer cyan */
-    stroke-width: 1.2px;
+    stroke: rgba(79, 172, 254, 0.5); 
+    stroke-width: 1.5px;
     fill: none;
   }
 
   /* ===== nodes ===== */
   .nodes circle {
-    r: 6;
+    r: 9;
     stroke: var(--bg); /* Punches out background cleanly in both light/dark mode */
     stroke-width: 2px;
   }
-  .node-l1 { fill: #4facfe; filter: drop-shadow(0 0 3px #4facfe); }
-  .node-l2 { fill: #43e97b; filter: drop-shadow(0 0 3px #43e97b); }
-  .node-l3 { fill: #f6d365; filter: drop-shadow(0 0 3px #f6d365); }
-  .node-l4 { fill: #ff8c42; filter: drop-shadow(0 0 3px #ff8c42); }
+  .node-l1 { fill: #4facfe; filter: drop-shadow(0 0 6px #4facfe); }
+  .node-l2 { fill: #43e97b; filter: drop-shadow(0 0 6px #43e97b); }
+  .node-l3 { fill: #f6d365; filter: drop-shadow(0 0 6px #f6d365); }
+  .node-l4 { fill: #ff8c42; filter: drop-shadow(0 0 6px #ff8c42); }
 
   /* ===== SIGNALS ===== */
   .signals .signal-l1 {

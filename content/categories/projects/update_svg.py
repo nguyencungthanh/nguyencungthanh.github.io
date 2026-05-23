@@ -3,7 +3,7 @@ import re
 
 def generate_svg(nodes_per_layer, distance_between_nodes=25):
     center_y = 400
-    xs = [20, 90, 154, 220]
+    xs = [20, 75, 130, 190]
     
     layers_y = []
     for n in nodes_per_layer:
@@ -117,7 +117,7 @@ with open('content/categories/projects/_index.md', 'r') as f:
     content = f.read()
 
 # Modify the parameter for each layer and distance between node 
-new_svg = generate_svg([4, 6, 6, 3], 40)
+new_svg = generate_svg([3, 5, 5, 3], 40)
 new_network = f'<div class="network left">\n{new_svg}\n</div>\n\n<div class="network right">\n{new_svg}\n</div>'
 
 pattern = re.compile(r'<div class="network left">.*?</div>\n\n<div class="network right">.*?</div>', re.DOTALL)
