@@ -1,61 +1,68 @@
+{{ if in .Params.categories "random-thought" }}
+
 <div class="lang-switcher">
-  <button type="button" class="lang-btn active" data-lang="vi">Tiếng Việt</button>
-  <button type="button" class="lang-btn" data-lang="en">English</button>
+  <button type="button" class="lang-btn active" data-lang="vi">
+    Tiếng Việt
+  </button>
+
+  <button type="button" class="lang-btn" data-lang="en">
+    English
+  </button>
 </div>
 
 <script>
-  (function () {
-    const STORAGE_KEY = "blog-lang";
-    const buttons = document.querySelectorAll(".lang-btn");
+document.addEventListener("DOMContentLoaded", () => {
+  const STORAGE_KEY = "blog-lang";
+  const buttons = document.querySelectorAll(".lang-btn");
 
-    function setLang(lang) {
-      document.documentElement.setAttribute("data-lang", lang);
-      localStorage.setItem(STORAGE_KEY, lang);
+  function setLang(lang) {
+    localStorage.setItem(STORAGE_KEY, lang);
 
-      document.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.lang === lang);
-      });
-
-      document.querySelectorAll("[data-post-lang]").forEach(el => {
-        el.style.display = el.dataset.postLang === lang ? "" : "none";
-      });
-    }
-
-    const saved = localStorage.getItem(STORAGE_KEY) || "vi";
-    setLang(saved);
+    document.querySelectorAll("[data-post-lang]").forEach(el => {
+      el.style.display =
+        el.dataset.postLang === lang ? "" : "none";
+    });
 
     buttons.forEach(btn => {
-      btn.addEventListener("click", () => setLang(btn.dataset.lang));
+      btn.classList.toggle("active", btn.dataset.lang === lang);
     });
-  })();
+  }
+
+  const saved = localStorage.getItem(STORAGE_KEY) || "vi";
+  setLang(saved);
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      setLang(btn.dataset.lang);
+    });
+  });
+});
 </script>
 
 <style>
-  .lang-switcher {
-    display: flex;
-    gap: 8px;
-    margin: 1rem 0 1.25rem;
-  }
+.lang-switcher {
+  display: flex;
+  gap: 8px;
+  margin: 1rem 0 1.25rem;
+}
 
-  .lang-btn {
-    padding: 0.5rem 0.9rem;
-    border: 1px solid #ccc;
-    background: #fff;
-    border-radius: 999px;
-    cursor: pointer;
-    font: inherit;
-  }
+.lang-btn {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  background: white;
+  cursor: pointer;
+  font: inherit;
+}
 
-  .lang-btn.active {
-    background: #111;
-    color: #fff;
-    border-color: #111;
-  }
-
-  [data-post-lang] {
-    transition: opacity 0.2s ease;
-  }
+.lang-btn.active {
+  background: black;
+  color: white;
+  border-color: black;
+}
 </style>
+
+{{ end }}
 
 {{- if or .Content .Params.rating .Params.photos .Params.read }}
   <div class='e-content'{{ if in .Params.tags "portugues" }} lang='pt'{{ else if in .Params.tags "nederlands" }} lang='nl'{{ end }}>
