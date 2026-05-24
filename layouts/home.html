@@ -15,7 +15,7 @@
     {{- partial "logs" (dict "Pages" (first 8 $writings.Pages) "WithMicroformats" true) -}}
   </div> -->
   <div class='h-feed'>
-    {{- $recent_pages := where .Site.RegularPages "Params.categories" "intersect" (slice "writings" "projects") -}}
+    {{- $recent_pages := where .Site.RegularPages "Params.categories" "intersect" (slice "writings" "projects" "random-thought") -}}
     {{- $recent_pages = first 5 ($recent_pages.ByDate.Reverse) -}}
 
     <h2 id="freshly-planted">
