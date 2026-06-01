@@ -1,5 +1,5 @@
 baseURL = 'https://nguyencungthanh.github.io/'
-languageCode = 'en'
+locale = 'en'
 title = 'Nguyen Cung Thanh'
 pluralizeListTitles = false
 removePathAccents = true
@@ -119,3 +119,6 @@ printPathWarnings = true
 [services]
   [services.rss]
     limit = 10
+
+[security]
+  allowContent = ['.*']
