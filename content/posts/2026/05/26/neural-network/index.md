@@ -9,4 +9,5 @@ tags:
 
 <!--more--> 
 
-[Batch Norm](/2026/05/26/neural-network/batch-norm/)
+[Batch Norm](/2026/05/26/neural-network/batch-norm/), 
+[Layer Norm](/2026/05/26/neural-network/layer-norm/)
