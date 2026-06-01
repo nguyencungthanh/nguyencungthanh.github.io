@@ -4,7 +4,7 @@ title: Layer Normalization
 url: 2026/05/26/layer-norm
 tags:
  - Layer Norm
-_build:
+build:
   list: never
   render: always
 ---

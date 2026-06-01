@@ -4,7 +4,7 @@ title: Batch Normalization
 url: 2026/05/26/batch-norm
 tags: 
  - Batch Norm 
-_build:
+build:
   list: never
   render: always
 ---

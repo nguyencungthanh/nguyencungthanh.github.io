@@ -1,7 +1,7 @@
 ---
 title: Year in Popcorn '24
 date: 2025-01-01T15:03:21+01:00 
-# _build: 
+# build: 
 #   list: never 
 #   render: never 
 draft: true 
