@@ -1,7 +1,7 @@
 ---
 title: Batch Normalization
 # date: 2026-05-26
-url: 2026/05/26/neural-network/batch-norm
+url: 2026/05/26/batch-norm
 tags: 
  - Batch Norm 
 _build:

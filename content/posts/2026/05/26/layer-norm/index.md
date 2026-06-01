@@ -1,7 +1,7 @@
 ---
 title: Layer Normalization
 # date: 2026-05-26
-url: 2026/05/26/neural-network/layer-norm
+url: 2026/05/26/layer-norm
 tags:
  - Layer Norm
 _build:
