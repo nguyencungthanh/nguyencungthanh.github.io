@@ -1,0 +1,44 @@
+{{ define "main" }}
+  <article class='h-entry'>
+    {{- partialCached "post/header" (dict "Listing" false "Page" .) .Permalink false -}}
+
+    <div class="e-content">
+      {{/* Status badge */}}
+      {{ with .Params.status }}
+      <span class="pub-status pub-status--{{ . }}">{{ if eq . "preprint" }}Preprint{{ else if eq . "submitted" }}Submitted{{ else if eq . "published" }}Published{{ else if eq . "under-review" }}Under Review{{ else }}{{ . | title }}{{ end }}</span>
+      {{ end }}
+
+      {{/* Meta info */}}
+      <div class="pub-detail-meta">
+        {{ with .Params.authors }}
+        <p><strong>Authors:</strong> {{ delimit . ", " }}</p>
+        {{ end }}
+        {{ with .Params.role }}
+        <p><strong>My Role:</strong> {{ . }}</p>
+        {{ end }}
+        {{ with .Params.journal }}
+        <p><strong>Journal:</strong> {{ . }}</p>
+        {{ end }}
+        {{ with .Params.venue }}
+        <p>{{ . }}</p>
+        {{ end }}
+      </div>
+
+      <hr>
+
+      {{/* Paper content (abstract, contributions, etc.) */}}
+      {{ .Content }}
+
+      {{/* Links */}}
+      {{ with .Params.links }}
+      <div class="pub-card-footer" style="margin-top:1.5rem;">
+        {{ range . }}
+          <a class="pub-link" href="{{ .url }}">🔗 {{ .label }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <p style="margin-top:2rem;"><a href="/publications/">← Back to Publications</a></p>
+    </div>
+  </article>
+{{ end }}

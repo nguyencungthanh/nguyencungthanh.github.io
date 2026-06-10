@@ -7,7 +7,7 @@ In addition to mathematics, AI and algorithm, I also want to share many other in
 - [📚 Books](/books/)
 - [🎓 Resume](/resume/)
 - [📰 Other Blogs](/otherblogs/)
-- [📄 Papers](/papers/)
+- [📄 Publications](/publications/)
 - [🧮 Calculator](/grade-calculator/)
 - [🎞️ Slides](/slides) 
 {.buttons #more-list}

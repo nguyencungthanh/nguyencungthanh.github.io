@@ -1,0 +1,55 @@
+{{ define "main" }}
+  <article class='h-entry'>
+    {{- partialCached "post/header" (dict "Listing" false "Page" .) .Permalink false -}}
+
+    <div class="e-content">
+      {{ .Content }}
+
+      {{/* Render all publications sorted by weight */}}
+      {{ $pages := where .RegularPages "Params.status" "ne" nil }}
+      {{ range $pages.ByParam "weight" }}
+      <div class="pub-card">
+        <div class="pub-card-header">
+          {{/* Status badge */}}
+          {{ with .Params.status }}
+          <span class="pub-status pub-status--{{ . }}">{{ if eq . "preprint" }}Preprint{{ else if eq . "submitted" }}Submitted{{ else if eq . "published" }}Published{{ else if eq . "under-review" }}Under Review{{ else }}{{ . | title }}{{ end }}</span>
+          {{ end }}
+
+          {{/* Title */}}
+          <h3><a href="{{ .RelPermalink }}" class="nl lh">{{ .Title }}</a></h3>
+
+          {{/* Meta: authors, role, journal/venue */}}
+          <div class="pub-card-meta">
+            {{ with .Params.authors }}
+              <span>Authors: {{ delimit . ", " }}</span><br>
+            {{ end }}
+            {{ with .Params.role }}
+              <span>My Role: {{ . }}</span>
+            {{ end }}
+            {{ with .Params.journal }}
+              <br><span>Journal: {{ . }}</span>
+            {{ end }}
+            {{ with .Params.venue }}
+              <br><span>{{ . }}</span>
+            {{ end }}
+          </div>
+        </div>
+
+        {{/* Body: abstract + contributions from .Content */}}
+        <div class="pub-card-body">
+          {{ .Content }}
+        </div>
+
+        {{/* Footer: links */}}
+        {{ with .Params.links }}
+        <div class="pub-card-footer">
+          {{ range . }}
+            <a class="pub-link" href="{{ .url }}">🔗 {{ .label }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </article>
+{{ end }}
