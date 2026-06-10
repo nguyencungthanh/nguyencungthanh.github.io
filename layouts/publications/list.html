@@ -18,16 +18,13 @@
           {{/* Title */}}
           <h3><a href="{{ .RelPermalink }}" class="nl lh">{{ .Title }}</a></h3>
 
-          {{/* Meta: authors, role, journal/venue */}}
+          {{/* Meta: authors, journal/venue */}}
           <div class="pub-card-meta">
             {{ with .Params.authors }}
-              <span>Authors: {{ delimit . ", " }}</span><br>
-            {{ end }}
-            {{ with .Params.role }}
-              <span>My Role: {{ . }}</span>
+              <span>Authors: {{ delimit . ", " }}</span>
             {{ end }}
             {{ with .Params.journal }}
-              <br><span>Journal: {{ . }}</span>
+              {{ if $.Params.authors }}<br>{{ end }}<span>Journal: {{ . }}</span>
             {{ end }}
             {{ with .Params.venue }}
               <br><span>{{ . }}</span>

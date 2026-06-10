@@ -41,7 +41,8 @@
   margin-bottom: 0.35rem;
 }
 
-.pub-status--review {
+.pub-status--review,
+.pub-status--under-review {
   background-color: #fef3cd;
   color: #856404;
   border: 1px solid #ffc107;
@@ -124,7 +125,8 @@
 }
 
 /* Dark mode adjustments */
-:root.dark .pub-status--review {
+:root.dark .pub-status--review,
+:root.dark .pub-status--under-review {
   background-color: #3d3400;
   color: #ffc107;
   border-color: #856404;

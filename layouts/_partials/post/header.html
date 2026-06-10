@@ -35,7 +35,7 @@
       </h{{ $header }}>
     {{- end -}}
 
-    {{- if $hasDate -}}
+    {{- if and $hasDate (not .Params.hideDate) -}}
     <p class='lg small'>
       <a href="{{ .RelPermalink }}" class="nl">
         {{- if not .Date.IsZero -}}

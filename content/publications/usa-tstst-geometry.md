@@ -5,13 +5,13 @@ authors:
   - Tran Quang Hung
   - Nguyen Cung Thanh
 journal: Mathematical Reflections
-weight: 2
+weight: 1
 date: 2024-07-01
+hideDate: true
 links:
   - label: Paper
     url: https://www.awesomemath.org/wp-pdf-files/math-reflections/mr-2024-04/mr_4_2024_some_generalizations_of_a_geometric_problem.pdf
 ---
-
 ## Abstract
 
 In this paper, we present several extensions to a beautiful and important problem from
