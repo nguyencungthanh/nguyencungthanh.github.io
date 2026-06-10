@@ -45,13 +45,7 @@ function addEmoji() {
   } else if (month === 5 && day === 17) {
     emoji = '🌈'
     title = 'International Day Against Homophobia, Biphobia and Transphobia'
-  } else if (month === 6) {
-    emoji = '🏳️‍🌈'
-    title = 'Happy Pride Month!'
-  } else if (month === 7 && day === 12) {
-    emoji = '🎈'
-    title = `Happy ${today.getFullYear() - 2014}th Birthday to This Website!`
-  } else if (month === 10 && day === 22) {
+  } else if (month === 11 && day === 11) {
     emoji = '🎂'
     title = 'Happy Birthday to Me!'
   } else if (month === 10 && day >= 30) {
