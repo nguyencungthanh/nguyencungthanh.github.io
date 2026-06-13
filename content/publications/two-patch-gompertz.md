@@ -8,7 +8,7 @@ authors:
   - Tri Nguyen-Huu
   - Ali Moussaoui
   - Pierre Auger
-venue: "Submitted to Computational and Applied Mathematics"
+venue: "Submitted to Communications in Nonlinear Science and Numerical Simulation"
 weight: 4
 date: 2025-08-01
 hideDate: true
