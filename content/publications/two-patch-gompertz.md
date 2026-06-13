@@ -2,10 +2,12 @@
 title: "Maximum Sustainable Yield in Spatial Fisheries with Gompertz Growth and Patch-Dependent Catch-ability: Effects of Connectivity, Trophic Structure and Environmental Stochasticity"
 status: under-review
 authors:
-  - Amer M. Salman
-  - Thanh Nguyen-Cung
+  - My Nguyen-Thi Tra
   - Doanh Nguyen-Ngoc
-  - Mohd Hafiz Mohd
+  - Thanh Nguyen-Cung
+  - Tri Nguyen-Huu
+  - Ali Moussaoui
+  - Pierre Auger
 venue: "Submitted to Computational and Applied Mathematics"
 weight: 4
 date: 2025-08-01
