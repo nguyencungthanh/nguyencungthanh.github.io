@@ -257,9 +257,9 @@ A subset $M$ of a metric space $X$ is said to be open if it contains a ball abou
 
 -- An open ball $B\left(x_{0}, \varepsilon\right)$ of radius $\varepsilon$ is often called an $\varepsilon$-neighborhood of $x_{0}$
 
--- Call $x_{0}$ an intenor point of a set $M C X$ if $M$ is a neighborhood of $x_{0}$.
+-- Call $x_{0}$ an interior point of a set $M \subset X$ if $M$ is a neighborhood of $x_{0}$.
 
--- The intenor of $M$ is the set of all intenor paints of $M$, denoted $M^{0}$ or $\operatorname{Int}(M)$.
+-- The interior of $M$ is the set of all interior points of $M$, denoted $M^{0}$ or $\operatorname{Int}(M)$.
 
 -- The collection of all open subsets of $X$, call it $\mathcal{J}$, has properties:
 
@@ -292,7 +292,7 @@ $X$ is said to be separable if it has countable subset which is dense in $X$
 **1. Real line $\mathbb{R}$.** The real line $\mathbb{R}$ is separable.
 -- The set $\mathbb{Q}$ of all rational numbers is countable and is dense in $\mathbb{R}$.
 
-**2. Complex plane $\mathbb{C}$.** The complex plane $\mathbb{C}$ is se parable
+**2. Complex plane $\mathbb{C}$.** The complex plane $\mathbb{C}$ is separable
 -- A countable dense subset of $\mathbb{C}$ is the set of all complex numbers whose real and imaginary parts are both rational.
 
 **3 Discrete metric space.** A discre metric space $X$ is separable if and only if $X$ is countable.
@@ -339,7 +339,7 @@ The space $X$ is said to be complete if every Cauchy sequence in $X$ converges (
 Every convergent sequence in a metric space is a Cauchy sequence.
 
 ### 3.5 Theorem (Closure, closed set) 
-Let $M$ be a nonempty subset of metric space ( $X, d$ ) and $\bar{M}$ its closure.
+Let $M$ be a nonempty subset of metric space ($X, d$) and $\bar{M}$ its closure.
 
 $\text{(a)} \quad$ $x \in \bar{M}$ if and only if there is a sequence $\left(x_{n}\right)$ in $M$ such that $x_{n} \rightarrow x$.
 
@@ -415,7 +415,7 @@ $$
 $\text{(b)} \quad$ The space $X$ is said to be isometric with the space $\tilde{X}$ if there exists a bijective isometry of $X$ onto $\tilde{X}.$ The space $X$ and $\tilde{X}$ are then called isometric spaces.
 
 ### 4.2 Theorem (Completion) 
-For a metro space $X=(X, d)$ there exists a complete metric space $\hat{X}=(\hat{X}, \hat{d})$ which has a subspace $W$ thas is isometric with $X$ and is dense in $\hat{X}$. This space $\hat{X}$ is unique except for isometries, that is, if $\tilde{X}$ is any complete metric space having a dense subspace $\tilde{W}$ isometric with $X$, then $X$ and $\tilde{X}$ are isometric.
+For a metric space $X=(X, d)$ there exists a complete metric space $\hat{X}=(\hat{X}, \hat{d})$ which has a subspace $W$ thas is isometric with $X$ and is dense in $\hat{X}$. This space $\hat{X}$ is unique except for isometries, that is, if $\tilde{X}$ is any complete metric space having a dense subspace $\tilde{W}$ isometric with $X$, then $X$ and $\tilde{X}$ are isometric.
 
 ## References 
 
