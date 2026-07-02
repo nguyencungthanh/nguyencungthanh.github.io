@@ -39,7 +39,7 @@ $$
 
 **2. Space $\ell^p$.**
 Banach space with norm  
-$$ \\|x\\| = \left( \sum_{i = 1}^{\infty} \|x_i\|^p \right)^{\frac{1}{p}} $$ is a 
+$$ \\|x\\| = \left( \sum_{i = 1}^{\infty} \|x_i\|^p \right)^{\frac{1}{p}} $$ 
 and the induced metric is 
 $$
 d(x, y) = \\|x - y\\| = \left( \sum_{i=1}^{n} |x_i - y_i|^p \right)^{\frac{1}{p}}.
@@ -51,7 +51,7 @@ $$
 \\|x\\|_\infty = \sup _{i}\\|x_i\\|
 $$
 
-**4 Space $\ell^{\infty}$.**
+**4 Space $C[a, b]$.**
 Banach space with norm  
 $$
 \\|x\\| = \max _{t \in J}\\|x(t)\\|
