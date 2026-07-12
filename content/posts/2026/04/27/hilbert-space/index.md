@@ -119,7 +119,7 @@ $$
 
 ## 2. Further Properties of Inner Product Space
 
-### 2.1 Lemma (Schwarz inequality, triangle)
+### 2.1 Lemma (Schwarz inequality,)
 $\text{(a)}$ We have:
 $$
 \\|\langle x,y\rangle\\| \le \\\|x\\\|\ \\\|y\\\|
