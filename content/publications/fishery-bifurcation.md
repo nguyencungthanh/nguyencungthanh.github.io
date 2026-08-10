@@ -7,7 +7,7 @@ authors:
   - Doanh Nguyen-Ngoc
   - Mohd Hafiz Mohd
 venue: "Submitted to Computational and Applied Mathematics"
-weight: 3
+weight: 4
 date: 2025-08-01
 hideDate: true
 ---

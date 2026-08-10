@@ -9,7 +9,7 @@ authors:
   - Ali Moussaoui
   - Pierre Auger
 venue: "Submitted to Communications in Nonlinear Science and Numerical Simulation"
-weight: 4
+weight: 5
 date: 2025-08-01
 hideDate: true
 ---

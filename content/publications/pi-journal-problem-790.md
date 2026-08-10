@@ -5,7 +5,7 @@ authors:
   - Nguyen Cung Thanh
 role: Author
 journal: "Pi Journal, Issue 8, No. 3, March 2024"
-weight: 6
+weight: 7
 date: 2024-03-01
 hideDate: true
 links:
