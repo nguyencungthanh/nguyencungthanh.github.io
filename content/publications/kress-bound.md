@@ -7,6 +7,9 @@ authors:
 weight: 2
 date: 2025-03-01
 hideDate: true
+links:
+  - label: arXiv
+    url: https://arxiv.org/pdf/2608.29823 
 --- 
 ## Abstract
 
