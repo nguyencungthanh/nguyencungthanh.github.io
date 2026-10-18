@@ -989,6 +989,36 @@ nav a[aria-current='page'] {
 }
 
 
+/* Give the identity and actions separate rows on narrow phones. */
+@media screen and (max-width: 30rem) {
+  #header {
+    flex-wrap: wrap;
+    gap: var(--hms);
+  }
+
+  #header #home {
+    flex: 1 0 100%;
+    min-width: 0;
+  }
+
+  #header #home > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  #header .avatar,
+  #header form,
+  .contact-header-btn {
+    flex-shrink: 0;
+  }
+
+  .contact-header-btn {
+    margin-right: 0;
+    white-space: nowrap;
+  }
+}
+
+
 /* =============================================================================
    19. RESPONSIVE — PRINT
    ============================================================================= */

@@ -85,6 +85,15 @@ draft: false    # set true to hide from production build
 - **Dark mode** — Automatic via `prefers-color-scheme`
 - **Taxonomy** — Posts organized by `tags` and `categories`
 
+### Algorithm Project decorations
+
+The projects category uses the `project-networks` shortcode to render both neural
+networks from `layouts/_partials/projects/network.html`. Edit this shared SVG to
+change the topology. Colors, timing, and responsive placement live in
+`content/categories/projects/styles.css`. The page-specific
+`assets/js/project-networks.js` pauses animations offscreen and in hidden tabs;
+CSS also respects the visitor's reduced-motion preference.
+
 ---
 
 ## Deployment
