@@ -28,18 +28,17 @@
 .cluster-centroid { transition: transform .85s ease; }
 .cluster-centroid circle { fill: var(--bg); stroke: currentColor; stroke-width: 1.8; }
 .cluster-centroid path { fill: none; stroke: currentColor; stroke-width: 1.8; }
-/* Muted ink colors echo the clustering, kernel, and page accents. */
+/* Brighter project colors, with a separate palette for the dark background. */
 .project-network--right {
-  --nn-input: #5b86a5;
-  --nn-hidden-1: #6b9b8b;
-  --nn-hidden-2: #9b77bd;
-  --nn-output: #b88a52;
+  --nn-input: #278ee5;
+  --nn-hidden-1: #22b98b;
+  --nn-hidden-2: #d4ad24;
+  --nn-output: var(--cluster-1);
 }
 :root.dark .project-network--right {
-  --nn-input: #89adc7;
-  --nn-hidden-1: #8cb8a8;
-  --nn-hidden-2: #b39bce;
-  --nn-output: #cfab78;
+  --nn-input: #68baff;
+  --nn-hidden-1: #50d9b0;
+  --nn-hidden-2: #f4d65a;
 }
 .nn-layer-0 { color: var(--nn-input); }
 .nn-layer-1 { color: var(--nn-hidden-1); }
@@ -55,7 +54,7 @@
 /* A visible segment travels along every connection, including the bends.
    Only three inherited dash offsets animate; no per-edge JS or filters. */
 .nn-wave {
-  stroke-width: 1.65;
+  stroke-width: 1.9;
   stroke-dasharray: .22 1.22;
   stroke-dashoffset: .22;
   opacity: 0;
@@ -63,7 +62,7 @@
   animation-delay: var(--nn-phase);
 }
 .nn-shell { fill: var(--bg); stroke: currentColor; stroke-width: 1.4; }
-.nn-core { fill: currentColor; fill-opacity: .22; }
+.nn-core { fill: currentColor; fill-opacity: .35; }
 .nn-activation {
   fill: currentColor;
   opacity: 0;
@@ -74,8 +73,8 @@
 .nn-spark { fill-opacity: .9; }
 @keyframes nn-edge-flow {
   0% { stroke-dashoffset: .22; opacity: 0; }
-  2% { opacity: .85; }
-  25% { stroke-dashoffset: -1; opacity: .85; }
+  2% { opacity: .95; }
+  25% { stroke-dashoffset: -1; opacity: .95; }
   27%, 100% { stroke-dashoffset: -1; opacity: 0; }
 }
 @keyframes nn-edge-activate {
@@ -103,12 +102,13 @@
 .project-network--lift { order: 3; }
 /* Short screens keep the gallery in flow so neither left-hand figure is clipped. */
 @media screen and (min-width: 76rem) and (min-height: 44rem) {
-  .project-networks { display: block; margin: 0; }
+  .project-networks { display: block; max-width: none; margin: 0; }
   .project-rail {
     display: grid;
+    grid-template-rows: repeat(2, 1fr) auto;
     position: fixed;
     top: 50%;
-    width: min(260px, calc((100vw - 52rem) / 2), calc((100svh - 9rem) * .48));
+    width: min(260px, calc((100vw - 52rem) / 2), calc((100svh - 10rem) * .32));
     transform: translateY(-50%);
   }
   .project-rail--left { right: calc(50% + 26rem); gap: .5rem; }
@@ -136,3 +136,17 @@
 .lift-separator { fill: #9b77bd; fill-opacity: .08; stroke: #9b77bd; stroke-opacity: .5; stroke-width: .9; }
 
 .lift-boundary { fill: none; stroke: #9b77bd; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+
+/* The two grids occupy the third row of their respective desktop sidebars. */
+.project-grid-board { box-sizing: border-box; width: 100%; margin: 0; padding: .75rem .25rem; min-width: 0; contain: layout paint; }
+.project-astar { order: 4; }
+.project-maze { order: 5; }
+.maze-board-stage { position: relative; aspect-ratio: 1; overflow: hidden; border: 1px solid #33424d; border-radius: .3rem; background: #0b1119; }
+.maze-board-stage > svg { display: block; width: 100%; height: auto; }
+.maze-board-stage > canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0; }
+.project-grid-board.is-rendered canvas { opacity: 1; }
+.project-grid-board.is-rendered svg { visibility: hidden; }
+/* Let the dense grids use the full phone width rather than tiny grid cells. */
+@media screen and (max-width: 40rem) {
+  .project-grid-board { grid-column: 1 / -1; max-width: 30rem; justify-self: center; }
+}

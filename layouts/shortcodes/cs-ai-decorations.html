@@ -12,6 +12,12 @@
         {{ partial "decorations/plot-labels.html" . }}
       </div>
     </figure>
+    <figure class="project-grid-board project-astar" aria-label="A-star pathfinding explores a maze, then draws the shortest route in green" data-ambient-animation data-astar>
+      <div class="maze-board-stage astar-stage">
+        {{ partialCached "decorations/astar-fallback.html" . }}
+        <canvas width="510" height="510" aria-hidden="true"></canvas>
+      </div>
+    </figure>
   </div>
   <div class="project-rail project-rail--right">
     <figure class="project-network project-network--right" aria-label="Neural network" data-ambient-animation>
@@ -26,6 +32,12 @@
         <span class="algorithm-axis lift-label" data-lift-axis style="left:7.27%;top:9.12%">$z$</span>
       </div>
     </figure>
+    <figure class="project-grid-board project-maze" aria-label="A maze is carved one passage at a time using recursive backtracking" data-ambient-animation data-maze-generation>
+      <div class="maze-board-stage">
+        {{ partialCached "decorations/maze-fallback.html" . }}
+        <canvas width="510" height="510" aria-hidden="true"></canvas>
+      </div>
+    </figure>
   </div>
 </div>
 {{ $scene := resources.Get "js/decorations/kmeans.js" | resources.Minify | resources.Fingerprint "sha512" }}
@@ -34,5 +46,9 @@
 <script defer src="{{ $svm.RelPermalink }}" integrity="{{ $svm.Data.Integrity }}"></script>
 {{ $lift := resources.Get "js/decorations/kernel-trick.js" | js.Build (dict "targetPath" "js/decorations/kernel-trick.js" "minify" true "target" "es2018") | resources.Fingerprint "sha512" }}
 <script defer src="{{ $lift.RelPermalink }}" integrity="{{ $lift.Data.Integrity }}"></script>
+{{ $astar := resources.Get "js/decorations/astar.js" | js.Build (dict "targetPath" "js/decorations/astar.js" "minify" true "target" "es2018") | resources.Fingerprint "sha512" }}
+<script defer src="{{ $astar.RelPermalink }}" integrity="{{ $astar.Data.Integrity }}"></script>
+{{ $maze := resources.Get "js/decorations/maze.js" | js.Build (dict "targetPath" "js/decorations/maze.js" "minify" true "target" "es2018") | resources.Fingerprint "sha512" }}
+<script defer src="{{ $maze.RelPermalink }}" integrity="{{ $maze.Data.Integrity }}"></script>
 {{ $visibility := resources.Get "js/decorations/visibility.js" | resources.Minify | resources.Fingerprint "sha512" }}
 <script defer src="{{ $visibility.RelPermalink }}" integrity="{{ $visibility.Data.Integrity }}"></script>
