@@ -9,6 +9,7 @@ printPathWarnings = true
 
 [build]
   buildFuture = true
+  noJSConfigInAssets = true
 
 [pagination]
   pagerSize = 15
