@@ -30,16 +30,16 @@ build:
 	hugo --minify --environment $(ENVIRONMENT)
 
 watch:
-	hugo server --watch --minify --environment $(ENVIRONMENT)
+	hugo server --disableFastRender --watch --minify --environment $(ENVIRONMENT)
 
 watch-drafts:
-	hugo server --watch --minify --buildDrafts --environment $(ENVIRONMENT)
+	hugo server --disableFastRender --watch --minify --buildDrafts --environment $(ENVIRONMENT)
 
 watch-future:
-	hugo server --watch --minify --buildFuture --environment $(ENVIRONMENT)
+	hugo server --disableFastRender --watch --minify --buildFuture --environment $(ENVIRONMENT)
 
 watch-all:
-	hugo server --watch --minify --buildDrafts --buildFuture --environment $(ENVIRONMENT)
+	hugo server --disableFastRender --watch --minify --buildDrafts --buildFuture --environment $(ENVIRONMENT)
 
 kind ?= article
 new:

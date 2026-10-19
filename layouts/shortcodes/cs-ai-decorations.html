@@ -1,0 +1,38 @@
+<div class="project-networks">
+  <div class="project-rail project-rail--left">
+    <figure class="project-network project-network--left" aria-label="K-Means clustering" data-ambient-animation data-kmeans>
+      <div class="algorithm-plot">
+        {{ partialCached "decorations/kmeans.html" . }}
+        {{ partial "decorations/plot-labels.html" . }}
+      </div>
+    </figure>
+    <figure class="project-network project-network--svm" aria-label="Kernel SVM on two moons" data-ambient-animation data-kernel-svm>
+      <div class="algorithm-plot">
+        {{ partialCached "decorations/kernel-svm.html" . }}
+        {{ partial "decorations/plot-labels.html" . }}
+      </div>
+    </figure>
+  </div>
+  <div class="project-rail project-rail--right">
+    <figure class="project-network project-network--right" aria-label="Neural network" data-ambient-animation>
+      {{ partialCached "decorations/project-network.html" . }}
+    </figure>
+    <figure class="project-network project-network--lift" aria-label="Kernel trick: points lift to a paraboloid in 3D, a separating plane intersects the surface, and the intersection projects down to a curved 2D decision boundary" data-ambient-animation data-kernel-trick>
+      <div class="algorithm-plot kernel-trick-plot">
+        {{ partialCached "decorations/kernel-trick-fallback.html" . }}
+        <canvas width="300" height="260" aria-hidden="true"></canvas>
+        <span class="algorithm-axis lift-label" data-lift-axis style="left:64.93%;top:92.23%">$x_1$</span>
+        <span class="algorithm-axis lift-label" data-lift-axis style="left:39.47%;top:40.19%">$x_2$</span>
+        <span class="algorithm-axis lift-label" data-lift-axis style="left:7.27%;top:9.12%">$z$</span>
+      </div>
+    </figure>
+  </div>
+</div>
+{{ $scene := resources.Get "js/decorations/kmeans.js" | resources.Minify | resources.Fingerprint "sha512" }}
+<script defer src="{{ $scene.RelPermalink }}" integrity="{{ $scene.Data.Integrity }}"></script>
+{{ $svm := resources.Get "js/decorations/kernel-svm.js" | js.Build (dict "targetPath" "js/decorations/kernel-svm.js" "minify" true "target" "es2018") | resources.Fingerprint "sha512" }}
+<script defer src="{{ $svm.RelPermalink }}" integrity="{{ $svm.Data.Integrity }}"></script>
+{{ $lift := resources.Get "js/decorations/kernel-trick.js" | js.Build (dict "targetPath" "js/decorations/kernel-trick.js" "minify" true "target" "es2018") | resources.Fingerprint "sha512" }}
+<script defer src="{{ $lift.RelPermalink }}" integrity="{{ $lift.Data.Integrity }}"></script>
+{{ $visibility := resources.Get "js/decorations/visibility.js" | resources.Minify | resources.Fingerprint "sha512" }}
+<script defer src="{{ $visibility.RelPermalink }}" integrity="{{ $visibility.Data.Integrity }}"></script>

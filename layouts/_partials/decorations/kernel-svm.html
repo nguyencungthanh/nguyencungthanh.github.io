@@ -1,0 +1,16 @@
+{{ $data := resources.Get "js/decorations/kernel-svm-data.json" | transform.Unmarshal }}
+{{ $final := index $data.frames (sub (len $data.frames) 1) }}
+<svg viewBox="0 0 250 230" width="250" height="230" role="img" aria-label="An RBF kernel SVM learns a curved boundary between two interleaving moons, shown in blue and orange." xmlns="http://www.w3.org/2000/svg">
+  <path class="plot-axis" d="M22 22V211H230"/>
+  <g class="svm-boundary-layer" data-svm-layer>
+    <path class="svm-boundary" data-svm-boundary d="{{ $final.boundary }}"/>
+  </g>
+  <g class="svm-boundary-layer" data-svm-layer style="opacity:0" aria-hidden="true">
+    <path class="svm-boundary" data-svm-boundary/>
+  </g>
+  <g aria-hidden="true">
+    {{ range $point := $data.points }}
+      <circle class="svm-sample svm-class-{{ if eq (int $point.label) 1 }}positive{{ else }}negative{{ end }}" cx="{{ $point.x }}" cy="{{ $point.y }}" r="3.1"/>
+    {{ end }}
+  </g>
+</svg>
