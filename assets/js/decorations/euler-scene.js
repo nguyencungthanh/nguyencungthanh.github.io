@@ -19,10 +19,10 @@ import { createPolyhedra } from './polyhedra.js'
   let frame = null
   let previousPaint = 0
 
- const project = ([time, real, imaginary]) => [
+  const project = ([time, real, imaginary]) => [
   140 + 52 * time + 40 * real,
   130 - 15 * time - 60 * imaginary + 15 * real,
-]
+  ]
   const timeAt = angle => -HALF_LENGTH + 2 * HALF_LENGTH * angle / MAX_PHASE
   const angles = Array.from({ length: SEGMENTS + 1 }, (_, index) => index / SEGMENTS * MAX_PHASE)
   const helix = angles.map(angle => project([timeAt(angle), Math.cos(angle), Math.sin(angle)]))

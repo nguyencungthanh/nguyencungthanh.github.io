@@ -1,5 +1,24 @@
-.math-decoration-set { --math-accent: #6e66b3; --math-real: #b87828; --math-imaginary: #168b83; }
-:root.dark .math-decoration-set { --math-accent: #b5a8ef; --math-real: #e7b96f; --math-imaginary: #70d4c4; }
+.math-decoration-set {
+  --math-accent: #6e66b3;
+  --math-real: #b87828;
+  --math-imaginary: #168b83;
+  --math-border: var(--fg);
+  --math-panel-bg: transparent;
+  --math-formula: var(--math-accent);
+  --math-formula-secondary: var(--math-imaginary);
+  --math-formula-opacity: 0.75;
+}
+
+:root.dark .math-decoration-set {
+  --math-accent: #c4b5fd;
+  --math-real: #f0c483;
+  --math-imaginary: #78dcca;
+  --math-border: #2b3951;
+  --math-panel-bg: #111c30;
+  --math-formula: #d2c6ff;
+  --math-formula-secondary: #92e4d5;
+  --math-formula-opacity: 0.9;
+}
 .math-decorations {
   display: flex;
   align-items: center;
@@ -19,7 +38,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0.9rem 0.4rem;
-  border: 1px solid var(--fg);
+  border: 1px solid var(--math-border);
+  background-color: var(--math-panel-bg);
   border-radius: 0.6rem;
   color: var(--light-text);
   scroll-snap-align: center;
@@ -79,8 +99,8 @@
   .euler-label { font-size: 0.55rem; }
   .euler-equation { font-size: clamp(0.7rem, 1vw, 1rem); }
   .math-decoration .lorenz-equations { font-size: 0.8rem; }
-  .math-formula-cloud { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 0.65rem; padding: 0.4rem; color: var(--math-accent); opacity: 0.75; font: italic 0.85rem/1.5 var(--font-math); text-align: center; }
-  .math-formula-cloud span:nth-child(2) { color: var(--math-imaginary); transform: rotate(-3deg); }
+  .math-formula-cloud { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 0.65rem; padding: 0.4rem; color: var(--math-formula); opacity: var(--math-formula-opacity); font: italic 0.85rem/1.5 var(--font-math); text-align: center; }
+  .math-formula-cloud span:nth-child(2) { color: var(--math-formula-secondary); transform: rotate(-3deg); }
   .math-formula-cloud sup, .math-formula-cloud sub { font-size: 0.65em; }
   .math-gallery-hint { display: none; }
 }

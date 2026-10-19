@@ -8,7 +8,7 @@ The Hugo content and layout conventions stay in place. Content remains under
 | Responsibility | Source |
 | --- | --- |
 | Source Sans 3 variable font faces | `assets/css/fonts/source-sans-3.css` |
-| Lora variable heading font faces | `assets/css/fonts/lora.css` |
+| Literata variable heading font faces | `assets/css/fonts/literata.css` |
 | STIX Two Text variable font faces | `assets/css/fonts/stix-two-text.css` |
 | Interface and article font rules | `assets/css/typography.css` |
 | Equation containers and margin notes | `assets/css/components/math-content.css` |
@@ -16,14 +16,15 @@ The Hugo content and layout conventions stay in place. Content remains under
 | Local WOFF2 files and licenses | `static/fonts/<family>/` |
 | Single fingerprinted CSS bundle | `layouts/_partials/assets/css.html` |
 
-`--font-ui` selects Source Sans 3 for navigation, controls, and general reading.
-`--font-display` selects Lora for page headings and the site identity.
+`--font-ui` and `--font-display` currently select Literata for general reading,
+navigation, controls, page headings, and the site identity. Source Sans 3 remains
+available for small Canvas labels.
 `--font-math` selects STIX Two Text for articles with category `writings`
 or `projects`; `layouts/single.html` adds the `mathematics-post` class. Random
-Thought keeps the general reading family and its language selector.
+Thought uses the general reading family and its language selector.
 
 Technical article previews use the same reading face through `mathematics-card`
-in `layouts/_partials/list/item.html`; their titles use Lora. Headings inside
+in `layouts/_partials/list/item.html`; their titles use Literata. Headings inside
 technical articles retain STIX Two Text.
 
 All face definitions are in the shared stylesheet. Browsers only download the
@@ -63,6 +64,10 @@ into modules and bundled into one script by Hugo's `js.Build`.
 
 `PERIOD_SECONDS` controls rotation speed; `SEGMENTS` controls path resolution.
 CSS variables `--math-accent`, `--math-real`, and `--math-imaginary` set colors.
+The dark palette is defined in `:root.dark .math-decoration-set` in the writings
+stylesheet. Formula colors and opacity have independent `--math-formula`,
+`--math-formula-secondary`, and `--math-formula-opacity` tokens; panel background
+and border use `--math-panel-bg` and `--math-border`.
 Rendering is capped at 30 fps on desktop and 24 fps on phones. Backing resolution
 is limited to 720 pixels wide for the helix and 540 for the traces, with a pixel
 ratio of 1.5 on phones / 2 on desktop.

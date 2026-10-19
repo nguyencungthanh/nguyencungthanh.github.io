@@ -97,8 +97,8 @@ CSS also respects the visitor's reduced-motion preference.
 ### Mathematics Blog typography and decorations
 
 Mathematics Blog and Algorithm Project articles use self-hosted STIX Two Text
-for prose. Source Sans 3 is the interface and general reading font, including
-Random Thought; Lora supplies the page headings. MathJax retains its TeX SVG
+for prose. Literata is the interface, general reading, and heading font,
+including Random Thought. MathJax retains its TeX SVG
 rendering for formulas.
 
 The writings category uses the `mathematics-decorations` shortcode for two
