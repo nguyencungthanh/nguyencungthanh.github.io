@@ -12,7 +12,7 @@ tags:
 
 <center><b>Abstract</b></center>
 
-$\quad$ We study representations of functions of inner products via embeddings into Hilbert spaces. While polynomials with nonnegative coefficients admit a single feature map realization, this approach fails when negative coefficients are present. To address this limitation, we introduce a two-map framework. Specifically, for any analytic function $f(x) = \sum_{k=0}^{\infty} a_k x^k$ with global convergence, we construct a Hilbert space $H$ and transformations $\Phi, \Psi: \mathbb{R}^n \to H$ such that 
+$\quad$ We study representations of functions of inner products via embeddings into Hilbert spaces. While polynomials with nonnegative coefficients admit a single feature map realization, this approach fails when negative coefficients are present. To address this limitation, we introduce a two-map framework. Specifically, for any analytic function $f(x) = \sum_{k=0}^{\infty} a_k x^k$ with global convergence, we construct a Hilbert space $\mathcal{H}$ and transformations $\Phi, \Psi: \mathbb{R}^n \to \mathcal{H}$ such that 
 $$\langle \Phi(u), \Psi(v) \rangle = f(\langle u, v \rangle)
 \quad \text{for all } u, v \in \mathbb{R}^n.$$ 
 <!--more--> 
@@ -20,21 +20,21 @@ $$\langle \Phi(u), \Psi(v) \rangle = f(\langle u, v \rangle)
 ## 1. Real analytic function 
 We start with the following problem: 
 
-Let $P(x)$ be a polynomial with nonnegative coefficients, then there exists a Hilbert space $H$ and a transformation $\Phi : \mathbb{R}^n \to H$ such that: 
+Let $P(x)$ be a polynomial with nonnegative coefficients, then there exists a Hilbert space $\mathcal{H}$ and a transformation $\Phi : \mathbb{R}^n \to \mathcal{H}$ such that: 
 $$\langle \Phi(u), \Phi(v) \rangle = P(\langle u, v \rangle) \quad \text{for all } u, v \in \mathbb{R^n}.$$ 
-But our task can be impossible if $P$ has a negative coefficient since $\langle \Phi(u), \Phi(v) \rangle$ is always nonnegative. Therefore, a natural question is what if we consider two transformations $\Phi, \Psi: \mathbb{R}^n \to H?$ This leads us to a more general problem about analytic function as follow. 
+But our task can be impossible if $P$ has a negative coefficient since $\langle \Phi(u), \Phi(v) \rangle$ is always nonnegative. Therefore, a natural question is what if we consider two transformations $\Phi, \Psi: \mathbb{R}^n \to \mathcal{H}?$ This leads us to a more general problem about analytic function as follow. 
 
 Consider a function
 $$
 f(x) = \sum_{k=0}^{\infty} a_k x^k
 $$
-where the series absolutely converges for all $x \in \mathbb{R}$. There exist a Hilbert space $H$ and transformations $\Phi, \Psi : \mathbb{R}^n \to H$ such that
+where the series absolutely converges for all $x \in \mathbb{R}$. There exist a Hilbert space $\mathcal{H}$ and transformations $\Phi, \Psi : \mathbb{R}^n \to \mathcal{H}$ such that
 $$
 \langle \Phi(u), \Psi(v) \rangle = f(\langle u, v \rangle)
 \quad \text{for all } u, v \in \mathbb{R}^n.
 $$
 Also, for any unit vector $u$, we have 
-$$ \\|\Phi(u)\\|_H^2 = \\|\Psi(u)\\|_H^2 =\sum _{k=0}^{\infty} \|a_k\| .$$
+$$ \\|\Phi(u)\\|^2_\mathcal{H} = \\|\Psi(u)\\|^2_\mathcal{H} =\sum _{k=0}^{\infty} \|a_k\| .$$
 *Proof.* 
 
 For each $k \ge 0$, let $V_k = \mathbb{R}^{n^k}$ and define
@@ -45,7 +45,7 @@ $$
 
 with inner product
 $$
-\langle w, z \rangle_H = \sum_{k=0}^{\infty} \langle w_k, z_k \rangle_{V_k}.
+\langle w, z \rangle_\mathcal{H} = \sum_{k=0}^{\infty} \langle w_k, z_k \rangle_{V_k}.
 $$
 
 Consider $s_k = \operatorname{sign}(a_k)$ and write $a_k = s_k |a_k|$. For $u \in \mathbb{R}^n$, define
@@ -57,7 +57,7 @@ $$
 \Psi(v) = (s_0 \sqrt{|a_0|} v^{\otimes 0}, s_1 \sqrt{|a_1|} v^{\otimes 1}, \dots).
 $$
 
-Then we prove that $\Phi(u), \Psi(v) \in H$. Indeed, we have: 
+Then we prove that $\Phi(u), \Psi(v) \in \mathcal{H}$. Indeed, we have: 
 $$
 \left\\|\sqrt{|a_k|} u^{\otimes k}\right\\|^2 = |a_k| \left\\|u^{\otimes k}\right\\|^2 = |a_k| \\|u\\|^{2k}.
 $$
@@ -65,12 +65,12 @@ $$
 Thus,
 $$ \sum_{k=0}^{\infty}\left\\|\sqrt{|a_k|} u^{\otimes k}\right\\|^2 = \sum_{k=0}^{\infty} |a_k| \\|u\\|^{2k}
 $$
-converges, so $\Phi(u) \in H$. Similarly, $\Psi(v) \in H$.
+converges, so $\Phi(u) \in \mathcal{H}$. Similarly, $\Psi(v) \in \mathcal{H}$.
 
 On the other hand,
 $$
 \begin{aligned}
-\langle \Phi(u), \Psi(v) \rangle_H &=
+\langle \Phi(u), \Psi(v) \rangle_\mathcal{H} &=
 \sum_{k=0}^{\infty} \left\langle \sqrt{|a_k|} u^{\otimes k}, s_k \sqrt{|a_k|} v^{\otimes k}
 \right\rangle_{V_k} \\\\
 &= \sum_{k=0}^{\infty} s_k \|a_k\| \langle u^{\otimes k}, v^{\otimes k} \rangle\\\\
@@ -85,7 +85,7 @@ $$
 $$
 
 Hence, 
-$$\\|\Phi(u)\\|_H^2 = \sum _{k=0}^{\infty} \|a_k\| \\| u^{\otimes k} \\|^2 = \sum _{k=0}^{\infty} \|a_k\|.$$
+$$\\|\Phi(u)\\|_\mathcal{H}^2 = \sum _{k=0}^{\infty} \|a_k\| \\| u^{\otimes k} \\|^2 = \sum _{k=0}^{\infty} \|a_k\|.$$
 
 ### Example
 
@@ -94,7 +94,7 @@ $$
 \sin(cx) = cx - \frac{(cx)^3}{3!} + \frac{(cx)^5}{5!} - \ldots
 $$
 
-Thus, there exists a Hilbert space $H$ and transformation $\Phi, \Psi: \mathbb{R}^n \to H$ such that
+Thus, there exists a Hilbert space $\mathcal{H}$ and transformation $\Phi, \Psi: \mathbb{R}^n \to \mathcal{H}$ such that
 $$
 \langle \Phi(u), \Psi(v) \rangle = \sin(c \langle u, v \rangle)\quad \text{for all } u, v \in \mathbb{R}^n.
 $$
@@ -111,7 +111,7 @@ $$
 
 
 ## 2. Kernels and feature maps
-Given a function of two variables $ K : \mathcal{X} \times \mathcal{X} \to \mathbb{R},$ on some set sets $\mathcal{X}$, when can we find a Hilbert space $H$ and a transformation $\Phi : \mathcal{X} \to H$ so that
+Given a function of two variables $ K : \mathcal{X} \times \mathcal{X} \to \mathbb{R},$ on some set sets $\mathcal{X}$, when can we find a Hilbert space $\mathcal{H}$ and a transformation $\Phi : \mathcal{X} \to \mathcal{H}$ so that
 
 <span class="sidenote" id="note1">
     1. The kernel trick, which expresses a kernel $K(u, v)$ as an inner product, is widely used in machine learning because it lets us handle non-linear models (determined by $K$) with techniques designed for linear models.
@@ -131,7 +131,7 @@ $ (K(u_i, u_j))_{i,j=1}^N $ is symmetric and positive semidefinite.
 
 $-$ Transformation $\Phi$ is called a *feature map*.
 
-$-$ The Hilbert space $H$ is called a *reproducing kernel Hilbert space*<sup>3</sup> (RKHS). 
+$-$ The Hilbert space $\mathcal{H}$ is called a *reproducing kernel Hilbert space*<sup>3</sup> (RKHS). 
 <span class="sidenote" id="note3">
     3. <a href="https://arxiv.org/abs/2106.08443"> Reproducing Kernel Hilbert Space, Mercer's Theorem, Eigenfunctions, Nyström Method, and Use of Kernels in Machine Learning: Tutorial and Survey</a> (Ghojogh et al, 2021).
 </span>

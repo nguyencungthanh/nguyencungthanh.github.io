@@ -1,5 +1,6 @@
 {{ $isLong := strings.Contains .RawContent "<!--more-->" }}
-<article class='h-entry card'>
+{{ $isTechnical := or (in .Params.categories "writings") (in .Params.categories "projects") }}
+<article class='h-entry card{{ if $isTechnical }} mathematics-card{{ end }}'>
   {{- partialCached "post/header" (dict "Listing" true "Page" .) .Permalink true -}}
   {{- if $isLong }}
     {{- with .Summary }}

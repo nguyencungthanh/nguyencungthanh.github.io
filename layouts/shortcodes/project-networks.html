@@ -1,9 +1,9 @@
 <div class="project-networks" aria-hidden="true">
   {{ range slice "left" "right" }}
-    <div class="project-network project-network--{{ . }}">
-      {{ partialCached "projects/network.html" . }}
+    <div class="project-network project-network--{{ . }}" data-ambient-animation>
+      {{ partialCached "decorations/project-network.html" . }}
     </div>
   {{ end }}
 </div>
-{{ $script := resources.Get "js/project-networks.js" | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $script := resources.Get "js/decorations/visibility.js" | resources.Minify | resources.Fingerprint "sha512" }}
 <script defer src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>

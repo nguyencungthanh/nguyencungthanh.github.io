@@ -81,9 +81,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
-    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
-    sans-serif;
+  font-family: var(--font-ui);
   line-height: 1.25;
 }
 
@@ -1154,7 +1152,6 @@ nav a[aria-current='page'] {
   background: transparent; /* Override global nav a hover background */
 }
 
-
 /* =============================================================================
    23. SIDENOTE
    ============================================================================= */
@@ -1177,10 +1174,4 @@ nav a[aria-current='page'] {
 /* Muted link color inside post body */
 article.post-with-toc .post-body a {
   color: gray;
-}
-
-/* Use Computer Modern Serif font inside post body */
-article.post-with-toc .post-body {
-  font-family: "Computer Modern Serif", serif;
-  font-size: 1.1em
 }

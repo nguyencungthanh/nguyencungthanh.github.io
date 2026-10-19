@@ -1,19 +1,87 @@
-@media screen and (min-width: 53.001rem) {
-  body {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" width="100" height="20"><path d="M 0 10 Q 12.5 -5, 25 10 T 50 10 T 75 10 T 100 10" fill="none" stroke="%23007bff" stroke-width="3" stroke-linecap="round"/></svg>');
-    background-repeat: repeat-x;
-    background-position: 0 bottom;
-    background-attachment: fixed;
-    background-size: 10rem 2rem;
-    animation: wave-bg 2s linear infinite;
-  }
+.math-decoration-set { --math-accent: #6e66b3; --math-real: #b87828; --math-imaginary: #168b83; }
+:root.dark .math-decoration-set { --math-accent: #b5a8ef; --math-real: #e7b96f; --math-imaginary: #70d4c4; }
+.math-decorations {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 25rem;
+  margin: 1rem auto 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 }
-
-@keyframes wave-bg {
-  0% { 
-    background-position: 0 bottom;
-  }
-  100% { 
-    background-position: -5rem bottom; 
-  }
+.math-decorations::-webkit-scrollbar { display: none; }
+.math-rail { display: contents; }
+.math-decoration {
+  flex: 0 0 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.9rem 0.4rem;
+  border: 1px solid var(--fg);
+  border-radius: 0.6rem;
+  color: var(--light-text);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  pointer-events: none;
+  contain: layout paint;
 }
+.euler-heading { display: grid; gap: 0.5rem; text-align: center; }
+.euler-label { font-family: var(--font-ui); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; }
+.euler-equation { color: var(--text); font-family: var(--font-math); font-size: 1rem; line-height: 1.5; white-space: nowrap; }
+.euler-equation sup { font-size: 0.65em; }
+.euler-real { color: var(--math-real); }
+.euler-imaginary { color: var(--math-imaginary); }
+.euler-stage { position: relative; width: 100%; aspect-ratio: 300 / 280; margin-inline: auto; }
+.euler-canvas, .euler-fallback { width: 100%; height: 100%; }
+.euler-fallback { display: block; }
+.euler-canvas { display: none; }
+.is-rendered .euler-canvas { display: block; }
+.is-rendered .euler-fallback { display: none; }
+.math-decoration .euler-legend { display: flex; justify-content: center; gap: 1.1rem; padding: 0; font-family: var(--font-math); font-size: 0.8rem; line-height: 1.5; }
+.euler-stage--traces { max-width: 200px; aspect-ratio: 9 / 16; }
+.euler-stage--lorenz { aspect-ratio: 300 / 230; }
+.euler-stage--polyhedra { aspect-ratio: 300 / 264; }
+.math-decoration .lorenz-equations { display: grid; gap: 0.15rem; padding: 0; text-align: center; font: 0.9rem/1.35 var(--font-math); }
+.lorenz-equations small { margin-top: 0.3rem; color: var(--math-imaginary); font-size: 0.7rem; }
+.math-decoration .polyhedra-key { padding: 0; text-align: center; font: 0.65rem/1.4 var(--font-ui); }
+.math-formula-cloud { display: none; }
+.math-gallery-hint { display: flex; align-items: center; justify-content: center; gap: 0.4rem; margin: 0.8rem auto 1.5rem; color: var(--light-text); font: 0.7rem var(--font-ui); }
+.math-gallery-hint span { width: 4px; height: 4px; border: 1px solid var(--math-accent); border-radius: 50%; opacity: 0.55; }
+@media screen and (min-width: 40rem) and (max-width: 75.999rem) {
+  .math-decorations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; max-width: 48rem; overflow: visible; margin-bottom: 1.75rem; }
+  .math-gallery-hint { display: none; }
+}
+@media screen and (min-width: 76rem) {
+  .math-decorations { display: block; margin: 0; overflow: visible; }
+  .math-rail {
+    position: fixed;
+    top: 1.25rem;
+    bottom: 1.25rem;
+    width: min(300px, calc((100vw - 52rem) / 2 - 1.5rem));
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
+    gap: 0.9rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--fg) transparent;
+  }
+  .math-rail--left { right: calc(50% + 26rem + 0.6rem); }
+  .math-rail--right { left: calc(50% + 26rem + 0.6rem); }
+  .math-decoration { flex: 0 0 auto; width: 100%; padding: 0.7rem 0.3rem; }
+  .math-decoration--left .euler-stage { max-width: 220px; }
+  .euler-stage--traces { max-width: clamp(145px, calc((100svh - 31rem) * 9 / 16), 200px); }
+  .euler-stage--lorenz { max-width: 245px; }
+  .euler-label { font-size: 0.55rem; }
+  .euler-equation { font-size: clamp(0.7rem, 1vw, 1rem); }
+  .math-decoration .lorenz-equations { font-size: 0.8rem; }
+  .math-formula-cloud { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 0.65rem; padding: 0.4rem; color: var(--math-accent); opacity: 0.75; font: italic 0.85rem/1.5 var(--font-math); text-align: center; }
+  .math-formula-cloud span:nth-child(2) { color: var(--math-imaginary); transform: rotate(-3deg); }
+  .math-formula-cloud sup, .math-formula-cloud sub { font-size: 0.65em; }
+  .math-gallery-hint { display: none; }
+}
+@media print { .math-decoration-set { display: none; } }

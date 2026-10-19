@@ -1,5 +1,8 @@
 {{ define "main" }}
-  <article class='h-entry {{ if eq .Section "posts" }}post-with-toc{{ end }}'>
+  {{ $isRandomThought := in .Params.categories "random-thought" }}
+  {{ $isMathematics := or (in .Params.categories "writings") (in .Params.categories "projects") }}
+  {{ $isMultilingual := and $isRandomThought (strings.Contains .Content "data-post-lang=") }}
+  <article class='h-entry {{ if eq .Section "posts" }}post-with-toc{{ end }}{{ if $isRandomThought }} random-thought-post{{ end }}{{ if $isMathematics }} mathematics-post{{ end }}{{ if $isMultilingual }} multilingual-post{{ end }}'>
     {{- partialCached "post/header" (dict "Listing" false "Page" .) .Permalink false -}}
     
     <div class="post-layout">
@@ -15,10 +18,17 @@
       
       <!-- Main Content -->
       <div class="post-body">
+        {{ if $isMultilingual }}
+          {{ partial "post/language-switcher.html" . }}
+        {{ end }}
         {{- partialCached "post/content" . .Permalink }}
       </div>
     </div>
 
     {{- partialCached "post/footer" . .Permalink }}
   </article>
+  {{ if $isMultilingual }}
+    {{ $script := resources.Get "js/post-language.js" | resources.Minify | resources.Fingerprint "sha512" }}
+    <script defer src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+  {{ end }}
 {{ end }}

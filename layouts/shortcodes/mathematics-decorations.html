@@ -1,0 +1,68 @@
+<div class="math-decoration-set" aria-hidden="true">
+  <div class="math-decorations">
+    <div class="math-rail math-rail--left">
+      <figure class="math-decoration math-decoration--lorenz" data-ambient-animation data-euler-scene="lorenz">
+        <div class="euler-heading">
+          <span class="euler-label">LORENZ ATTRACTOR</span>
+        </div>
+        <div class="euler-stage euler-stage--lorenz">
+          <canvas class="euler-canvas" width="300" height="230"></canvas>
+          {{ partialCached "decorations/lorenz-fallback.html" . }}
+        </div>
+        <figcaption class="lorenz-equations">
+          <span>\(\dot{x}=\sigma(y-x)\)</span>
+          <span>\(\dot{y}=x(\rho-z)-y\)</span>
+          <span>\(\dot{z}=xy-\beta z\)</span>
+          <small>\(\sigma=10\;\cdot\;\rho=28\;\cdot\;\beta=8/3\)</small>
+        </figcaption>
+      </figure>
+      <figure class="math-decoration math-decoration--left" data-ambient-animation data-euler-scene="helix">
+        <div class="euler-heading">
+          <span class="euler-label">EULER / COMPLEX ROTATION</span>
+          <span class="euler-equation">
+                \(e^{\mathrm{i}\varphi}=\)
+          <span class="euler-real">\(\cos\varphi\)</span> \(+\mathrm{i}\)
+          <span class="euler-imaginary">\(\sin\varphi\)</span>
+          </span>
+        </div>
+        <div class="euler-stage">
+          <canvas class="euler-canvas" width="300" height="280"></canvas>
+          {{ partialCached "decorations/euler-fallback.html" . }}
+        </div>
+        <figcaption class="euler-legend"><span class="euler-real">Re · \(\cos \varphi\)</span><span class="euler-imaginary">Im · \(\sin \varphi\)</span></figcaption>
+      </figure>
+      <div class="math-formula-cloud">
+        <span>\(e^{\mathrm{i}\pi}+1=0\)</span>
+        <span>\(\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}\)</span>
+        <span>\(\displaystyle\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}\)</span>
+      </div>
+    </div>
+    <div class="math-rail math-rail--right">
+      <figure class="math-decoration math-decoration--right" data-ambient-animation data-euler-scene="traces">
+        <div class="euler-heading"><span class="euler-label">THE COMPLEX PLANE</span></div>
+        <div class="euler-stage euler-stage--traces">
+          <canvas class="euler-canvas" width="300" height="533"></canvas>
+          {{ partialCached "decorations/phase-traces-fallback.html" . }}
+        </div>
+      </figure>
+      <figure class="math-decoration math-decoration--polyhedra" data-ambient-animation data-euler-scene="polyhedra">
+        <div class="euler-heading"><span class="euler-label">EULER / CONVEX POLYHEDRA</span><span class="euler-equation"><i>V</i> − <i>E</i> + <i>F</i> = 2</span></div>
+        <div class="euler-stage euler-stage--polyhedra">
+          <canvas class="euler-canvas" width="300" height="264"></canvas>
+          {{ partialCached "decorations/polyhedra-fallback.html" . }}
+        </div>
+        <figcaption class="polyhedra-key">V · vertices &nbsp; E · edges &nbsp; F · faces</figcaption>
+      </figure>
+      <div class="math-formula-cloud">
+        <span>\(\displaystyle\int_{-\infty}^{\infty}e^{-x^2}\,dx=\sqrt{\pi}\)</span>
+        <span>\(\nabla\cdot(\nabla\times\mathbf{F})=0\)</span>
+        <span>\(\det(AB)=\det(A)\det(B)\)</span>
+      </div>
+    </div>
+  </div>
+  <div class="math-gallery-hint">Swipe to explore <span></span><span></span><span></span><span></span></div>
+</div>
+{{ $visibility := resources.Get "js/decorations/visibility.js" | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $euler := resources.Get "js/decorations/euler-scene.js" | js.Build (dict "targetPath" "js/decorations/euler-scene.js" "minify" true "target" "es2018") | resources.Fingerprint "sha512" }}
+<script defer src="{{ $visibility.RelPermalink }}" integrity="{{ $visibility.Data.Integrity }}"></script>
+<script defer src="{{ $euler.RelPermalink }}" integrity="{{ $euler.Data.Integrity }}"></script>

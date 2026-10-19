@@ -88,11 +88,30 @@ draft: false    # set true to hide from production build
 ### Algorithm Project decorations
 
 The projects category uses the `project-networks` shortcode to render both neural
-networks from `layouts/_partials/projects/network.html`. Edit this shared SVG to
+networks from `layouts/_partials/decorations/project-network.html`. Edit this shared SVG to
 change the topology. Colors, timing, and responsive placement live in
 `content/categories/projects/styles.css`. The page-specific
-`assets/js/project-networks.js` pauses animations offscreen and in hidden tabs;
+`assets/js/decorations/visibility.js` pauses animations offscreen and in hidden tabs;
 CSS also respects the visitor's reduced-motion preference.
+
+### Mathematics Blog typography and decorations
+
+Mathematics Blog and Algorithm Project articles use self-hosted STIX Two Text
+for prose. Source Sans 3 is the interface and general reading font, including
+Random Thought; Lora supplies the page headings. MathJax retains its TeX SVG
+rendering for formulas.
+
+The writings category uses the `mathematics-decorations` shortcode for two
+synchronized Euler scenes: a frontal helix with real/imaginary projections and
+a flat unit circle above progressively drawn real and imaginary plots.
+A small Canvas 2D renderer caches static geometry and shares a
+capped animation loop. SVG fallbacks remain available without JavaScript.
+Lorenz’s attractor and six convex polyhedra add two further mathematical scenes.
+Desktop uses two side rails with small formula fragments; tablets use a grid,
+and phones can swipe between the four panels.
+
+See [Frontend organization](docs/FRONTEND.md) for component paths, font settings,
+and animation performance controls.
 
 ---
 

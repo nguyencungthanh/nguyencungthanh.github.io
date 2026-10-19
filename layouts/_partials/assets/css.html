@@ -1,4 +1,10 @@
 {{ $normalize := resources.Get "css/vendor/normalize.css" }}
 {{ $base := resources.Get "css/styles.css" }}
-{{ $css := slice $normalize $base | resources.Concat "css/styles.css" | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $interfaceFont := resources.Get "css/fonts/source-sans-3.css" }}
+{{ $displayFont := resources.Get "css/fonts/lora.css" }}
+{{ $mathFont := resources.Get "css/fonts/stix-two-text.css" }}
+{{ $typography := resources.Get "css/typography.css" }}
+{{ $mathContent := resources.Get "css/components/math-content.css" }}
+{{ $languageControls := resources.Get "css/components/post-language.css" }}
+{{ $css := slice $normalize $interfaceFont $displayFont $mathFont $base $typography $mathContent $languageControls | resources.Concat "css/styles.css" | resources.Minify | resources.Fingerprint "sha512" }}
 <link rel='stylesheet' href='{{ $css.RelPermalink }}' integrity='{{ $css.Data.Integrity }}' />

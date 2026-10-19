@@ -1,0 +1,76 @@
+/* Language controls belong to the article, directly below its title and date. */
+.post-language-toolbar {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--fg);
+  border-radius: var(--radius);
+  background: var(--bg);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+}
+
+.post-language-label {
+  color: var(--light-text);
+}
+
+.post-language-options {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.2rem;
+  border: 1px solid var(--fg);
+  border-radius: calc(var(--radius) + 0.2rem);
+  background: var(--mg);
+}
+
+.post-language-button {
+  min-height: 2.75rem;
+  padding: 0.5rem 0.85rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--light-text);
+  font: inherit;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.post-language-button:hover {
+  background: var(--fg);
+  color: var(--text);
+}
+
+.post-language-button[aria-pressed="true"] {
+  background: hsl(var(--c-h), var(--c-s), 35%);
+  color: white;
+}
+
+.post-language-button:focus-visible {
+  outline: 2px solid var(--c);
+  outline-offset: 2px;
+}
+
+.post-language-toolbar[hidden],
+.post-language-button[hidden],
+.multilingual-post [data-post-lang][hidden] {
+  display: none;
+}
+
+.multilingual-post .post-body :is(h1, h2, h3, h4, h5, h6)[id] {
+  scroll-margin-top: 7.5rem;
+}
+
+@media print {
+  .post-language-toolbar { display: none; }
+}
+
+
