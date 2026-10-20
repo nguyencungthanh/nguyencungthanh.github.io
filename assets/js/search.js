@@ -1,128 +1,117 @@
-(function () {
-    const searchForm = document.getElementById('search-form');
-    const searchInput = searchForm.querySelector('input[name="q"]') || searchForm.querySelector('input[name="query"]');
-    const searchResults = document.getElementById('search-results');
-    const searchStatus = document.getElementById('search-status');
+import { findPages } from './search-model.mjs'
 
-    if (!searchForm || !searchResults) return;
+(() => {
+  const form = document.getElementById('search-form')
+  const input = form?.querySelector('input[name="q"]')
+  const results = document.getElementById('search-results')
+  const status = document.getElementById('search-status')
+  if (!form || !input || !results || !status) return
 
-    // Get query from URL
-    const params = new URLSearchParams(window.location.search);
-    const query = params.get('q') || params.get('query');
+  let indexPromise
+  let requestID = 0
+  let mathRendering = Promise.resolve()
 
-    if (query && searchInput) {
-        searchInput.value = query;
-        executeSearch(query);
-    } else {
-        if (searchStatus) searchStatus.innerHTML = "<div class='box'><p>ℹ️ You haven't searched for anything yet!</p></div>";
+  function setStatus(message) {
+    const box = document.createElement('div')
+    box.className = 'box'
+    const paragraph = document.createElement('p')
+    paragraph.textContent = message
+    box.appendChild(paragraph)
+    status.replaceChildren(box)
+  }
+
+  function loadIndex() {
+    if (!indexPromise) {
+      indexPromise = fetch(form.dataset.indexUrl).then(response => {
+        if (!response.ok) throw new Error('Failed to load search index')
+        return response.json()
+      }).catch(error => {
+        indexPromise = null
+        throw error
+      })
     }
+    return indexPromise
+  }
 
-    searchForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const newQuery = searchInput.value;
-        const url = new URL(window.location);
-        url.searchParams.set('q', newQuery);
-        window.history.pushState({}, '', url);
-        executeSearch(newQuery);
-    });
-
-    async function executeSearch(query) {
-        if (!query) return;
-
-        if (searchStatus) searchStatus.innerHTML = "<div class='box'><p>Searching...</p></div>";
-        searchResults.innerHTML = '';
-
-        try {
-            const response = await fetch('/search.json');
-            if (!response.ok) throw new Error('Failed to load search index');
-
-            const data = await response.json();
-            const options = {
-                shouldSort: true,
-                threshold: 0.6,
-                location: 0,
-                distance: 100,
-                maxPatternLength: 32,
-                minMatchCharLength: 1,
-                keys: [
-                    "title",
-                    "content",
-                    "tags",
-                    "summary"
-                ]
-            };
-
-            // Basic search implementation (can be replaced with Fuse.js if available/added)
-            // For now, simple case-insensitive includes
-            const lowerQuery = query.toLowerCase();
-            const results = data.filter(item => {
-                const titleMatch = item.title && item.title.toLowerCase().includes(lowerQuery);
-                const contentMatch = item.content && item.content.toLowerCase().includes(lowerQuery);
-                const summaryMatch = item.summary && item.summary.toLowerCase().includes(lowerQuery);
-                return titleMatch || contentMatch || summaryMatch;
-            });
-
-            renderResults(results);
-
-        } catch (error) {
-            console.error(error);
-            if (searchStatus) searchStatus.innerHTML = "<div class='box'><p>❌ An error occurred while searching</p></div>";
-        }
+  async function executeSearch(query) {
+    const currentID = ++requestID
+    window.MathJax?.typesetClear?.([results])
+    results.replaceChildren()
+    if (!query) {
+      setStatus("ℹ️ You haven't searched for anything yet!")
+      return
     }
-
-    function renderResults(results) {
-        if (results.length === 0) {
-            if (searchStatus) searchStatus.innerHTML = "<div class='box'><p>👀 Searched and searched, but nothing could be found!</p></div>";
-            return;
-        }
-
-        if (searchStatus) searchStatus.innerHTML = "";
-
-        // Using a fragment to minimize reflows
-        const fragment = document.createDocumentFragment();
-
-        results.forEach(item => {
-            const card = document.createElement('div');
-            card.className = 'card';
-
-            const header = document.createElement('header');
-            const link = document.createElement('a');
-            link.className = 'nl';
-            link.href = item.permalink;
-
-            const h2 = document.createElement('h2');
-            h2.textContent = item.title;
-            // h2.className = 'smaller'; // Optional based on original CSS
-
-            link.appendChild(h2);
-            header.appendChild(link);
-
-            if (item.date && !item.date.includes('0001')) {
-                const pDate = document.createElement('p');
-                pDate.className = 'lg small';
-                pDate.innerHTML = `Published on ${item.date}`;
-                header.appendChild(pDate);
-            }
-
-            const copy = document.createElement('div');
-            copy.className = 'copy';
-            const pSummary = document.createElement('p');
-            pSummary.textContent = item.summary || item.content.substring(0, 200) + '...';
-            copy.appendChild(pSummary);
-
-            const readMore = document.createElement('a');
-            readMore.href = item.permalink;
-            readMore.className = 'button small';
-            readMore.textContent = 'Read More →';
-
-            card.appendChild(header);
-            card.appendChild(copy);
-            card.appendChild(readMore);
-
-            fragment.appendChild(card);
-        });
-
-        searchResults.appendChild(fragment);
+    setStatus('Searching…')
+    try {
+      const index = await loadIndex()
+      // Rapid submissions and Back/Forward must never show an older query.
+      if (currentID !== requestID) return
+      renderResults(findPages(index, query))
+    } catch (error) {
+      if (currentID !== requestID) return
+      console.error(error)
+      setStatus('❌ An error occurred while searching. Please try again.')
     }
+  }
 
-})();
+  function renderResults(items) {
+    if (!items.length) {
+      setStatus('👀 Searched and searched, but nothing could be found!')
+      return
+    }
+    setStatus(`${items.length} ${items.length === 1 ? 'result' : 'results'} found.`)
+    const fragment = document.createDocumentFragment()
+    items.forEach(item => {
+      const card = document.createElement('article')
+      card.className = 'card'
+      const header = document.createElement('header')
+      const heading = document.createElement('h2')
+      const link = document.createElement('a')
+      link.className = 'nl'
+      link.href = item.permalink
+      link.textContent = item.title
+      heading.appendChild(link)
+      header.appendChild(heading)
+      if (item.date) {
+        const date = document.createElement('p')
+        date.className = 'lg small'
+        date.textContent = `Published on ${item.date}`
+        header.appendChild(date)
+      }
+      const summary = document.createElement('p')
+      summary.className = 'copy'
+      summary.textContent = item.summary || `${(item.content || '').slice(0, 200)}…`
+      const readMore = document.createElement('a')
+      readMore.href = item.permalink
+      readMore.className = 'button small'
+      readMore.textContent = 'Read More →'
+      card.append(header, summary, readMore)
+      fragment.appendChild(card)
+    })
+    results.replaceChildren(fragment)
+    // Later searches and history changes also need equation rendering.
+    mathRendering = mathRendering
+      .then(() => window.MathJax?.typesetPromise?.([results]))
+      .catch(error => console.error(error))
+  }
+
+  function searchFromURL() {
+    const params = new URLSearchParams(window.location.search)
+    input.value = (params.get('q') ?? params.get('query') ?? '').trim()
+    executeSearch(input.value)
+  }
+
+  form.addEventListener('submit', event => {
+    event.preventDefault()
+    const query = input.value.trim()
+    input.value = query
+    const url = new URL(window.location.href)
+    url.searchParams.delete('query')
+    if (query) url.searchParams.set('q', query)
+    else url.searchParams.delete('q')
+    if (url.href !== window.location.href) window.history.pushState({}, '', url)
+    executeSearch(query)
+  })
+  window.addEventListener('popstate', searchFromURL)
+  searchFromURL()
+})()

@@ -1,16 +1,16 @@
 {{ define "main" }}
 <eagle-page>
-    <form id='search-form' class='inline-form' action='{{ .Permalink }}' method='get'>
-        <input required type='search' name='q' placeholder="Search…" />
+    <form id='search-form' class='inline-form' action='{{ .RelPermalink }}' method='get' data-index-url='{{ (.Site.Home.OutputFormats.Get "SearchIndex").RelPermalink }}'>
+        <input type='search' name='q' placeholder="Search…" aria-label='Search the site' />
         <button>Search</button>
     </form>
 
-    <div id="search-status"></div>
+    <div id="search-status" role="status" aria-live="polite"></div>
     <div id="search-results">
         <!-- Results will be populated here by JS -->
     </div>
 </eagle-page>
 
-{{ $search := resources.Get "js/search.js" | resources.Minify | resources.Fingerprint }}
-<script src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+{{ $search := resources.Get "js/search.js" | js.Build (dict "targetPath" "js/search.js" "minify" true "target" "es2018") | resources.Fingerprint "sha512" }}
+<script defer src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
 {{ end }}

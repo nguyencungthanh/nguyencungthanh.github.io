@@ -3,6 +3,55 @@
 The Hugo content and layout conventions stay in place. Content remains under
 `content/`, while reusable rendering and styling live in `layouts/` and `assets/`.
 
+## CSS source organization
+
+The global stylesheet is split by responsibility:
+
+| Source | Responsibility |
+| --- | --- |
+| `assets/css/base.css` | Design tokens, element defaults, links and utilities |
+| `assets/css/layout.css` | Site header, container and float layout |
+| `assets/css/components/forms.css` | Inputs, selects and inline forms |
+| `assets/css/components/controls-and-cards.css` | Buttons, boxes and cards |
+| `assets/css/components/code.css` | Code blocks and syntax highlighting |
+| `assets/css/components/media.css` | Image previews and figure grids |
+| `assets/css/components/tables.css` | Tables and archive lists |
+| `assets/css/components/navigation.css` | Navigation, skip link and footer |
+| `assets/css/components/article.css` | Article layout, TOC and reading utilities |
+| `assets/css/theme.css` | Dark theme colors and theme visibility |
+| `assets/css/responsive.css` | Shared mobile and print overrides |
+
+Fonts, mathematical content, language controls, and publications retain their
+existing dedicated stylesheets. Page-specific styles remain next to the page's
+Markdown file as `styles.css`.
+
+`layouts/_partials/assets/css.html` explicitly controls source order. Hugo
+concatenates and minifies the sources into one fingerprinted `/css/styles…css`
+file; splitting source files does not add browser requests. Add new shared
+components to this ordered list rather than using browser-side `@import`.
+Publication styles are loaded separately only on publication pages.
+
+## Page scripts, search, and calculators
+
+- `layouts/_partials/assets/js.html` loads the shared theme, emoji, and image-preview
+  behavior. It is cached across pages.
+- `layouts/_partials/assets/page-js.html` bundles a page's optional `script.js`
+  resource, fingerprints it, and loads it with `defer` after the page markup.
+  This partial is deliberately not cached across pages. Page scripts can import
+  shared modules from `assets/` using paths such as `js/grade-model.mjs`.
+- `assets/js/search.js` owns search events, URL history, rendering, and a cached
+  index request. `search-model.mjs` matches title, content, summary, and tags.
+  The search template supplies the generated index URL instead of hard-coding it.
+- Calculator markup stays in `content/grade-calculator/*.html`; its event handlers
+  are in `script.js` and styling is in `styles.css`, following the same page-resource
+  convention. `assets/js/grade-model.mjs` handles numeric validation and formulas.
+  User-supplied names are inserted through `textContent`.
+
+Run `make check` before pushing. It builds into a temporary directory and checks
+local links, CSS/font assets, integrity hashes, duplicate IDs, JSON, XML, and
+required Atom entry fields. External URLs are not fetched.
+`python3 scripts/check-site.py public` checks an existing build.
+
 ## Typography
 
 | Responsibility | Source |

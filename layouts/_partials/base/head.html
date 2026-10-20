@@ -20,7 +20,10 @@
 
 <meta property='og:type' content='{{ if or .IsNode .IsHome }}website{{ else }}article{{ end }}' />
 <meta property='og:site_name' content='{{ .Site.Title }}' />
-<meta name="fediverse:creator" content="{{ .Site.Params.author.fediverse }}" />
+<meta property='og:title' content='{{ partial "fns/title" . }}' />
+<meta property='og:description' content='{{ partial "fns/description" . }}' />
+<meta property='og:url' content='{{ .Permalink }}' />
+{{ with .Site.Params.author.fediverse }}<meta name="fediverse:creator" content="{{ . }}" />{{ end }}
 
 {{ $imageUrl := or .Params.thumbnail (index (index .Params.photos 0) "url") }}
 {{ with $imageUrl }}
@@ -29,7 +32,12 @@
 {{- if eq $url.Scheme "image" }}
 {{- $src = printf "https://media.hacdias.com/image/1800/%s.jpeg" $url.Opaque }}
 {{- else }}
-{{- $src = printf "%s://%s%s" $url.Scheme $url.Host $url.Path }}
+{{- $src = absURL $imageUrl }}
+{{- if not $url.IsAbs }}
+{{- with $.Resources.GetMatch $url.Path }}
+{{- $src = .Permalink }}
+{{- end }}
+{{- end }}
 {{- end }}
 <meta property='og:image' content='{{ $src | safeURL }}' />
 {{ end }}
@@ -44,16 +52,17 @@
 
 {{ partialCached "assets/css.html" . }}
 
+{{ if eq .Section "publications" }}
+{{ $publicationsCSS := resources.Get "css/components/publications.css" | resources.Minify | resources.Fingerprint "sha512" }}
+<link rel="stylesheet" href="{{ $publicationsCSS.RelPermalink }}" integrity="{{ $publicationsCSS.Data.Integrity }}">
+{{ end }}
+
 {{ with .Resources.GetMatch "styles.css" }}
 <style> {{ .Content | safeCSS }} </style>
 {{ end }}
 
 {{ if .IsHome }}
-<link rel='indieauth-metadata' href='{{ absURL "/.well-known/oauth-authorization-server" }}'>
-<link rel='authorization_endpoint' href='{{ absURL "/auth" }}'>
-<link rel='token_endpoint' href='{{ absURL "/token" }}'>
-<link rel='micropub' href='{{ absURL "/micropub" }}'>
-<link rel='me' href='{{ absURL "/pubkey.asc" }}' rel='pgpkey'>
+<link rel='me pgpkey' href='{{ absURL "/pubkey.asc" }}'>
 {{ range .Site.Params.author.identities -}}
 <link rel='me' href='{{ . }}' />
 {{ end -}}

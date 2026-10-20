@@ -1,0 +1,96 @@
+.box,
+nav,
+button,
+.button,
+.buttons a,
+.buttons a:visited,
+.highlight>pre,
+main pre {
+  border: var(--border) solid var(--fg);
+  background-color: var(--mg);
+  border-radius: var(--radius);
+}
+
+.card {
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: var(--border) solid var(--fg);
+  display: block;
+}
+
+.card>* {
+  padding: 0 var(--ms);
+}
+
+.card>.button {
+  text-align: center;
+  clear: both;
+  border-width: var(--border) 0 0 0;
+  border-radius: 0 0 var(--radius) var(--radius);
+  display: block;
+}
+
+.box {
+  padding: var(--hms) var(--ms);
+}
+
+.box>*:first-child {
+  margin-top: 0;
+}
+
+.box>*:last-child {
+  margin-bottom: 0;
+}
+
+button,
+.button,
+.button:visited,
+.buttons a,
+.buttons a:visited {
+  text-decoration: none;
+  padding: var(--hms);
+  display: inline-block;
+  font-weight: 600;
+  height: 100%;
+  outline: 0;
+  cursor: pointer;
+  color: var(--text);
+}
+
+button:hover,
+.button:hover,
+.buttons a:hover {
+  background-color: var(--fg);
+}
+
+.buttons {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(246px, 1fr));
+  grid-gap: var(--hms);
+  margin: 0 0 var(--hms) 0;
+  font-size: var(--f5);
+}
+
+.buttons li {
+  display: block;
+  margin: 0;
+}
+
+.buttons a {
+  display: block;
+}
+
+.tb,
+.box,
+.fg,
+.buttons,
+.card,
+.card header,
+figure,
+.embedded-video,
+.media,
+nav {
+  margin: var(--ms) 0;
+}

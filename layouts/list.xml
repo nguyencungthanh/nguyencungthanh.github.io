@@ -25,9 +25,7 @@
     <link href="{{ .Permalink }}" />
     <id>{{ .Permalink }}</id>
     <published>{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</published>
-    {{- if .Lastmod.After .Date }}
-      <updated>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>
-    {{- end }}
+    <updated>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>
     {{- with partialCached "post/feed-content" . .Permalink }}
       {{ printf `<content type="html"><![CDATA[%s]]></content>` . | safeHTML }}
     {{- end }}

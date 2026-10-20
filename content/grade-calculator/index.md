@@ -5,8 +5,6 @@ draft: false
 layout: "single" 
 ---
 
-<link rel="stylesheet" href="style.css">
-
 {{< include-resource "gpa-calculator.html" >}}
 
 <!-- Divider -->

@@ -109,7 +109,11 @@ nguyencungthanh.github.io/
 │
 ├── assets/                  # ← Source files processed by Hugo Pipes
 │   ├── css/
-│   │   ├── styles.css       #   Main global stylesheet
+│   │   ├── base.css         #   Tokens and shared element defaults
+│   │   ├── layout.css       #   Header and page container
+│   │   ├── components/      #   Forms, cards, code, media, tables, navigation, articles
+│   │   ├── theme.css        #   Dark theme overrides
+│   │   ├── responsive.css   #   Shared mobile and print rules
 │   │   └── vendor/
 │   │       └── normalize.css #  CSS reset (downloaded by Makefile)
 │   └── js/
@@ -173,7 +177,7 @@ layouts/baseof.html ← wraps everything
     │           └── _partials/post/footer.html         │
     └── _partials/base/footer.html (copyright, toggle) │
                                                        │
-    assets/css/styles.css ─────────── processed by Hugo Pipes
+    assets/css/*.css + components/ ─── bundled by _partials/assets/css.html
     content/.../styles.css ─────────── inlined by head.html (if exists)
     assets/js/app.js ──────────────── loaded via _partials/assets/js.html
 ```
@@ -282,29 +286,23 @@ Proof content here.
 ```
 content/.../styles.css   (per-page, inlined in <head>)
       ↓
-assets/css/styles.css    (global, processed by Hugo Pipes)
+assets/css/*.css + components/  (global bundle, processed by Hugo Pipes)
       ↓
 assets/css/vendor/normalize.css  (CSS reset baseline)
 ```
 
-### Global CSS structure (`assets/css/styles.css`)
+### Global CSS structure
 
-The file is organized into these logical sections:
+Shared defaults live in `assets/css/base.css`, header/container rules in
+`layout.css`, and dark/mobile/print overrides in `theme.css` and `responsive.css`.
+Reusable features have dedicated files under `assets/css/components/`, including
+forms, controls/cards, code, media, tables, navigation, and article layout/TOC.
+Font definitions remain in `fonts/`, with font usage rules in `typography.css`.
 
-1. **CSS variables** — colors, fonts, spacing tokens
-2. **Base / reset** — body, typography defaults
-3. **Layout** — `.container`, `.post-layout`, `.post-body`
-4. **Header & navigation** — site nav, menu links
-5. **Post styles** — `.h-entry`, headings, prose
-6. **TOC sidebar** — `.toc-sidebar`, `.toc-sticky`
-7. **Sidenotes** — `.sidenote` positioning
-8. **Math / code** — code blocks, MathJax overrides
-9. **Lists / logs** — `.logs`, archive tables
-10. **Shortcode styles** — `.lemma`, `.proof` blocks
-11. **Forms** — contact, search inputs
-12. **Footer** — copyright, theme toggle
-13. **Dark mode** — `@media (prefers-color-scheme: dark)`
-14. **Responsive** — `@media (max-width: ...)` breakpoints
+`layouts/_partials/assets/css.html` lists sources in cascade order and combines
+them into one minified, fingerprinted stylesheet. The generated bundle is still
+named `css/styles…css`; there is no longer a monolithic source `styles.css`.
+See [Frontend organization](docs/FRONTEND.md) for the file map.
 
 ### Adding styles for a specific page
 
@@ -315,7 +313,7 @@ The file is organized into these logical sections:
 ### Updating vendor CSS/JS
 
 ```bash
-make all        # clean + re-download normalize.css + twemoji.js
+make vendor     # refresh both pinned vendor versions (normal builds are offline)
 make normalize  # re-download normalize.css only
 make twemoji    # re-download twemoji.js only
 ```
@@ -474,6 +472,7 @@ Site will be available at: `http://localhost:1313`
 hugo --minify          # outputs to public/
 # or
 make build
+make check             # fresh build + local links/assets/feed checks
 ```
 
 ### Deployment (GitHub Pages)
@@ -482,8 +481,13 @@ Deployment is automatic via **GitHub Actions** (`.github/workflows/`).
 
 On every push to `main`:
 1. GitHub Actions checks out the repo
-2. Runs `hugo --minify`
-3. Deploys `public/` to GitHub Pages
+2. Uses Hugo extended 0.151.0
+3. Builds with `hugo --minify --panicOnWarning` and validates local links, assets, and feeds
+4. Deploys `public/` to GitHub Pages only after all checks pass
+
+Pull requests to `main` run the build checks without deploying.
+`make` and `make all` build the site. `make clean` removes generated output;
+vendor sources are refreshed only with `make vendor`.
 
 **You never need to commit `public/` manually.**
 
@@ -511,7 +515,7 @@ make favicon
 | Add per-page styles               | Create `styles.css` next to `index.md`                |
 | Add a new shortcode               | Create `layouts/shortcodes/my-shortcode.html`         |
 | Change site title/author          | Edit `[params.author]` in `config.toml`               |
-| Update vendor CSS/JS              | `make all`                                            |
+| Update vendor CSS/JS              | `make vendor`                                         |
 | Add book entry                    | Append to `data/books.yaml`                           |
 | Change TOC behavior               | Edit `layouts/single.html` and related CSS            |
 | Change post footer links          | Edit `layouts/_partials/post/footer.html`             |

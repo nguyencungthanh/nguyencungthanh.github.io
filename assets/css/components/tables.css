@@ -1,0 +1,93 @@
+table {
+  width: 100%;
+  margin: 1rem 0;
+  overflow: auto;
+  border-collapse: collapse;
+}
+
+table thead {
+  background-color: var(--fg);
+  font-weight: 700;
+}
+
+table th,
+table td {
+  padding: var(--hms);
+  border: var(--border) solid var(--fg);
+}
+
+table tr {
+  border-top: var(--border) solid var(--fg);
+}
+
+table tr:nth-child(2n) {
+  background-color: var(--mg);
+}
+
+table img {
+  background-color: transparent;
+}
+
+
+/* =============================================================================
+   13. COMPONENTS — LIST TABLE (.tb / .tbh)
+   ============================================================================= */
+.tbh {
+  position: sticky;
+  top: 0;
+  margin: 0;
+  padding: var(--hms) 0;
+  background: var(--bg);
+  border-bottom: calc(2 * var(--border)) solid var(--c);
+  color: var(--c);
+  z-index: 100;
+}
+
+.tbh small {
+  font-weight: 400;
+}
+
+.tb {
+  padding: 0;
+  list-style-type: none;
+  line-height: 1.25;
+}
+
+.tbh+.tb {
+  margin: 0;
+}
+
+.tb li {
+  display: grid;
+  margin: 0;
+  grid-gap: 1rem;
+  align-items: center;
+}
+
+.tb li:not(:last-of-type) {
+  border-bottom: var(--border) solid var(--fg);
+}
+
+.tb li:hover {
+  background-color: var(--mg);
+}
+
+.tb li>* {
+  display: block;
+  margin: var(--hms) 0;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  overflow: hidden;
+}
+
+.tb li>*:first-child {
+  font-weight: 600;
+}
+
+.box.tb li {
+  padding: 0 var(--ms);
+}
+
+.box.tb li:hover {
+  background-color: var(--fg);
+}

@@ -1,0 +1,34 @@
+{{ $pages := .RegularPages.ByDate.Reverse }}
+{{ $settings := .Site.Data.publications | default dict }}
+{{ $mode := $settings.mode | default "manual" }}
+{{ $ordered := $pages }}
+{{ if eq $mode "manual" }}
+  {{ $byID := dict }}
+  {{ range $pages }}
+    {{ $byID = merge $byID (dict .File.ContentBaseName .) }}
+  {{ end }}
+  {{ $selected := slice }}
+  {{ $manual := slice }}
+  {{ range $settings.order }}
+    {{ $id := . }}
+    {{ with index $byID $id }}
+      {{ if not (in $selected $id) }}
+        {{ $manual = $manual | append . }}
+        {{ $selected = $selected | append $id }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ $ordered = slice }}
+  {{/* Keep new papers visible without requiring an order-file edit. */}}
+  {{ range $pages }}
+    {{ if not (in $selected .File.ContentBaseName) }}
+      {{ $ordered = $ordered | append . }}
+    {{ end }}
+  {{ end }}
+  {{ range $manual }}
+    {{ $ordered = $ordered | append . }}
+  {{ end }}
+{{ else if ne $mode "newest-first" }}
+  {{ errorf "Invalid publications ordering mode %q in data/publications.yaml; use manual or newest-first" $mode }}
+{{ end }}
+{{ return $ordered }}

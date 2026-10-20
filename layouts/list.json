@@ -1,35 +1,34 @@
-{{ $pageTitle := partialCached "fns/title" . .Title .Data.Singular }}
-{{- $pages := .Pages }}
-{{ if .IsHome }}{{ $pages = partialCached "fns/pages" . .Permalink }}{{ end }}
-{{- $pages = $pages | first .Site.Config.Services.RSS.Limit }}
-{
-  "version": "https://jsonfeed.org/version/1",
-  "title": "{{ printf "%s - %s" $pageTitle .Site.Title }}",
-  "home_page_url": "{{ .Permalink }}",
-  "feed_url": "{{ .Permalink }}feed.json",
-  "author": {
-    "name": "{{ .Site.Params.author.name }}",
-    "url": "{{ absURL "/" }}",
-    "avatar": "{{ .Site.Params.author.photo }}"
-  },
-  "items": [
-    {{- range $index, $page := $pages }}
-    {{ if ge $index 1 }}, {{end}}{
-      "id": {{ .Permalink | jsonify }},
-      "url": {{ .Permalink | jsonify }},
-      "title": {{ partialCached "fns/title" . .Title .Data.Singular | jsonify }},
-      "summary": {{ .Summary | jsonify }},
-      "date_published": {{ dateFormat "2006-01-02T15:04:05-07:00" .Date | jsonify }},
-      "date_modified": {{ dateFormat "2006-01-02T15:04:05-07:00" .Lastmod | jsonify }},
-      "content_html": {{ partialCached "post/feed-content" . .Permalink | jsonify }}{{ with .Params.tags }},
-      "tags": [
-        {{ range $i, $t := sort . -}}
-          {{- if ne $i 0 }}, {{ end -}}
-          {{ $page := $.Page.Site.GetPage (printf "/tags/%s" $t) }}
-          "{{ $page.Title }}"
-        {{- end -}}
-      ]{{ end }}
-    }
-    {{ end }}
-  ]
-}
+{{- $pageTitle := partialCached "fns/title" . .Title .Data.Singular -}}
+{{- $pages := .Pages -}}
+{{- if .IsHome -}}{{- $pages = partialCached "fns/pages" . .Permalink -}}{{- end -}}
+{{- $pages = $pages | first .Site.Config.Services.RSS.Limit -}}
+{{- $items := slice -}}
+{{- range $pages -}}
+  {{- $item := dict
+    "id" .Permalink
+    "url" .Permalink
+    "title" (partialCached "fns/title" . .Title .Data.Singular)
+    "summary" (.Summary | plainify | htmlUnescape)
+    "date_published" (.Date.Format "2006-01-02T15:04:05-07:00")
+    "date_modified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
+    "content_html" (partialCached "post/feed-content" . .Permalink)
+  -}}
+  {{- $tags := slice -}}
+  {{- range .GetTerms "tags" -}}{{- $tags = $tags | append .Title -}}{{- end -}}
+  {{- with $tags -}}{{- $item = merge $item (dict "tags" .) -}}{{- end -}}
+  {{- $items = $items | append $item -}}
+{{- end -}}
+{{- $author := dict
+  "name" .Site.Params.author.name
+  "url" (absURL "/")
+  "avatar" (absURL .Site.Params.author.photo)
+-}}
+{{- dict
+  "version" "https://jsonfeed.org/version/1"
+  "title" (printf "%s - %s" $pageTitle .Site.Title)
+  "home_page_url" .Permalink
+  "feed_url" (.OutputFormats.Get "JSON").Permalink
+  "author" $author
+  "items" $items
+  | jsonify
+-}}

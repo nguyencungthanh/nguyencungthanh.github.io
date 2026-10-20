@@ -1,0 +1,95 @@
+/* =============================================================================
+   6. LAYOUT — HEADER & NAVBAR
+   ============================================================================= */
+#header,
+#header #home {
+  display: flex;
+  align-items: center;
+}
+
+.contact-header-btn {
+  margin-left: auto;
+  margin-right: 0.5rem;
+  font-size: var(--f5);
+  padding: 0.2rem 0.5rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+#header form {
+  font-size: var(--f5);
+  margin-bottom: 0;
+}
+
+#header form input {
+  width: 12rem;
+}
+
+#header form button:hover {
+  background: var(--fg);
+}
+
+#header p {
+  margin: 0;
+}
+
+#header .avatar {
+  width: 5rem;
+  margin-right: var(--ms);
+}
+
+#header .avatar img {
+  display: block;
+}
+
+#header .name {
+  font-weight: 700;
+  font-size: var(--f3);
+}
+
+#header label {
+  display: none;
+}
+
+#navbar {
+  width: calc(100% + 2 * var(--ls));
+  margin-top: 0;
+  margin-bottom: var(--hls);
+  margin-left: calc(var(--ls) * -1);
+}
+
+#navbar label {
+  display: none;
+}
+
+
+/* =============================================================================
+   7. LAYOUT — CONTAINER & FLOAT HELPERS
+   ============================================================================= */
+.container {
+  width: 100%;
+  background-color: var(--bg);
+  max-width: var(--max-width);
+  padding: var(--ms) var(--ls);
+  margin: 0 auto;
+}
+
+.left,
+.right {
+  max-width: clamp(10rem, 40%, 20rem);
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+.left {
+  float: left;
+  margin-right: 1rem;
+}
+
+.right {
+  float: right;
+  margin-left: 1rem;
+}

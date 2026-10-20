@@ -4,12 +4,14 @@
 {{- $pages = where $pages "Params.headless" "ne" true -}}
 {{- $pages = where $pages "Section" "ne" "watches" -}}
 {{- range $pages -}}
+  {{- $date := "" -}}
+  {{- if not .Date.IsZero -}}{{- $date = .Date.Format "2 January 2006" -}}{{- end -}}
   {{- $item := dict 
     "title" .Title 
     "permalink" .RelPermalink 
-    "summary" (.Summary | plainify) 
-    "content" .Plain 
-    "date" (.Date.Format "2 January 2006") 
+    "summary" (.Summary | plainify | htmlUnescape)
+    "content" (.Plain | htmlUnescape)
+    "date" $date
     "tags" .Params.tags 
   -}}
   {{- $list = $list | append $item -}}

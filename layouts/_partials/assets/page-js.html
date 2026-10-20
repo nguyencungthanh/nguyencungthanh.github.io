@@ -1,0 +1,4 @@
+{{ with .Resources.GetMatch "script.js" }}
+  {{ $script := . | js.Build (dict "targetPath" (printf "js/pages%sscript.js" $.RelPermalink) "minify" true "target" "es2018") | resources.Fingerprint "sha512" }}
+  <script defer src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+{{ end }}

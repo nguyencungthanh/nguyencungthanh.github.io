@@ -2,3 +2,5 @@ public
 resources
 hugo
 *.lock
+.DS_Store
+__pycache__/

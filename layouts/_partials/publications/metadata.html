@@ -1,0 +1,19 @@
+{{ with .Params.authors }}
+  <p class="pub-authors">{{ delimit . ", " }}</p>
+{{ end }}
+<div class="pub-meta">
+  {{ with .Params.status }}
+    {{ $labels := dict "preprint" "Preprint" "submitted" "Submitted" "under-review" "Under review" "accepted" "Accepted" "published" "Published" "in-preparation" "In preparation" }}
+    <span class="pub-status pub-status--{{ . | urlize }}">{{ index $labels . | default (. | humanize) }}</span>
+  {{ end }}
+  {{ with .Params.venue }}
+    <span class="pub-venue">{{ if in (slice "submitted" "under-review") $.Params.status }}Submitted to {{ end }}{{ . }}</span>
+  {{ end }}
+  {{ with .Params.paper_url }}
+    {{ $paperURL := . }}
+    {{ if not (or (urls.Parse .).IsAbs (strings.HasPrefix . "/")) }}
+      {{ $paperURL = printf "%s%s" $.RelPermalink . }}
+    {{ end }}
+    <a class="pub-link" href="{{ $paperURL }}" aria-label="{{ printf "Read the paper: %s" $.Title }}">[<span class="pub-link-label">pdf</span>]</a>
+  {{ end }}
+</div>

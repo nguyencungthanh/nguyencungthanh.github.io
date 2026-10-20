@@ -62,6 +62,7 @@ printPathWarnings = true
     description = "Nguyen Cung Thanh"
   [params.author]
     name = 'Nguyen Cung Thanh'
+    photo = '/animation_avatar(2).PNG'
     email = 'nguyencungthanh11@gmail.com'
     handle = 'nguyencungthanh'
     identities = [

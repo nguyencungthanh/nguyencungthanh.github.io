@@ -1,0 +1,40 @@
+input,
+select,
+textarea {
+  padding: 0.5rem;
+  border: 1px solid var(--fg);
+  outline: 0;
+  min-width: 0;
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--c);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background-color: var(--mg);
+  cursor: not-allowed;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.inline-form {
+  display: flex;
+}
+
+.inline-form input:first-of-type {
+  flex-grow: 1;
+}
+
+.inline-form button {
+  margin-left: var(--hms);
+}

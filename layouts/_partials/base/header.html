@@ -20,8 +20,8 @@
   <a href='{{ relURL "/contact/" }}' class='button contact-header-btn'>📩 Contact</a>
 
   <form action='{{ relURL "/search/" }}' method='get' class='inline-form'>
-    <input type='text' placeholder='Search…' id='query' name='query' />
-    <button alt='Search'>🔎</button>
+    <input type='search' placeholder='Search…' id='query' name='q' aria-label='Search the site' />
+    <button type='submit' aria-label='Search'>🔎</button>
   </form>
 </div>
 

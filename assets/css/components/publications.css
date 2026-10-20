@@ -1,0 +1,24 @@
+/* Shared by the publication index and every paper detail page. */
+.publication-list { list-style: none; margin: 1.5rem 0 0; padding: 0; }
+.publication-list > li { margin: 0; padding: 0; }
+.publication-entry { padding: 1.25rem 0; border-bottom: 1px solid var(--fg); overflow-wrap: anywhere; }
+.publication-entry .pub-title { margin: 0 0 .4rem; font-size: 1.15rem; line-height: 1.45; }
+.pub-title a { color: var(--text); text-decoration: none; }
+.pub-title a:hover, .pub-title a:focus-visible { color: var(--c); text-decoration: underline; text-underline-offset: .16em; }
+.pub-authors { margin: 0 0 .4rem; font-size: .95rem; line-height: 1.6; }
+.pub-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .8rem; color: var(--light-text); font-size: .85rem; line-height: 1.6; overflow-wrap: anywhere; }
+.pub-status { font-weight: 600; }
+.pub-status--published, .pub-status--accepted { color: #267344; }
+.pub-status--submitted, .pub-status--under-review { color: #8a6217; }
+:root.dark .pub-status--published, :root.dark .pub-status--accepted { color: #84d5a0; }
+:root.dark .pub-status--submitted, :root.dark .pub-status--under-review { color: #e4be70; }
+.pub-link { white-space: nowrap; text-decoration: none; }
+.pub-link-label { color: var(--c); text-decoration: underline; text-underline-offset: .15em; }
+.publication-detail > header h1 { overflow-wrap: anywhere; }
+.publication-content { margin-top: 2rem; }
+.publication-content h2 { margin-top: 2rem; font-size: 1.35rem; }
+.pub-back { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--fg); }
+@media (max-width: 40rem) {
+  .publication-entry .pub-title { font-size: 1.05rem; }
+  .pub-authors { font-size: .9rem; }
+}

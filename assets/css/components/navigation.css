@@ -1,0 +1,65 @@
+nav {
+  display: flex;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+nav a,
+nav label {
+  flex-grow: 1;
+  padding: var(--hms);
+  text-align: center;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav label:hover {
+  background-color: var(--fg);
+}
+
+nav a[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+nav a[aria-current='page'] {
+  background-color: var(--fg);
+  font-weight: 700;
+}
+
+
+/* =============================================================================
+   15. COMPONENTS — SKIP-TO-CONTENT (Accessibility)
+   ============================================================================= */
+#skip-to-content {
+  position: absolute;
+  top: -20em;
+}
+
+#skip-to-content:hover,
+#skip-to-content:focus {
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-inline: auto;
+  width: max-content;
+  background: var(--fg);
+  color: var(--c);
+  padding: var(--hms);
+  font-weight: 700;
+}
+
+
+/* =============================================================================
+   16. COMPONENTS — FOOTER
+   ============================================================================= */
+#footer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#footer>div {
+  margin-bottom: var(--hms);
+}

@@ -1,0 +1,119 @@
+.roman-paren {
+  list-style-type: lower-roman;
+}
+
+.roman-paren li::marker {
+  content: counter(list-item, lower-roman) ") ";
+}
+
+.post-layout {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+/* Hidden by default on mobile */
+.toc-sidebar {
+  flex: 0 0 px;
+  display: none;
+}
+
+.post-body {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Show TOC on larger screens */
+@media screen and (min-width: 75rem) {
+  .post-layout {
+    position: relative;
+    display: block;
+  }
+
+  .toc-sidebar {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 270px;
+    height: 100%;
+    padding-right: 3rem;
+  }
+}
+
+
+/* =============================================================================
+   22. TOC — STYLES (.toc-sticky)
+   ============================================================================= */
+.toc-sticky {
+  /* Not sticky — scrolls out of view with the page */
+}
+
+.toc-heading {
+  margin-top: 0;
+  font-size: var(--f4);
+  color: var(--c);
+  text-transform: uppercase;
+}
+
+/* Override global nav flex for TOC nav */
+.toc-sticky nav {
+  display: block;
+  font-weight: normal;
+  overflow: visible;
+}
+
+.toc-sticky nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.toc-sticky nav ul ul {
+  padding-left: 1rem;
+}
+
+/* Override global li margin */
+.toc-sticky nav li {
+  margin: 0;
+}
+
+.toc-sticky nav a {
+  text-decoration: none;
+  font-size: var(--f5);
+  color: var(--light-text);
+  display: block;
+  padding: 0.25rem 0;
+  line-height: 1.4;
+  text-align: left; /* Override global nav a center align */
+  font-weight: normal;
+}
+
+.toc-sticky nav a:hover {
+  color: var(--c);
+  background: transparent; /* Override global nav a hover background */
+}
+
+/* =============================================================================
+   23. SIDENOTE
+   ============================================================================= */
+.sidenote {
+  color: inherit;
+  float: right;
+  clear: right;
+  margin-right: -300px;
+  width: 250px;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+}
+
+
+/* =============================================================================
+   24. POST-SPECIFIC OVERRIDES
+       Scoped to article.post-with-toc to avoid bleeding into other pages.
+   ============================================================================= */
+
+/* Muted link color inside post body */
+article.post-with-toc .post-body a {
+  color: gray;
+}

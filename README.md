@@ -6,6 +6,22 @@
 🌐 **Live site**: [nguyencungthanh.github.io](https://nguyencungthanh.github.io)
 
 ---
+## Local development and checks
+
+Use **Hugo extended 0.151.0** (the version pinned in CI). Build checks require
+Python 3. No npm packages are needed.
+Vendor CSS and JavaScript are committed, so a normal build needs no downloads.
+
+```bash
+make watch   # Preview at http://localhost:1313
+make check   # Fresh production build + local links, assets and feed checks
+make build   # Generate public/
+make clean   # Remove generated output; keep vendor source files
+make vendor  # Explicitly refresh pinned normalize.css and Twemoji versions
+```
+
+Pull requests run the same checks; pushes to `main` deploy only after they pass.
+
 ## Creating Content
 
 ### New Blog Post
@@ -15,7 +31,21 @@ make new name=your-post-slug kind=article
 # Creates: content/posts/YYYY/MM/DD/your-post-slug/index.md
 ```
 
-### Front Matter
+### New Publication
+
+```bash
+make new-publication name=your-paper-slug
+# Creates: content/publications/your-paper-slug/index.md
+```
+
+Fill in the metadata and four Markdown sections, then set `draft: false`.
+The publication index updates automatically. See [Adding publications](docs/PUBLICATIONS.md)
+for fields, ordering, paper links, and local PDF attachments.
+Reorder papers in `data/publications.yaml` by moving folder names, or set
+`mode: newest-first` for automatic date ordering. New papers appear at the top
+without editing existing papers.
+
+### Blog Front Matter
 
 ```yaml
 ---
@@ -51,7 +81,8 @@ draft: false    # set true to hide from production build
 │   ├── _index.md        # Homepage (intro text + featured posts list)
 │   └── posts/YYYY/MM/DD/slug/
 │       ├── index.md     # Post content + front matter
-│       └── styles.css   # (Optional) per-post custom CSS, auto-inlined
+│       ├── styles.css   # (Optional) per-page CSS, auto-inlined
+│       └── script.js    # (Optional) per-page JS, bundled and deferred
 │
 ├── layouts/             # Hugo HTML templates
 │   ├── baseof.html      # Root wrapper (head/header/main/footer)
@@ -61,12 +92,13 @@ draft: false    # set true to hide from production build
 │   └── shortcodes/      # Custom shortcodes
 │
 ├── assets/
-│   ├── css/styles.css   # Global stylesheet (Hugo Pipes)
-│   └── js/app.js        # Theme toggle, Twemoji, search
+│   ├── css/             # Base, layout, theme and component styles (Hugo Pipes)
+│   └── js/              # Shared behavior, search, calculator models, decorations
 │
 ├── static/              # Files served as-is (favicon, robots.txt, avatar)
 ├── data/                # Structured data for books, watches, feeds
 ├── archetypes/          # Templates for `hugo new`
+├── scripts/             # Build checks and decoration data generators
 └── public/              # Build output (auto-generated, do not edit)
 ```
 
@@ -82,15 +114,16 @@ draft: false    # set true to hide from production build
 - **Per-page CSS** — Add `styles.css` next to any `index.md` for isolated styles
 - **Search** — Full-text search powered by a JSON index
 - **Atom + JSON feeds** — Subscribe at `/feed.xml` or `/feed.json`
-- **Dark mode** — Automatic via `prefers-color-scheme`
+- **Dark mode** — System preference with a manual override
 - **Taxonomy** — Posts organized by `tags` and `categories`
 
 ### Algorithm Project decorations
 
-The projects category uses the `project-networks` shortcode to render both neural
-networks from `layouts/_partials/decorations/project-network.html`. Edit this shared SVG to
-change the topology. Colors, timing, and responsive placement live in
-`content/categories/projects/styles.css`. The page-specific
+The projects category uses the `cs-ai-decorations` shortcode to render K-Means,
+kernel SVM, the kernel trick, A* search, and maze generation. Their models and
+renderers live in `assets/js/decorations/`; static fallbacks are in
+`layouts/_partials/decorations/`. Colors and responsive placement live in
+`content/categories/projects/styles.css`. The shared
 `assets/js/decorations/visibility.js` pauses animations offscreen and in hidden tabs;
 CSS also respects the visitor's reduced-motion preference.
 

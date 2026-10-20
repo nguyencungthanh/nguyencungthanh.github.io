@@ -1,11 +1,13 @@
 const mql = window.matchMedia('(prefers-color-scheme: dark)')
+let userTheme = null
+try { userTheme = localStorage.getItem('t') } catch {}
 
 function toggleTheme(to) {
-  if (to) {
-    localStorage.setItem('t', to)
-  } else {
-    localStorage.removeItem('t')
-  }
+  userTheme = to || null
+  try {
+    if (to) localStorage.setItem('t', to)
+    else localStorage.removeItem('t')
+  } catch {}
 
   handleTheme()
 }
@@ -15,8 +17,7 @@ function handleTheme(query) {
     query = mql
   }
 
-  const userOption = localStorage.getItem('t')
-  const addDark = userOption === null ? query.matches : userOption === 'd'
+  const addDark = userTheme === null ? query.matches : userTheme === 'd'
 
   if (addDark) {
     document.documentElement.classList.add('dark')
@@ -63,16 +64,16 @@ function addEmoji() {
   }
 
   const el = document.querySelector('#header .name')
-  if (emoji) {
+  if (emoji && el) {
     const span = document.createElement('span')
     span.title = title
     span.innerText = emoji
-    el.innerHTML += ' '
-    el.appendChild(span)
+    el.append(' ', span)
   }
 }
 
 function parseEmojis() {
+  if (typeof twemoji === 'undefined') return
   twemoji.parse(document.body, {
     base: 'https://media.hacdias.com/emoji/16.0.1/',
     folder: 'svg',
@@ -85,9 +86,18 @@ function setupPreview() {
 
   preview.id = 'preview'
   preview.className = 'dn'
-  preview.addEventListener('click', () => {
+  preview.tabIndex = -1
+  preview.setAttribute('role', 'dialog')
+  preview.setAttribute('aria-label', 'Image preview. Press Escape to close.')
+  let previousFocus
+  function closePreview() {
     preview.classList.add('dn')
-    preview.innerHTML = ''
+    preview.replaceChildren()
+    previousFocus?.focus()
+  }
+  preview.addEventListener('click', closePreview)
+  preview.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closePreview()
   })
 
   document.body.appendChild(preview)
@@ -96,8 +106,13 @@ function setupPreview() {
   Array.from(images).forEach((img) => {
     img.style.cursor = 'zoom-in'
     img.addEventListener('click', () => {
+      const enlarged = document.createElement('img')
+      enlarged.src = img.currentSrc || img.src
+      enlarged.alt = img.alt
+      previousFocus = document.activeElement
+      preview.replaceChildren(enlarged)
       preview.classList.remove('dn')
-      preview.innerHTML = `<img src="${img.src}">`
+      preview.focus()
     })
   })
 }
@@ -107,8 +122,3 @@ document.addEventListener('DOMContentLoaded', () => {
   parseEmojis()
   setupPreview()
 })
-
-console.log(
-  "%cHi! 👋 It's @hacdias. Welcome to other side!",
-  'background-color: #FF10F0; color: white; font-weight: 700; font-size: 30px; font-family: sans-serif;'
-)

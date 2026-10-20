@@ -1,0 +1,12 @@
+# Use newest-first for fully automatic ordering by each paper's date.
+# In manual mode, move folder names up or down; no numeric weights are needed.
+# Papers not listed here appear first, newest date first.
+mode: manual
+order:
+  - lora-neurips
+  - usa-tstst-geometry
+  - kress-bound
+  - fishery-bifurcation
+  - two-patch-gompertz
+  - largest-prime-divisor
+  - pi-journal-problem-790

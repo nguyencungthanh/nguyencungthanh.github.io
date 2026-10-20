@@ -1,10 +1,27 @@
-{{ $normalize := resources.Get "css/vendor/normalize.css" }}
-{{ $base := resources.Get "css/styles.css" }}
-{{ $interfaceFont := resources.Get "css/fonts/source-sans-3.css" }}
-{{ $displayFont := resources.Get "css/fonts/literata.css" }}
-{{ $mathFont := resources.Get "css/fonts/stix-two-text.css" }}
-{{ $typography := resources.Get "css/typography.css" }}
-{{ $mathContent := resources.Get "css/components/math-content.css" }}
-{{ $languageControls := resources.Get "css/components/post-language.css" }}
-{{ $css := slice $normalize $interfaceFont $displayFont $mathFont $base $typography $mathContent $languageControls | resources.Concat "css/styles.css" | resources.Minify | resources.Fingerprint "sha512" }}
+{{/* Keep this order explicit: base rules precede component and responsive overrides. */}}
+{{ $sources := slice
+  "css/vendor/normalize.css"
+  "css/fonts/source-sans-3.css"
+  "css/fonts/literata.css"
+  "css/fonts/stix-two-text.css"
+  "css/base.css"
+  "css/components/forms.css"
+  "css/layout.css"
+  "css/components/controls-and-cards.css"
+  "css/components/code.css"
+  "css/components/media.css"
+  "css/components/tables.css"
+  "css/components/navigation.css"
+  "css/theme.css"
+  "css/responsive.css"
+  "css/components/article.css"
+  "css/typography.css"
+  "css/components/math-content.css"
+  "css/components/post-language.css"
+}}
+{{ $resources := slice }}
+{{ range $sources }}
+  {{ $resources = $resources | append (resources.Get .) }}
+{{ end }}
+{{ $css := $resources | resources.Concat "css/styles.css" | resources.Minify | resources.Fingerprint "sha512" }}
 <link rel='stylesheet' href='{{ $css.RelPermalink }}' integrity='{{ $css.Data.Integrity }}' />

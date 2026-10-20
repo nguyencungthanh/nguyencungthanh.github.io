@@ -1,0 +1,127 @@
+/* =============================================================================
+   18. RESPONSIVE — MOBILE (max-width: 53rem)
+   ============================================================================= */
+@media screen and (max-width: 53rem) {
+  :root {
+    --ls: 1rem;
+    --hls: 1rem;
+    --f1: 1.728rem;
+    --f2: 1.44rem;
+    --f3: 1.2rem;
+    --f4: 1rem;
+    --f5: 0.833rem;
+  }
+
+  body {
+    background: var(--bg);
+  }
+
+  #header {
+    padding: 0 var(--ls);
+  }
+
+  #header .avatar {
+    max-width: 4rem;
+    margin-right: var(--hms);
+  }
+
+  #navbar {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  #navbar,
+  #navbar label,
+  #toggler:checked+#navbar a {
+    display: block;
+    text-align: left;
+  }
+
+  #navbar a,
+  #header form input {
+    display: none;
+  }
+
+  #footer {
+    display: block;
+    text-align: center;
+  }
+
+  .lh {
+    text-decoration: underline;
+  }
+
+  .tb li {
+    display: flow-root;
+  }
+
+  .tb li>* {
+    text-wrap: wrap;
+  }
+
+  .fg {
+    grid-gap: 0.5rem;
+  }
+}
+
+
+/* Give the identity and actions separate rows on narrow phones. */
+@media screen and (max-width: 30rem) {
+  #header {
+    flex-wrap: wrap;
+    gap: var(--hms);
+  }
+
+  #header #home {
+    flex: 1 0 100%;
+    min-width: 0;
+  }
+
+  #header #home > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  #header .avatar,
+  #header form,
+  .contact-header-btn {
+    flex-shrink: 0;
+  }
+
+  .contact-header-btn {
+    margin-right: 0;
+    white-space: nowrap;
+  }
+}
+
+
+/* =============================================================================
+   19. RESPONSIVE — PRINT
+   ============================================================================= */
+@media print {
+
+  html,
+  body,
+  .container {
+    background: white !important;
+    font-size: 11pt;
+    border: 0;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #header,
+  #navbar,
+  #footer {
+    display: none;
+  }
+
+  a:hover {
+    background: none;
+  }
+}
