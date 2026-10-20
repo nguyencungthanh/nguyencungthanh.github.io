@@ -9,10 +9,6 @@ date: 2024-03-01
 paper_url: https://pi.edu.vn/detail-news/thach-thuc-ky-nay-tap-8-so-3-thang-3-2024-537.html
 ---
 
-## Abstract
-
-A number-theory problem published as Problem 790 in Pi Journal's Mathematical Challenge section, concerning an expression involving factorials and Euler's totient function.
-
 ## Research Question
 
 Find all real numbers $\alpha$ such that, for every $c > 0$, there exists an integer $n > 1$ satisfying
@@ -20,6 +16,10 @@ Find all real numbers $\alpha$ such that, for every $c > 0$, there exists an int
 $$
 \frac{\phi(n!)}{n^\alpha (n-1)!} > c.
 $$
+
+## Abstract
+
+A number-theory problem published as Problem 790 in Pi Journal's Mathematical Challenge section, concerning an expression involving factorials and Euler's totient function.
 
 ## What This Paper Does
 

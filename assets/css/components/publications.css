@@ -17,7 +17,27 @@
 .publication-detail > header h1 { overflow-wrap: anywhere; }
 .publication-content { margin-top: 2rem; }
 .publication-content h2 { margin-top: 2rem; font-size: 1.35rem; }
-.pub-back { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--fg); }
+.pub-back {
+  display: inline-flex;
+  max-width: 100%;
+  margin: 2rem 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+.pub-back a {
+  flex: 0 1 auto;
+  padding: .35rem .65rem;
+  border: 1px solid var(--fg);
+  border-radius: var(--radius);
+  background: var(--mg);
+  color: var(--light-text);
+  font-size: .9rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.pub-back a:focus-visible { outline: 2px solid var(--c); outline-offset: 3px; }
 @media (max-width: 40rem) {
   .publication-entry .pub-title { font-size: 1.05rem; }
   .pub-authors { font-size: .9rem; }

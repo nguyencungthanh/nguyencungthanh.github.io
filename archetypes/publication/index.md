@@ -9,13 +9,13 @@ venue: ""
 paper_url: ""
 ---
 
-## Abstract
-
-Write the abstract here.
-
 ## Research Question
 
 What specific question does this paper address?
+
+## Abstract
+
+Write the abstract here.
 
 ## What This Paper Does
 

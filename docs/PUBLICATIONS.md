@@ -66,13 +66,13 @@ To attach a PDF, save it in the paper's folder and set `paper_url: "paper.pdf"`.
 Keep the headings supplied by the template:
 
 ```markdown
-## Abstract
-
-The paper's abstract.
-
 ## Research Question
 
 The specific question the paper addresses.
+
+## Abstract
+
+The paper's abstract.
 
 ## What This Paper Does
 

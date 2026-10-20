@@ -4,9 +4,12 @@
 mode: manual
 order:
   - lora-neurips
-  - usa-tstst-geometry
+  - mean-estimation 
+  - uniformly-stable-algorithm
   - kress-bound
+  - generalized-growth 
   - fishery-bifurcation
   - two-patch-gompertz
   - largest-prime-divisor
+  - usa-tstst-geometry 
   - pi-journal-problem-790
