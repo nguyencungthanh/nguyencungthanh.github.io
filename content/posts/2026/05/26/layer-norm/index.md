@@ -40,9 +40,9 @@ h_i^{l+1} = f(a_i^l + b_i^l)
 $$
 
 where:
-- \(w_i^l\): incoming weights,
-- \(b_i^l\): bias,
-- \(f(\cdot)\): nonlinearity.
+- $w_i^l$: incoming weights,
+- $b_i^l$: bias,
+- $f(\cdot)$: nonlinearity.
 
 BatchNorm normalizes each neuron using statistics computed across the mini-batch:
 
@@ -73,7 +73,7 @@ In practice, these expectations are estimated using the current mini-batch.
 
 ## 3. Main Idea of Layer Normalization
 
-Instead of normalizing across training examples, LayerNorm normalizes across hidden units within the same layer. For a layer with \(H\) hidden units:
+Instead of normalizing across training examples, LayerNorm normalizes across hidden units within the same layer. For a layer with $H$ hidden units:
 
 $$
 \mu^l =
@@ -101,7 +101,7 @@ f\left(
 \right)
 $$
 
-where, \(g_i\) is the learnable gain and \(b_i\) is the learnable bias.
+where, $g_i$ is the learnable gain and $b_i$ is the learnable bias.
 
 Unlike BatchNorm:
 - different training cases have different statistics,
@@ -109,7 +109,7 @@ Unlike BatchNorm:
 - no mini-batch statistics are required.
 
 Therefore, LayerNorm:
-- works with batch size \(1\),
+- works with batch size $1$,
 - works naturally for RNNs,
 - behaves identically during training and inference.
 
@@ -153,11 +153,11 @@ LN(z;\alpha,\beta) = \frac{z-\mu}{\sigma}\odot \alpha + \beta
 $$
 with:
 $$
-\mu = \frac{1}{D}\sum_{i=1}^{D} z_i \qquad \text{and} \qquad \sigma = \sqrt{\frac{1}{D}\sum{i=1}^{D}(z_i-\mu)^2}
+\mu = \frac{1}{D}\sum_{i=1}^{D} z_i \qquad \text{and} \qquad \sigma = \sqrt{\frac{1}{D}\sum_{i=1}^{D}(z_i-\mu)^2}
 $$
 
 
-where \(\alpha\) is gain parameter, \(\beta\) is bias parameter.
+where $\alpha$ is gain parameter, $\beta$ is bias parameter.
 
 ---
 
@@ -209,7 +209,7 @@ r_t
 $$
 
 $$
-\hat h_t = \tanh( W_x x_t + \sigma(r_t)\odot(Uh_{t-1})), \qquad h_t = (1-\sigma(z_t))h{t-1} + \sigma(z_t)\hat h_t
+\hat h_t = \tanh( W_x x_t + \sigma(r_t)\odot(Uh_{t-1})), \qquad h_t = (1-\sigma(z_t))h_{t-1} + \sigma(z_t)\hat h_t
 $$
 
 Layer-normalized GRU:

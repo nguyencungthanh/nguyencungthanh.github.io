@@ -4,7 +4,7 @@ status: under-review
 authors:
   - Thanh Nguyen-Cung
   - Binh T. Nguyen 
-date: 2025-03-01
+date: 
 venue: Linear Algebra and Its Application 
 paper_url: https://arxiv.org/pdf/2608.29823
 ---
