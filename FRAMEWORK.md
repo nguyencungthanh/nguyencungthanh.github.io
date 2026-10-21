@@ -98,7 +98,6 @@ nguyencungthanh.github.io/
 │   │   └── mathjax.html     #   MathJax configuration
 │   └── shortcodes/          #   Hugo shortcodes
 │       ├── logs.html        #   {{< logs data="..." >}} list renderer
-│       ├── embed.html       #   {{< embed >}} generic embeds
 │       ├── external-links.html # External link lists
 │       ├── feeds.html       #   Feed display
 │       ├── lemma.html       #   Math: {{< lemma >}} block
@@ -442,11 +441,10 @@ Up to 4 posts are shown in "🌟 Favourite Posts" section.
 |-----------------------|----------------------------------------------------|
 | `lemma`               | `{{< lemma >}}...{{< /lemma >}}`                  |
 | `proof`               | `{{< proof >}}...{{< /proof >}}`                  |
-| `logs`                | `{{< logs data="books" page="/tags/books/" >}}`   |
-| `embed`               | `{{< embed src="..." >}}`                         |
+| `logs`                | `{{< logs data="books" >}}`                        |
 | `feeds`               | `{{< feeds >}}`                                   |
 | `external-links`      | `{{< external-links >}}`                          |
-| `include-resource`    | `{{< include-resource name="file.txt" >}}`        |
+| `include-resource`    | `{{< include-resource "file.html" >}}` (HTML or SVG in the page bundle) |
 | `resume-position`     | `{{< resume-position title="..." dates="..." >}}` |
 
 ---

@@ -1,3 +1,0 @@
-{{- $name := .Get 0 -}}
-{{- $resource := .Page.Resources.GetMatch $name -}}
-{{ $resource.Content | safeHTML }}

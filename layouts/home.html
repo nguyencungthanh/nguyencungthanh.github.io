@@ -20,11 +20,6 @@
   </section>
   {{ end }}
 
-  <!-- <div class='h-feed'>
-    {{- $writings := .Site.GetPage "/categories/writings" -}}
-    <h2 id="freshly-planted"><a href='{{ $writings.RelPermalink }}' class='nl lh'>🪴 Freshly Planted <span class='lg'>⇢</span></a></h2>
-    {{- partial "logs" (dict "Pages" (first 8 $writings.Pages) "WithMicroformats" true) -}}
-  </div> -->
   <div class='h-feed'>
     {{- $recent_pages := where .Site.RegularPages "Params.categories" "intersect" (slice "writings" "projects" "random-thought") -}}
     {{- $recent_pages = first 5 ($recent_pages.ByDate.Reverse) -}}

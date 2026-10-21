@@ -21,9 +21,9 @@ Just like in previous years, let's start with some quick statistics: in 2024, I 
 
 <div class='fg plots'>
 
-{{< embed "scrobbles-weekday.svg" >}}
+{{< include-resource "scrobbles-weekday.svg" >}}
 
-{{< embed "scrobbles-month.svg" >}}
+{{< include-resource "scrobbles-month.svg" >}}
 
 </div>
 

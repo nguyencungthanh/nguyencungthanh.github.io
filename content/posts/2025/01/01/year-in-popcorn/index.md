@@ -28,9 +28,9 @@ According to my [watches](/watches/) page, I watched **54** different movies dur
 
 <div class='fg plots'>
 
-{{< embed "movies-weekday.svg" >}}
+{{< include-resource "movies-weekday.svg" >}}
 
-{{< embed "movies-month.svg" >}}
+{{< include-resource "movies-month.svg" >}}
 
 </div>
 
@@ -69,9 +69,9 @@ The second most watched series was **Abbot Elementary** and then **The Bear**, w
 
 <div class='fg plots'>
 
-{{< embed "episodes-weekday.svg" >}}
+{{< include-resource "episodes-weekday.svg" >}}
 
-{{< embed "episodes-month.svg" >}}
+{{< include-resource "episodes-month.svg" >}}
 
 </div>
 
