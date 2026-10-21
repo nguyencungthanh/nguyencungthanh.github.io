@@ -19,7 +19,11 @@ Write the abstract here.
 
 ## What This Paper Does
 
-Describe the approach, main results, and why they matter.
+**Approach.** 
+
+**Main results.** 
+
+**Why it matters.** 
 
 ## My Contribution
 
