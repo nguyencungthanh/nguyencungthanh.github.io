@@ -19,7 +19,11 @@ Let $A\in\mathbb{C}^{n\times n}$ have spectrum in the closed unit disk. Its maxi
 
 ## What This Paper Does
 
-The paper associates cyclic orbits with finite-rank selfadjoint Hankel operators to obtain inertia-sensitive power-growth bounds. It also constructs asymptotically sharp examples and extends the estimates to scaled disks and weighted norms.
+**Approach.** The paper represents each cyclic matrix orbit through a finite-rank selfadjoint Hankel operator $H_\rho=W_\rho^*JW_\rho$, whose rank and inertia inherit constraints from the original matrix and metric. It develops a coefficient estimate that converts these structural constraints, together with resolvent bounds, into bounds on matrix powers. Scaled nilpotent shifts provide examples establishing sharpness.
+
+**Main results.** For $A^\*J=JA$, where $J=J^*=J^{-1}$ has inertia $(n-q,q)$ and $A$ has spectrum in the closed unit disk, the paper proves 
+$$\mathcal M(A)\le \mathrm{e}\min\\{d(A),2q+1,2(n-q)+1\\}\mathcal K(A).$$
+Here, $\mathcal M(A)=\sup_{k\ge0}\|A^k\|_2$, $\mathcal K(A)$ is the Kreiss resolvent constant, and $d(A)$ is the minimal-polynomial degree. It also establishes geometric-decay estimates and weighted-norm extensions to general nonsingular Hermitian metrics. Constructed examples asymptotically attain the bound even when $q=o(n)$ and $d(A)=n$, demonstrating that the inertia improvement is both genuine and asymptotically sharp.  
 
 ## My Contribution
 
