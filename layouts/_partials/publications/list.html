@@ -1,0 +1,11 @@
+{{ $headingLevel := .HeadingLevel | default 2 }}
+<ul class="publication-list" role="list">
+  {{ range .Pages }}
+  <li>
+    <article class="publication-entry">
+      <h{{ $headingLevel }} class="pub-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h{{ $headingLevel }}>
+      {{ partial "publications/metadata.html" . }}
+    </article>
+  </li>
+  {{ end }}
+</ul>

@@ -1,6 +1,7 @@
 ---
 title: "On the Largest Prime Divisor of Polynomials and Related Problems"
 status: preprint
+draft: true 
 authors:
   - Nguyen Cung Thanh
   - Duong Hong Son

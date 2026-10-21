@@ -3,16 +3,7 @@
     {{ partial "post/header" (dict "Listing" false "Page" .) }}
     <div class="e-content">
       {{ .Content }}
-      <ul class="publication-list" role="list">
-        {{ range partial "publications/ordered-pages.html" . }}
-        <li>
-          <article class="publication-entry">
-            <h2 class="pub-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-            {{ partial "publications/metadata.html" . }}
-          </article>
-        </li>
-        {{ end }}
-      </ul>
+      {{ partial "publications/list.html" (dict "Pages" (partial "publications/ordered-pages.html" .) "HeadingLevel" 2) }}
     </div>
   </article>
 {{ end }}

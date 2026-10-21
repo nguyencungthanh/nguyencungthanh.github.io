@@ -45,6 +45,10 @@ Reorder papers in `data/publications.yaml` by moving folder names, or set
 `mode: newest-first` for automatic date ordering. New papers appear at the top
 without editing existing papers.
 
+Choose the papers shown in **Selected Publications** on Home by editing
+`selectedPublications` in `content/_index.md`. Use publication paths in the desired
+display order; see [Adding publications](docs/PUBLICATIONS.md#selected-publications-on-home).
+
 ### Blog Front Matter
 
 ```yaml

@@ -1,0 +1,11 @@
+{{ $pages := slice }}
+{{ $seen := slice }}
+{{ range .Params.selectedPublications }}
+  {{ with $.Site.GetPage . }}
+    {{ if and .IsPage (eq .Section "publications") (not .Draft) (not (in $seen .RelPermalink)) }}
+      {{ $pages = $pages | append . }}
+      {{ $seen = $seen | append .RelPermalink }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return $pages }}

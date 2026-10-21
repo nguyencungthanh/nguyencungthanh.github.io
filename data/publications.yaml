@@ -6,7 +6,7 @@ order:
   - lora-neurips
   - mean-estimation 
   - uniformly-stable-algorithm
-  - kress-bound
+  - kreiss-bound
   - generalized-growth 
   - fishery-bifurcation
   - two-patch-gompertz

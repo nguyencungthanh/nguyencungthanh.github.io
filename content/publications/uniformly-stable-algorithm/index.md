@@ -3,7 +3,8 @@ title: "Logarithmic-Free Moment and Generalization Bounds for Uniformly Stable A
 status: preprint
 authors:
   - Thanh Nguyen-Cung
-  - Binh Nguyen-Tuan
+  - Binh T. Nguyen 
+venue: Plan Submit to COLT 2027
 date:
 paper_url: https://arxiv.org/pdf/2608.09870
 ---

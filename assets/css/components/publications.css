@@ -1,4 +1,4 @@
-/* Shared by the publication index and every paper detail page. */
+/* Shared by the publication index, paper details, and Home's selected papers. */
 .publication-list { list-style: none; margin: 1.5rem 0 0; padding: 0; }
 .publication-list > li { margin: 0; padding: 0; }
 .publication-entry { padding: 1.25rem 0; border-bottom: 1px solid var(--fg); overflow-wrap: anywhere; }
@@ -38,6 +38,10 @@
   line-height: 1.4;
 }
 .pub-back a:focus-visible { outline: 2px solid var(--c); outline-offset: 3px; }
+.selected-publications .publication-list { margin-top: .5rem; }
+.selected-publications .publication-entry { padding: 1rem 0; }
+.pub-all { margin-top: 1rem; font-size: .9rem; }
+.pub-all a { color: var(--c); text-underline-offset: .15em; }
 @media (max-width: 40rem) {
   .publication-entry .pub-title { font-size: 1.05rem; }
   .pub-authors { font-size: .9rem; }

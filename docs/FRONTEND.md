@@ -29,7 +29,9 @@ Markdown file as `styles.css`.
 concatenates and minifies the sources into one fingerprinted `/css/styles…css`
 file; splitting source files does not add browser requests. Add new shared
 components to this ordered list rather than using browser-side `@import`.
-Publication styles are loaded separately only on publication pages.
+Publication styles are loaded separately on publication pages and on Home when
+`selectedPublications` is configured. Both lists use the shared
+`layouts/_partials/publications/list.html` markup.
 
 ## Page scripts, search, and calculators
 

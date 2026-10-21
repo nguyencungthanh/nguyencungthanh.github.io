@@ -3,7 +3,7 @@ title: "Inertia-Sensitive Kreiss Bounds for $J$–Selfadjoint Matrices"
 status: under-review
 authors:
   - Thanh Nguyen-Cung
-  - Binh Nguyen-Tuan
+  - Binh T. Nguyen 
 date: 2025-03-01
 venue: Linear Algebra and Its Application 
 paper_url: https://arxiv.org/pdf/2608.29823

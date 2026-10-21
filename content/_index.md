@@ -2,6 +2,11 @@
 title: Home
 description: 
 noWebmentions: true
+selectedPublications:
+  - /publications/lora-neurips
+  - /publications/mean-estimation
+  - /publications/uniformly-stable-algorithm
+  - /publications/kreiss-bound
 favoritePosts:
   - /posts/2026/04/29/real-analytic-function-hilbert-space
   - /posts/2026/01/22/average-generalized-fibonacci-sequence
@@ -10,4 +15,4 @@ favoritePosts:
 thumbnail: image:2024-09-01-stratumse-heide
 ---
 
-**Hi, I’m Thanh 👋**, a junior in VinUniversity majored in Computer Scienece. Welcome to my personal website where I aim to rewrite the knowledge I have learned in Mathematics ♾️ and AI 🖥️ in order to at least consolidate it and, further, share it with others. 
+**Hi, I’m Thanh 👋**, a junior in VinUniversity majored in Computer Scienece. Welcome to my personal website where I aim to rewrite the knowledge I have learned in Mathematics ♾️ and AI 🖥️ in order to at least consolidate it and, further, share it with others.  

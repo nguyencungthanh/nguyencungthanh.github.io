@@ -6,7 +6,7 @@ authors:
   - Tri Nguyen-Huu
   - My Nguyen-Thi Tra
   - Ali Moussaoui
-  - Pierre Auger2
+  - Pierre Auger
   - Doanh Nguyen-Ngoc
 venue: "Ecological Complexity"
 ---

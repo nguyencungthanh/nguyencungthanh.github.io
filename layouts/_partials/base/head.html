@@ -52,7 +52,7 @@
 
 {{ partialCached "assets/css.html" . }}
 
-{{ if eq .Section "publications" }}
+{{ if or (eq .Section "publications") (and .IsHome .Params.selectedPublications) }}
 {{ $publicationsCSS := resources.Get "css/components/publications.css" | resources.Minify | resources.Fingerprint "sha512" }}
 <link rel="stylesheet" href="{{ $publicationsCSS.RelPermalink }}" integrity="{{ $publicationsCSS.Data.Integrity }}">
 {{ end }}

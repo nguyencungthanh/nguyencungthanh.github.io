@@ -113,6 +113,25 @@ This sorts all papers by `date`, newest first, and ignores `order`. From then on
 
 Draft papers are excluded from normal builds. Duplicate names and names of removed or draft papers in `order` are skipped without hiding other papers.
 
+### Selected publications on Home
+
+Edit `selectedPublications` in [content/_index.md](../content/_index.md):
+
+```yaml
+selectedPublications:
+  - /publications/lora-neurips
+  - /publications/mean-estimation
+  - /publications/uniformly-stable-algorithm
+```
+
+Home shows these papers in the listed order, before Newest Posts. Titles link to
+the detail pages; authors, status, venue, and `[pdf]` links use the same metadata
+as the Publications page. Add, remove, or move paths to change the selection.
+This selection is independent of the ordering in `data/publications.yaml`.
+
+Drafts, missing pages, and duplicate paths are skipped. Set
+`selectedPublications: []` to hide the section.
+
 ## 5. Preview
 
 ```bash
@@ -124,10 +143,12 @@ Open `/publications/` on the local server, then click the paper's title to check
 ## Presentation files
 
 - [data/publications.yaml](../data/publications.yaml): ordering settings and the optional custom order.
-- [layouts/publications/list.html](../layouts/publications/list.html): the paper list.
+- [layouts/publications/list.html](../layouts/publications/list.html): the Publications page.
+- [layouts/_partials/publications/list.html](../layouts/_partials/publications/list.html): shared list markup for Home and Publications.
+- [layouts/_partials/publications/selected-pages.html](../layouts/_partials/publications/selected-pages.html): Home's ordered selection.
 - [layouts/_partials/publications/ordered-pages.html](../layouts/_partials/publications/ordered-pages.html): custom and automatic ordering, including new-paper fallback.
 - [layouts/publications/single.html](../layouts/publications/single.html): paper detail pages.
 - [layouts/_partials/publications/metadata.html](../layouts/_partials/publications/metadata.html): shared authors, status, venue, and `[pdf]` rendering. The `pdf` text is blue and underlined.
-- [assets/css/components/publications.css](../assets/css/components/publications.css): styles shared by the list and detail pages, loaded only for publications.
+- [assets/css/components/publications.css](../assets/css/components/publications.css): styles shared by publication pages and Home's selection.
 
 Existing papers were moved from standalone `.md` files into `slug/index.md` bundles without changing their URLs. Research questions and overviews for those papers were summarized from their existing abstracts; original authorship, status, venue, links, and contribution statements were retained.

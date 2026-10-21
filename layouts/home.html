@@ -9,6 +9,17 @@
 
   {{- partialCached "post/content" . .Permalink -}}
 
+  {{ $selectedPublications := partial "publications/selected-pages.html" . }}
+  {{ with $selectedPublications }}
+  <section class="selected-publications" aria-labelledby="selected-publications">
+    <h2 id="selected-publications">📄 Selected Publications</h2>
+    {{ partial "publications/list.html" (dict "Pages" . "HeadingLevel" 3) }}
+    {{ with $.Site.GetPage "/publications" }}
+      <p class="pub-all"><a href="{{ .RelPermalink }}">All publications →</a></p>
+    {{ end }}
+  </section>
+  {{ end }}
+
   <!-- <div class='h-feed'>
     {{- $writings := .Site.GetPage "/categories/writings" -}}
     <h2 id="freshly-planted"><a href='{{ $writings.RelPermalink }}' class='nl lh'>🪴 Freshly Planted <span class='lg'>⇢</span></a></h2>
