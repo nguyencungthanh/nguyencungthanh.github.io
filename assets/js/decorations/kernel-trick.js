@@ -113,7 +113,7 @@ for (const scene of document.querySelectorAll('[data-kernel-trick]')) {
   function refreshColors() {
     const style = getComputedStyle(scene)
     const read = name => style.getPropertyValue(name).trim()
-    colors = { ink: read('--text'), background: read('--bg'), blue: read('--cluster-0'), orange: read('--cluster-1'), plane: '#9b77bd' }
+    colors = { ink: read('--text'), background: read('--bg'), blue: read('--cluster-0'), orange: read('--cluster-1'), plane: read('--diagram-violet') }
     render()
   }
 

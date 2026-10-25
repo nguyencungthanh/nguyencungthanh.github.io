@@ -106,5 +106,12 @@
 
 /* Muted link color inside post body */
 article.post-with-toc .post-body a {
-  color: gray;
+  color: var(--article-link-color, gray);
+}
+
+.post-callout {
+  border: 2px solid var(--callout-border, #ccccccbc);
+  border-radius: 5px;
+  padding: 1px;
+  background-color: var(--callout-bg, rgba(35, 117, 224, 0.12));
 }

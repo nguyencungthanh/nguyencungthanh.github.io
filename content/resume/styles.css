@@ -73,6 +73,18 @@
     text-decoration: underline;
 }
 
+@media screen {
+  :root.dark #printing-hint {
+    background-color: var(--surface);
+    border-color: var(--border-color);
+    color: var(--text);
+  }
+
+  :root.dark #printing-hint a {
+    color: var(--c);
+  }
+}
+
 @media print {
   #printing-hint {
     display: none !important;

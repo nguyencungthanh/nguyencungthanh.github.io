@@ -10,13 +10,13 @@
 }
 
 :root.dark .math-decoration-set {
-  --math-accent: #c4b5fd;
-  --math-real: #f0c483;
-  --math-imaginary: #78dcca;
-  --math-border: #29415f;
-  --math-panel-bg: #101e33;
-  --math-formula: #d2c6ff;
-  --math-formula-secondary: #92e4d5;
+  --math-accent: var(--diagram-violet);
+  --math-real: var(--diagram-orange);
+  --math-imaginary: var(--diagram-teal);
+  --math-border: var(--border-color);
+  --math-panel-bg: var(--surface);
+  --math-formula: var(--formula-primary);
+  --math-formula-secondary: var(--formula-secondary);
   --math-formula-opacity: 0.9;
 }
 
@@ -26,8 +26,8 @@
 }
 
 :root.dark .math-decoration[data-euler-scene="fourier-hat"] {
-  --math-real: #e8b775;
-  --math-imaginary: #70cbbd;
+  --math-real: var(--diagram-orange);
+  --math-imaginary: var(--diagram-teal);
 }
 
 .math-decorations {

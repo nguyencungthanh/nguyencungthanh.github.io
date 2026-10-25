@@ -1,6 +1,8 @@
 // Static, reduced/no-JS-friendly A* board from the same maze and solver as runtime.
 import { writeFileSync } from 'node:fs'
-import { createMaze, solveAStar, BOARD_SIZE, CELL_SIZE, COLORS } from '../assets/js/decorations/astar-model.js'
+import { createMaze, solveAStar, BOARD_SIZE, CELL_SIZE, COLORS as DEFAULT_COLORS } from '../assets/js/decorations/astar-model.js'
+import { boardSvgColors } from '../assets/js/decorations/board-palette.js'
+const COLORS = boardSvgColors(DEFAULT_COLORS)
 const maze = createMaze(), result = solveAStar(maze)
 if (!result.path.length) throw Error('Maze must have a route')
 let walls = ''

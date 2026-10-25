@@ -1,4 +1,4 @@
-:root {
+:root:not(.dark) {
   --c-h: 352;
   --c-s: 70%;
   --c-l: 60%;

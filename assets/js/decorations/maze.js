@@ -1,10 +1,12 @@
 import { CELL_SIZE, BOARD_SIZE } from './astar-model.js'
-import { generateMaze, solveMaze, MAZE_COLORS as COLORS } from './maze-model.js'
+import { generateMaze, solveMaze, MAZE_COLORS as DEFAULT_COLORS } from './maze-model.js'
+import { readBoardColors } from './board-palette.js'
 
 for (const scene of document.querySelectorAll('[data-maze-generation]')) {
   const canvas = scene.querySelector('canvas')
   const context = canvas.getContext('2d')
   if (!context) continue
+  let COLORS = readBoardColors(scene, DEFAULT_COLORS, 'maze')
   const base = document.createElement('canvas'), baseContext = base.getContext('2d')
   const complete = document.createElement('canvas'), completeContext = complete.getContext('2d')
   if (!baseContext || !completeContext) continue
@@ -137,9 +139,16 @@ for (const scene of document.querySelectorAll('[data-maze-generation]')) {
       if (!document.hidden && !scene.classList.contains('is-paused')) timer = window.setTimeout(tick, phase === 'idle' ? 650 : 45)
     }
   }
+  function refreshColors() {
+    COLORS = readBoardColors(scene, DEFAULT_COLORS, 'maze')
+    drawBase()
+    drawState(reducedMotion.matches)
+    if (phase === 'hold' || phase === 'fade') snapshot()
+  }
   resize()
   scene.classList.add('is-rendered', 'is-paused')
   new ResizeObserver(resize).observe(canvas)
   scene.addEventListener('ambient:visibility', updateActivity)
   reducedMotion.addEventListener('change', updateActivity)
+  new MutationObserver(refreshColors).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
 }

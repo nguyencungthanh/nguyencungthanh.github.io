@@ -15,12 +15,52 @@
   --inline-code-bg: #1b304d;
   --inline-code-border: #587aa5;
   --inline-code-text: #edf5ff;
+  --surface: #101e33;
+  --border-color: var(--fg);
+  --control-border: #587aa5;
+  --on-accent: var(--bg);
+  --success: #84d5a0;
+  --warning: #e4be70;
+  --danger: #f0a0aa;
+  --danger-bg: #382638;
+  --diagram-blue: #83b6e5;
+  --diagram-orange: #e8b775;
+  --diagram-green: var(--success);
+  --diagram-violet: #c4b5fd;
+  --diagram-teal: #70cbbd;
+  --diagram-yellow: var(--warning);
+  --diagram-neutral: #97a4ae;
+  --formula-primary: #d2c6ff;
+  --formula-secondary: #92e4d5;
+  --rating-color: var(--warning);
+  --sup-color: var(--light-text);
+  --article-link-color: var(--c);
+  --callout-bg: var(--surface);
+  --callout-border: var(--border-color);
+  --inline-link: #b7dcff;
+  --inline-hover-bg: #294767;
+  --inline-hover-border: #8fb9df;
+  --overlay-bg: rgb(11 19 36 / 0.96);
+  --board-floor: var(--bg);
+  --board-grid: var(--inline-code-bg);
+  --board-wall: #677f9f;
+  --board-border: var(--border-color);
+  --board-frontier: #3d6c96;
+  --board-visited: #1c3b58;
+  --board-active: var(--warning);
+  --board-path: var(--diagram-green);
+  --board-head: #d9f5e2;
+  --board-start: var(--diagram-blue);
+  --board-goal: var(--diagram-violet);
+  --maze-visited: var(--diagram-teal);
+  --maze-frontier: var(--warning);
+  --maze-active: #f3e5bf;
 
-  --h-a: #d0bf69;
-  --h-b: #fc6a5d;
-  --h-c: #d0a8ff;
-  --h-d: #97a4ae;
-  --h-e: #fd8f3f;
+  --h-a: var(--diagram-yellow);
+  --h-b: var(--danger);
+  --h-c: var(--diagram-violet);
+  --h-d: var(--diagram-neutral);
+  --h-e: var(--diagram-orange);
 }
 
 /* Browsing pages show a night sky; post pages keep a plain reading background. */
@@ -90,13 +130,24 @@
 }
 
 :root.dark a code {
-  color: #b7dcff;
+  color: var(--inline-link);
 }
 
 :root.dark a:hover code,
 :root.dark a:focus-visible code {
-  background: #294767;
-  border-color: #8fb9df;
+  background: var(--inline-hover-bg);
+  border-color: var(--inline-hover-border);
+}
+
+:root.dark input::placeholder,
+:root.dark textarea::placeholder {
+  color: var(--light-text);
+  opacity: 1;
+}
+
+:root.dark ::selection {
+  background: var(--c);
+  color: var(--on-accent);
 }
 
 :root.dark .only-light,

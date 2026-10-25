@@ -42,6 +42,19 @@ background and twinkling layers for distraction-free reading. Browsing pages kee
 Inline code uses dedicated `--inline-code-bg`, `--inline-code-border`, and
 `--inline-code-text` tokens so its chips remain distinct from general panels.
 
+Dark-mode colors are owned by `assets/css/theme.css`: navy backgrounds/surfaces,
+soft blue actions and links, and restrained semantic colors (`--success`,
+`--warning`, `--danger`, and `--diagram-*`). Page styles must consume those tokens
+rather than override dark accent hues or embed light-only colors. Page-specific
+pink/red palettes apply only to `:root:not(.dark)`; print and image assets retain
+their own colors. Body text targets 4.5:1 contrast or better; input/code boundaries
+and primary diagram marks target 3:1. Faint guide lines remain decorative.
+
+Calculators, resume notices, article callouts, rating/status labels, image previews,
+and syntax colors share the same palette. Canvas boards read the CSS palette via
+`assets/js/decorations/board-palette.js` and repaint on a theme change; generated
+SVG boards use the same CSS variables, with original light colors as fallbacks.
+
 ## Page scripts, search, and calculators
 
 - `layouts/_partials/assets/js.html` loads the shared theme, emoji, and image-preview

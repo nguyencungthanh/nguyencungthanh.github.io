@@ -1,7 +1,9 @@
 // No-JS/reduced-motion illustration of the actual entrance-to-exit solution.
 import { writeFileSync } from 'node:fs'
 import { BOARD_SIZE, CELL_SIZE } from '../assets/js/decorations/astar-model.js'
-import { generateMaze, solveMaze, MAZE_COLORS as COLORS } from '../assets/js/decorations/maze-model.js'
+import { generateMaze, solveMaze, MAZE_COLORS as DEFAULT_COLORS } from '../assets/js/decorations/maze-model.js'
+import { boardSvgColors } from '../assets/js/decorations/board-palette.js'
+const COLORS = boardSvgColors(DEFAULT_COLORS, 'maze')
 const maze = generateMaze()
 const result = solveMaze(maze)
 const center = index => [(index % maze.size + .5) * CELL_SIZE, (Math.floor(index / maze.size) + .5) * CELL_SIZE]

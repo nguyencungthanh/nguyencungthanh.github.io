@@ -23,6 +23,22 @@
   --inline-code-bg: var(--mg);
   --inline-code-border: #aebad4;
   --inline-code-text: var(--text);
+  --surface: var(--bg);
+  --border-color: var(--fg);
+  --control-border: var(--fg);
+  --on-accent: #fff;
+  --success: #267344;
+  --warning: #8a6217;
+  --danger: #b7354b;
+  --danger-bg: rgba(255, 0, 0, 0.1);
+  --diagram-blue: #3781bf;
+  --diagram-orange: #c47b29;
+  --diagram-green: #60976c;
+  --diagram-violet: #9b77bd;
+  --diagram-teal: #168b83;
+  --diagram-yellow: #d4ad24;
+  --diagram-neutral: #8b929a;
+  --rating-color: #e3c000;
 
   /* Highlight colors */
   --h-a: #1c01ce;
@@ -165,7 +181,7 @@ small {
 }
 
 sup{
-  color: gray
+  color: var(--sup-color, gray);
 }
 
 code,

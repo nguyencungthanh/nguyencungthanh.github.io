@@ -15,3 +15,12 @@
   background-clip: text;
   color: transparent;
 }
+
+:root.dark .buttons.nyan a:hover {
+  background-color: var(--mg);
+  color: var(--text);
+}
+
+:root.dark #trigger[data-status="clicked"] {
+  background-image: linear-gradient(to right, var(--danger), var(--diagram-violet), var(--diagram-blue), var(--diagram-teal), var(--diagram-green), var(--diagram-yellow), var(--diagram-orange));
+}

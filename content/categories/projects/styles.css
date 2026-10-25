@@ -13,16 +13,16 @@
   padding: .75rem .25rem;
   contain: layout paint;
   text-align: center;
-  --cluster-0: #3781bf;
-  --cluster-1: #c47b29;
-  --cluster-2: #60976c;
+  --cluster-0: var(--diagram-blue);
+  --cluster-1: var(--diagram-orange);
+  --cluster-2: var(--diagram-green);
 }
 .algorithm-plot > svg, .project-network--right > svg { display: block; width: 100%; height: auto; aspect-ratio: 250 / 230; overflow: hidden; }
 .project-network .plot-axis { fill: none; stroke: currentColor; stroke-width: .7; opacity: .2; }
 .cluster-0 { color: var(--cluster-0); }
 .cluster-1 { color: var(--cluster-1); }
 .cluster-2 { color: var(--cluster-2); }
-.cluster-unassigned { color: #8b929a; }
+.cluster-unassigned { color: var(--diagram-neutral); }
 .cluster-region { fill: currentColor; fill-opacity: .14; stroke: currentColor; stroke-opacity: .65; stroke-width: 1; stroke-linejoin: round; }
 .cluster-point { fill: currentColor; transition: color .45s ease; }
 .cluster-centroid { transition: transform .85s ease; }
@@ -36,9 +36,9 @@
   --nn-output: var(--cluster-1);
 }
 :root.dark .project-network--right {
-  --nn-input: #68baff;
-  --nn-hidden-1: #50d9b0;
-  --nn-hidden-2: #f4d65a;
+  --nn-input: var(--diagram-blue);
+  --nn-hidden-1: var(--diagram-teal);
+  --nn-hidden-2: var(--diagram-yellow);
 }
 .nn-layer-0 { color: var(--nn-input); }
 .nn-layer-1 { color: var(--nn-hidden-1); }
@@ -87,7 +87,7 @@
 }
 /* Two path layers crossfade between real, precomputed SVM training steps. */
 .svm-boundary-layer { transition: opacity .35s ease; }
-.svm-boundary { fill: none; stroke: #9b77bd; stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.svm-boundary { fill: none; stroke: var(--diagram-violet); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
 .svm-class-positive { fill: var(--cluster-0); }
 .svm-class-negative { fill: var(--cluster-1); }
 .project-network.is-paused * { animation-play-state: paused; }
@@ -133,15 +133,15 @@
 .lift-label { left: 0; top: 0; }
 .lift-mesh { fill: none; stroke: currentColor; stroke-width: .6; opacity: .16; }
 .lift-axis { fill: none; stroke: currentColor; stroke-width: .8; opacity: .42; }
-.lift-separator { fill: #9b77bd; fill-opacity: .08; stroke: #9b77bd; stroke-opacity: .5; stroke-width: .9; }
+.lift-separator { fill: var(--diagram-violet); fill-opacity: .08; stroke: var(--diagram-violet); stroke-opacity: .5; stroke-width: .9; }
 
-.lift-boundary { fill: none; stroke: #9b77bd; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+.lift-boundary { fill: none; stroke: var(--diagram-violet); stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
 
 /* The two grids occupy the third row of their respective desktop sidebars. */
 .project-grid-board { box-sizing: border-box; width: 100%; margin: 0; padding: .75rem .25rem; min-width: 0; contain: layout paint; }
 .project-astar { order: 4; }
 .project-maze { order: 5; }
-.maze-board-stage { position: relative; aspect-ratio: 1; overflow: hidden; border: 1px solid #33424d; border-radius: .3rem; background: #0b1119; }
+.maze-board-stage { position: relative; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--board-border, #33424d); border-radius: .3rem; background: var(--board-floor, #0b1119); }
 .maze-board-stage > svg { display: block; width: 100%; height: auto; }
 .maze-board-stage > canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0; }
 .project-grid-board.is-rendered canvas { opacity: 1; }

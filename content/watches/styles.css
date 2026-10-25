@@ -1,12 +1,7 @@
-:root,
-:root.dark {
+:root:not(.dark) {
   --c-h: 354;
   --c-s: 90%;
   --c-l: 43%;
-}
-
-:root.dark {
-  --c-l: 60%;
 }
 
 .tb li {
