@@ -20,6 +20,9 @@
   --mg: hsl(var(--c-h), var(--c-s), var(--mg-l));
   --fg-l: 89%;
   --fg: hsl(var(--c-h), var(--c-s), var(--fg-l));
+  --inline-code-bg: var(--mg);
+  --inline-code-border: #aebad4;
+  --inline-code-text: var(--text);
 
   /* Highlight colors */
   --h-a: #1c01ce;
@@ -175,9 +178,12 @@ pre {
 
 :not(pre)>code {
   border-radius: calc(var(--radius) / 2);
-  padding: 1px 2px;
-  background: var(--mg);
-  border: var(--border) solid var(--fg);
+  padding: 0.08em 0.28em;
+  background: var(--inline-code-bg);
+  border: var(--border) solid var(--inline-code-border);
+  color: var(--inline-code-text);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 li {

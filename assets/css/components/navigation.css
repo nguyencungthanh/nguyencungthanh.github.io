@@ -36,6 +36,7 @@ nav a[aria-current='page'] {
 
 #skip-to-content:hover,
 #skip-to-content:focus {
+  z-index: 10;
   left: 0;
   right: 0;
   top: 0;

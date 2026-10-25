@@ -31,8 +31,8 @@ const context = {
   restore() { const state = stack.pop(); dash = state.dash; delete state.dash; Object.assign(this, state) },
 }
 const palettes = {
-  light: { accent: '#6e66b3', real: '#b87828', imaginary: '#168b83', ink: '#555555', background: '#f4f6fb' },
-  dark: { accent: '#c4b5fd', real: '#f0c483', imaginary: '#78dcca', ink: '#cccccc', background: '#0f172a' },
+  light: { accent: '#6e66b3', real: '#a9651e', imaginary: '#107e78', ink: '#555555', background: '#f4f6fb' },
+  dark: { accent: '#c4b5fd', real: '#e8b775', imaginary: '#70cbbd', ink: '#aebed4', background: '#0b1324' },
 }
 const colors = palettes[process.argv[4]] || {
   accent: 'var(--math-accent)', real: 'var(--math-real)', imaginary: 'var(--math-imaginary)', ink: 'var(--light-text)', background: 'var(--bg)',

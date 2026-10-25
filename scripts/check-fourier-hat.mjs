@@ -76,7 +76,8 @@ function frame(rotation, reduced = false) {
 }
 
 for (let index = 0; index <= 240; index++) frame(index / 240 * (TAU + 0.85 + 0.7) * 2)
-const completed = frame(TAU * 2).trace
+const completeFrame = frame(TAU * 2)
+const completed = completeFrame.trace
 assert.ok(completed.points.length > 700)
 assert.equal(completed.alpha, 1)
 assert.deepEqual(completed, frame((TAU + 0.4) * 2).trace, 'The completed drawing must hold')
@@ -84,9 +85,9 @@ assert.deepEqual(completed, frame(1, true).trace, 'Reduced motion must show the 
 const fading = frame((TAU + 0.85 + 0.35) * 2)
 assert.deepEqual(fading.trace.points, completed.points, 'The outline must stay complete while fading')
 assert.ok(Math.abs(fading.trace.alpha - 0.5) < 1e-10)
-assert.ok(Math.abs(fading.reference.alpha - 0.15) < 1e-10)
-assert.ok(Math.abs(fading.xGuide.alpha - 0.325) < 1e-10)
-assert.ok(Math.abs(fading.yGuide.alpha - 0.325) < 1e-10)
+for (const layer of ['reference', 'xGuide', 'yGuide']) {
+  assert.ok(Math.abs(fading[layer].alpha / completeFrame[layer].alpha - 0.5) < 1e-10, 'Guides must fade with the outline')
+}
 assert.ok(frame((TAU + 0.85 + 0.7 - 1e-4) * 2).trace.alpha < 1e-6, 'The outline must fade away before resetting')
 const restarted = frame((TAU + 0.85 + 0.7) * 2)
 assert.equal(restarted.trace.points.length, 2, 'The next cycle must start a new trace')

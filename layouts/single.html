@@ -7,8 +7,11 @@
     
     <div class="post-layout">
       <!-- TOC Sidebar -->
-      {{ if eq .Section "posts" }}
-      <aside class="toc-sidebar">
+      {{ if or (eq .Section "posts") $isMultilingual }}
+      <aside class="toc-sidebar{{ if $isMultilingual }} post-language-sidebar{{ end }}">
+        {{ if $isMultilingual }}
+          {{ partial "post/language-switcher.html" . }}
+        {{ end }}
         <div class="toc-sticky">
           <h4 class="toc-heading">Table of Contents</h4>
           {{ .TableOfContents }}
@@ -18,9 +21,6 @@
       
       <!-- Main Content -->
       <div class="post-body">
-        {{ if $isMultilingual }}
-          {{ partial "post/language-switcher.html" . }}
-        {{ end }}
         {{- partialCached "post/content" . .Permalink }}
       </div>
     </div>

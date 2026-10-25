@@ -13,12 +13,23 @@
   --math-accent: #c4b5fd;
   --math-real: #f0c483;
   --math-imaginary: #78dcca;
-  --math-border: #2b3951;
-  --math-panel-bg: #111c30;
+  --math-border: #29415f;
+  --math-panel-bg: #101e33;
   --math-formula: #d2c6ff;
   --math-formula-secondary: #92e4d5;
   --math-formula-opacity: 0.9;
 }
+
+.math-decoration[data-euler-scene="fourier-hat"] {
+  --math-real: #a9651e;
+  --math-imaginary: #107e78;
+}
+
+:root.dark .math-decoration[data-euler-scene="fourier-hat"] {
+  --math-real: #e8b775;
+  --math-imaginary: #70cbbd;
+}
+
 .math-decorations {
   display: flex;
   align-items: center;
@@ -101,6 +112,12 @@
   .math-decoration .lorenz-equations { font-size: 0.8rem; }
   .math-formula-cloud { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 0.65rem; padding: 0.4rem; color: var(--math-formula); opacity: var(--math-formula-opacity); font: italic 0.85rem/1.5 var(--font-math); text-align: center; }
   .math-formula-cloud span:nth-child(2) { color: var(--math-formula-secondary); transform: rotate(-3deg); }
+  .math-formula-cloud--single-line { justify-content: center; }
+  .math-formula-cloud--single-line > span { min-width: 0; max-width: 100%; white-space: nowrap; color: var(--math-formula); }
+  .math-formula-cloud--single-line mjx-container { max-width: 100%; margin: 0 !important; }
+  .math-formula-cloud--single-line mjx-container > svg { max-width: 100%; height: auto; }
+  .math-formula-cloud--stacked { flex-direction: column; align-items: center; gap: 1rem; }
+  .math-formula-cloud span.math-formula--cauchy { max-width: calc(100% - 0.75rem); color: var(--math-formula-secondary); transform: rotate(-5deg); }
   .math-formula-cloud sup, .math-formula-cloud sub { font-size: 0.65em; }
   .math-gallery-hint { display: none; }
 }

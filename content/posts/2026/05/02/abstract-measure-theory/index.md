@@ -112,7 +112,7 @@ for every collection of subsets $B_i \subset Y$, indexed by a set $I$.
 
 $\text{(i)} \quad$ Let $(X, \mathcal{A}_X)$ and $(Y, \mathcal{A}_Y)$ be measurable spaces. A map $f : X \to Y$ is called **measurable** if the pre-image of every measurable subset of $Y$ under $f$ is a measurable subset of $X$, i.e.,
 $$
-B \in \mathcal{A}_Y \;\Rightarrow\; f^{-1}(B) \in \mathcal{A}_X.
+B \in \mathcal{A}_Y \Rightarrow f^{-1}(B) \in \mathcal{A}_X.
 $$
 
 $\text{(ii)} \quad$ Let $(X, \mathcal{A}_X)$ be a measurable space. A function $f : X \to \overline{\mathbb{R}}$ is called **measurable** if it is measurable with respect to the Borel $\sigma$-algebra on $\overline{\mathbb{R}}$ associated to the standard topology. 
@@ -461,7 +461,7 @@ $$
 
 ---
 
-## 1.5 Sets of Measure Zero
+## 5 Sets of Measure Zero
 
 Assume throughout this section that $(X, \mathcal{A}, \mu)$ is a measure space. A **set of measure zero** (or **null set**) is a measurable set $N \in \mathcal{A}$ such that $\mu(N) = 0$. 
 

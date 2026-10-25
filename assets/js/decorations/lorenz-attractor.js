@@ -36,8 +36,8 @@ export function createLorenzAttractor() {
     cacheBackground(context, colors) {
       path(context, 0, points.length - 1)
       context.strokeStyle = colors.accent
-      context.lineWidth = 0.55
-      context.globalAlpha = 0.23
+      context.lineWidth = 0.6
+      context.globalAlpha = 0.3
       context.stroke()
       context.globalAlpha = 1
     },

@@ -40,14 +40,14 @@ function epicycles(context, terms, phase, origin, orientation, color) {
       context.beginPath()
       context.arc(x, y, radius, 0, TAU)
       context.strokeStyle = color
-      context.lineWidth = 0.8
-      context.globalAlpha = 0.3
+      context.lineWidth = 0.85
+      context.globalAlpha = 0.45
       context.stroke()
       context.globalAlpha = 1
     }
     const angle = term.frequency * phase + term.phase + orientation
     const next = [x + radius * Math.cos(angle), y + radius * Math.sin(angle)]
-    line(context, [[x, y], next], color, 0.9, 0.7)
+    line(context, [[x, y], next], color, 0.95, 0.82)
     x = next[0]; y = next[1]
   }
   return [x, y]
@@ -65,8 +65,8 @@ export function createFourierHat() {
     cacheBackground(context, colors) {
       context.lineCap = 'round'
       context.lineJoin = 'round'
-      line(context, [[151, X_ORIGIN[1]], [321, X_ORIGIN[1]]], colors.real, 0.7, 0.18)
-      line(context, [[Y_ORIGIN[0], CENTER[1] - 75], [Y_ORIGIN[0], CENTER[1] + 76]], colors.imaginary, 0.7, 0.18)
+      line(context, [[151, X_ORIGIN[1]], [321, X_ORIGIN[1]]], colors.real, 0.7, 0.23)
+      line(context, [[Y_ORIGIN[0], CENTER[1] - 75], [Y_ORIGIN[0], CENTER[1] + 76]], colors.imaginary, 0.7, 0.23)
       line(context, [[158, CENTER[1]], [326, CENTER[1]]], colors.ink, 0.65, 0.16)
       line(context, [[CENTER[0], CENTER[1] - 70], [CENTER[0], CENTER[1] + 68]], colors.ink, 0.65, 0.16)
       context.font = 'italic 15px "STIX Two Text", Georgia, serif'
@@ -91,14 +91,14 @@ export function createFourierHat() {
       context.lineCap = 'round'
       context.lineJoin = 'round'
       context.setLineDash([2, 3])
-      line(context, outline, colors.accent, 0.9, 0.3 * opacity * Math.min(1, phase / 0.35))
+      line(context, outline, colors.accent, 1, 0.4 * opacity * Math.min(1, phase / 0.35))
       context.setLineDash([])
       const xEnd = epicycles(context, model.series[0], phase, X_ORIGIN, 0, colors.real)
       const yEnd = epicycles(context, model.series[1], phase, Y_ORIGIN, -Math.PI / 2, colors.imaginary)
       const current = project(model.sample(phase))
       context.setLineDash([3, 3])
-      line(context, [xEnd, current], colors.real, 0.9, 0.65 * opacity)
-      line(context, [yEnd, current], colors.imaginary, 0.9, 0.65 * opacity)
+      line(context, [xEnd, current], colors.real, 1.05, 0.82 * opacity)
+      line(context, [yEnd, current], colors.imaginary, 1.05, 0.82 * opacity)
       context.setLineDash([])
       const count = Math.floor(phase / TAU * SAMPLES)
       line(context, [...curve.slice(0, count + 1), current], colors.accent, 2, opacity)

@@ -1,24 +1,102 @@
 /* 17. DARK MODE */
 :root.dark {
-  --c-h: 200;
-  --c-s: 100%;
-  --c-l: 40%;
+  color-scheme: dark;
+  --c-h: 207;
+  --c-s: 68%;
+  --c-l: 76%;
   --fg-l: 15%;
   --mg-l: 9%;
   --bg-l: 2%;
-  --bg: #0f172a;
-  --text: #eee;
-  --light-text: #ccc;
+  --bg: #0b1324;
+  --mg: #14243a;
+  --fg: #2a405c;
+  --text: #e4eaf5;
+  --light-text: #aebed4;
+  --inline-code-bg: #1b304d;
+  --inline-code-border: #587aa5;
+  --inline-code-text: #edf5ff;
 
   --h-a: #d0bf69;
   --h-b: #fc6a5d;
   --h-c: #d0a8ff;
-  --h-d: #6c7986;
+  --h-d: #97a4ae;
   --h-e: #fd8f3f;
+}
 
-  /* --accent: #60a5fa;
-  --border: #334155;
-  --sidebar-bg: #020617; */
+/* Browsing pages show a night sky; post pages keep a plain reading background. */
+@media screen {
+  :root.dark body:not(.post-page) {
+    isolation: isolate;
+    background-image:
+      radial-gradient(circle at 28px 42px, rgb(224 239 255 / 0.45) 0.65px, transparent 1.2px),
+      radial-gradient(circle at 179px 97px, rgb(179 210 250 / 0.3) 0.55px, transparent 1.1px),
+      radial-gradient(circle at 84px 213px, rgb(235 239 255 / 0.38) 0.75px, transparent 1.4px),
+      radial-gradient(circle at 231px 167px, rgb(189 212 255 / 0.28) 0.55px, transparent 1.1px),
+      radial-gradient(circle at 127px 51px, rgb(229 240 255 / 0.5) 0.6px, transparent 1.15px),
+      radial-gradient(circle at 319px 271px, rgb(176 204 247 / 0.32) 0.5px, transparent 1px),
+      radial-gradient(ellipse at 15% 4%, rgb(50 78 124 / 0.14), transparent 55%),
+      radial-gradient(ellipse at 90% 18%, rgb(68 60 116 / 0.1), transparent 60%);
+    background-size: 223px 173px, 317px 239px, 359px 283px, 419px 331px, 487px 367px, 557px 421px, 100% 100%, 100% 100%;
+    background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat;
+    background-attachment: fixed;
+  }
+
+  :root.dark .container {
+    background-color: transparent;
+  }
+
+  :root.dark body:not(.post-page)::before,
+  :root.dark body:not(.post-page)::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.45;
+    animation: night-sky-twinkle 7.8s ease-in-out infinite;
+  }
+
+  :root.dark body:not(.post-page)::before {
+    background-image:
+      radial-gradient(circle at 73px 129px, #e5f1ff 0.65px, rgb(156 197 255 / 0.25) 1.6px, transparent 3px),
+      radial-gradient(circle at 291px 47px, #d7e9ff 0.6px, rgb(156 197 255 / 0.2) 1.4px, transparent 2.6px),
+      radial-gradient(circle at 507px 319px, #eff4ff 0.75px, rgb(183 199 255 / 0.2) 1.7px, transparent 3.2px);
+    background-size: 389px 307px, 613px 457px, 823px 613px;
+  }
+
+  :root.dark body:not(.post-page)::after {
+    background-image:
+      radial-gradient(circle at 211px 83px, #eef5ff 0.7px, rgb(169 203 255 / 0.2) 1.6px, transparent 3px),
+      radial-gradient(circle at 53px 347px, #cddfff 0.6px, rgb(168 191 255 / 0.2) 1.4px, transparent 2.8px),
+      radial-gradient(circle at 673px 211px, #e8efff 0.65px, rgb(183 199 255 / 0.2) 1.5px, transparent 3px);
+    background-size: 503px 379px, 719px 541px, 937px 701px;
+    animation-duration: 11.4s;
+    animation-delay: -4.6s;
+  }
+}
+
+@keyframes night-sky-twinkle {
+  0%, 100% { opacity: 0.25; }
+  45% { opacity: 0.85; }
+  75% { opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root.dark body:not(.post-page)::before,
+  :root.dark body:not(.post-page)::after {
+    animation: none;
+    opacity: 0.45;
+  }
+}
+
+:root.dark a code {
+  color: #b7dcff;
+}
+
+:root.dark a:hover code,
+:root.dark a:focus-visible code {
+  background: #294767;
+  border-color: #8fb9df;
 }
 
 :root.dark .only-light,

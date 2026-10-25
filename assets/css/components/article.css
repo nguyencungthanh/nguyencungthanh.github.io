@@ -39,14 +39,11 @@
     height: 100%;
     padding-right: 3rem;
   }
+
 }
 
 
 /* 22. TOC — STYLES (.toc-sticky) */
-.toc-sticky {
-  /* Not sticky — scrolls out of view with the page */
-}
-
 .toc-heading {
   margin-top: 0;
   font-size: var(--f4);

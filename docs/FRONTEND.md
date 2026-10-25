@@ -33,6 +33,15 @@ Publication styles are loaded separately on publication pages and on Home when
 `selectedPublications` is configured. Both lists use the shared
 `layouts/_partials/publications/list.html` markup.
 
+Light mode retains the original pale background. Dark mode uses deep navy surfaces,
+soft blue accents, and a continuous CSS star field behind a transparent reading
+container. Two fixed, non-interactive layers animate only opacity at different
+speeds for subtle twinkling. Reduced motion keeps the stars static; print omits them.
+Individual posts receive the `post-page` body class, which excludes both the star
+background and twinkling layers for distraction-free reading. Browsing pages keep them.
+Inline code uses dedicated `--inline-code-bg`, `--inline-code-border`, and
+`--inline-code-text` tokens so its chips remain distinct from general panels.
+
 ## Page scripts, search, and calculators
 
 - `layouts/_partials/assets/js.html` loads the shared theme, emoji, and image-preview
@@ -126,6 +135,10 @@ and border use `--math-panel-bg` and `--math-border`.
 Rendering is capped at 30 fps on desktop and 24 fps on phones. Backing resolution
 is limited to 720 pixels wide for the helix and 540 for the other scenes, with a pixel
 ratio of 1.5 on phones / 2 on desktop.
+Grids and wireframes retain their original stroke weights. Only the Lorenz and
+helix reference trajectories are slightly stronger. Fourier's orange/teal colors
+and epicycle opacity have a modest contrast increase, scoped to that figure.
+The static SVGs follow the same settings.
 
 For the Fourier diagram, `CENTER`, `X_ORIGIN`, and `Y_ORIGIN` position the drawing
 and epicycles. `SCALE` sets their common scale, `HOLD_PHASE` sets the completed
@@ -177,4 +190,9 @@ server if its cached page content still contains the previous type. Use
 `assets/js/post-language.js` handles content, language-specific TOCs, preferences,
 and section links. Its markup is in
 `layouts/_partials/post/language-switcher.html`. It is included only for bilingual
-Random Thought articles.
+Random Thought articles. On desktop the language control sits above the TOC in
+the article sidebar at the start of the content. Both controls scroll out of view
+with the article, using the same TOC placement as other posts. On smaller screens
+the language control appears above the article content while the TOC stays hidden.
+Compact segmented buttons show the active language, and the caption remains
+available to assistive technology without widening the control.

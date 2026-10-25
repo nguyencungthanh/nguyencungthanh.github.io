@@ -166,9 +166,9 @@ import { createPolyhedra } from './polyhedra.js'
       line(context, [origin, [-HALF_LENGTH, 1.4, -1.15]].map(project), colors.ink, 0.9, 0.5)
       line(context, [origin, [-HALF_LENGTH, -1.15, 1.4]].map(project), colors.ink, 0.9, 0.5)
       line(context, [[-HALF_LENGTH, 0, 0], [HALF_LENGTH, 0, 0]].map(project), colors.accent, 0.7, 0.15)
-      line(context, helix, colors.accent, 1.4, 0.28)
-      line(context, realProjection, colors.real, 1.2, 0.3)
-      line(context, imaginaryProjection, colors.imaginary, 1.2, 0.3)
+      line(context, helix, colors.accent, 1.4, 0.36)
+      line(context, realProjection, colors.real, 1.2, 0.38)
+      line(context, imaginaryProjection, colors.imaginary, 1.2, 0.38)
       context.fillStyle = colors.ink
       context.font = 'italic 13px "STIX Two Text", Georgia, serif'
       const labels = [

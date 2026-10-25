@@ -5,6 +5,7 @@
   const blocks = Array.from(article.querySelectorAll('[data-post-lang]'))
   const languages = new Set(blocks.map(block => block.dataset.postLang))
   const toolbar = article.querySelector('.post-language-toolbar')
+  if (!toolbar) return
   const buttons = Array.from(toolbar.querySelectorAll('[data-lang]'))
   const label = toolbar.querySelector('.post-language-label')
   const toc = article.querySelector('#TableOfContents')
