@@ -1,6 +1,4 @@
-/* =============================================================================
-   6. LAYOUT — HEADER & NAVBAR
-   ============================================================================= */
+/* 6. LAYOUT — HEADER & NAVBAR */
 #header,
 #header #home {
   display: flex;
@@ -25,6 +23,11 @@
 
 #header form input {
   width: 12rem;
+}
+
+#header form button {
+  flex-shrink: 0;
+  min-width: 2.25rem;
 }
 
 #header form button:hover {
@@ -65,9 +68,7 @@
 }
 
 
-/* =============================================================================
-   7. LAYOUT — CONTAINER & FLOAT HELPERS
-   ============================================================================= */
+/* 7. LAYOUT — CONTAINER & FLOAT HELPERS */
 .container {
   width: 100%;
   background-color: var(--bg);

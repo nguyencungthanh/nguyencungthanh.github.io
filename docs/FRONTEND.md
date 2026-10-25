@@ -88,27 +88,31 @@ runtime Google Fonts requests. MathJax's TeX SVG output remains independent.
 | --- | --- |
 | Mathematics scene markup | `layouts/shortcodes/mathematics-decorations.html` |
 | Static Euler fallback | `layouts/_partials/decorations/euler-fallback.html` |
-| Static unit circle and trace fallback | `layouts/_partials/decorations/phase-traces-fallback.html` |
+| Static Fourier hat fallback | `layouts/_partials/decorations/fourier-hat-fallback.html` |
 | Lorenz integration and phase portrait | `assets/js/decorations/lorenz-attractor.js` |
 | Six convex wireframe meshes | `assets/js/decorations/polyhedra.js` |
 | Static Lorenz and polyhedra fallbacks | `layouts/_partials/decorations/{lorenz,polyhedra}-fallback.html` |
 | Neural network SVG | `layouts/_partials/decorations/project-network.html` |
 | Shared visibility / reduced-motion handling | `assets/js/decorations/visibility.js` |
 | Euler geometry, projection, and Canvas renderer | `assets/js/decorations/euler-scene.js` |
-| Flat unit circle and progressive plot renderer | `assets/js/decorations/phase-traces.js` |
+| Hat geometry and analytic Fourier coefficients | `assets/js/decorations/fourier-hat-model.js` |
+| Separate x/y epicycles and progressive hat outline | `assets/js/decorations/fourier-hat.js` |
 | Mathematics responsive placement and palette | `content/categories/writings/styles.css` |
 | Neural network appearance | `content/categories/projects/styles.css` |
 
 The left Euler scene projects coordinates `(phase, real, imaginary)` using the
 editable coefficients in `project`. The moving complex point has
-real and imaginary projections onto two coordinate planes. The right scene shows
-a unit circle above separate Re(z) and Im(z) plots. The rotating point connects
-to the current sample in each plot with a dashed guide. This diagram uses only
-flat 2D axes. The curves grow from phase zero to the moving endpoints on fixed
-horizontal phase axes; a new sweep starts after two revolutions. The palette
-follows the light/dark theme.
+real and imaginary projections onto two coordinate planes. The right scene draws
+the 13-sided hat from Smith, Myers, Kaplan and Goodman-Strauss's *An aperiodic
+monotile*. Its x(t) and y(t) coordinates are parameterized by arc length and
+expanded separately into 32 Fourier harmonics, integrated analytically over
+the polygon's straight edges. The upper epicycles supply x(t); the left epicycles
+supply y(t). Their vertical and horizontal projections meet at the moving pen.
+The completed outline pauses briefly, fades out with its projection guides,
+then starts a new sweep. The palette follows
+the light/dark theme.
 
-All four scenes share a phase and requestAnimationFrame loop. Grid planes, reference
+All four scenes share a clock and requestAnimationFrame loop. Grid planes, reference
 curves, and plot axes are cached. Trace sampling uses a fixed-size array rather
 than accumulating history. The renderers are split
 into modules and bundled into one script by Hugo's `js.Build`.
@@ -120,14 +124,18 @@ stylesheet. Formula colors and opacity have independent `--math-formula`,
 `--math-formula-secondary`, and `--math-formula-opacity` tokens; panel background
 and border use `--math-panel-bg` and `--math-border`.
 Rendering is capped at 30 fps on desktop and 24 fps on phones. Backing resolution
-is limited to 720 pixels wide for the helix and 540 for the traces, with a pixel
+is limited to 720 pixels wide for the helix and 540 for the other scenes, with a pixel
 ratio of 1.5 on phones / 2 on desktop.
 
-For the right diagram, `CENTER` / `RADIUS` position the unit circle;
-`REAL_BASELINE` / `IMAGINARY_BASELINE` position the plots. `AMPLITUDE` sets their
-height, `PHASE_RANGE` sets the phase axis range, and `SAMPLES` sets resolution.
-`PHASE_OFFSET` sets the starting orientation of the right diagram independently
-of the left camera.
+For the Fourier diagram, `CENTER`, `X_ORIGIN`, and `Y_ORIGIN` position the drawing
+and epicycles. `SCALE` sets their common scale, `HOLD_PHASE` sets the completed
+outline's pause, `FADE_PHASE` sets its smooth fade, and `SAMPLES` sets trace
+resolution. `HARMONICS` in the model
+sets the truncation order. Regenerate the static fallback with
+`node scripts/generate-fourier-hat.mjs`. Reduced motion shows the completed
+outline rather than an unfinished trace. Run `node scripts/check-fourier-hat.mjs`
+to compare all coefficients with independent numerical quadrature and check
+the drawing's projection, bounds, and playback states.
 
 Decorations with `data-ambient-animation` receive an `is-paused` class and an
 `ambient:visibility` event when their visibility changes. Hidden tabs, offscreen
@@ -137,7 +145,7 @@ scroll-snap gallery, so only the visible scene animates. On desktop, decorations
 occupy the side margins only; no inline signature is inserted below the intro.
 
 Desktop uses two independent side rails: Lorenz and the Euler helix on the
-left; the 2D complex plane and a six-polyhedron gallery on the right. Short
+left; the Fourier hat and a six-polyhedron gallery on the right. Short
 windows allow the rails to scroll without covering the article. Tablets use a
 two-column grid; phones use four snap panels. Decorative formula fragments live
 inside desktop rails only. The former constellation, polygon, Bézier, and
@@ -154,8 +162,10 @@ No WebGL, external animation dependency, or blur filters are used.
 References:
 - Lorenz, *Deterministic Nonperiodic Flow* (1963): https://doi.org/10.1175/1520-0469(1963)020%3C0130:DNF%3E2.0.CO;2
 - Euler's convex polyhedron formula: https://isa-afp.org/entries/Euler_Polyhedron_Formula.html
+- Smith, Myers, Kaplan and Goodman-Strauss, *An aperiodic monotile* (2023): https://cs.uwaterloo.ca/~csk/hat/
+- Hat vertex coordinates in the authors' visualizer: https://github.com/isohedral/hatviz/blob/main/geometry.js
 
-Accepted scene types are `helix`, `traces`, `lorenz`, and `polyhedra`.
+Accepted scene types are `helix`, `fourier-hat`, `lorenz`, and `polyhedra`.
 Unsupported markup keeps its
 static fallback instead of silently using the helix renderer. When renaming a
 scene type or changing shortcode markup, restart a running Hugo development

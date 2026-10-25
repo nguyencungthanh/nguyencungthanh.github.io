@@ -4,27 +4,33 @@ for (const scene of document.querySelectorAll('[data-astar]')) {
   const canvas = scene.querySelector('canvas')
   const context = canvas.getContext('2d')
   if (!context) continue
-  // Solve once. Playback only paints changed cells; walls and grid stay cached.
-  const maze = createMaze(), result = solveAStar(maze)
   const base = document.createElement('canvas'), baseContext = base.getContext('2d')
   const complete = document.createElement('canvas'), completeContext = complete.getContext('2d')
-  if (!baseContext || !completeContext || !result.path.length) continue
+  if (!baseContext || !completeContext) continue
+  // Solve each board once; playback only paints changed cells.
+  const models = [29, 173, 487].map(seed => {
+    const maze = createMaze(seed)
+    return { ...maze, ...solveAStar(maze) }
+  })
+  if (models.some(model => !model.path.length)) continue
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   const mobile = window.matchMedia('(max-width: 40rem)')
-  const cells = new Uint8Array(maze.walls.length)
-  const searchBatch = Math.max(1, Math.ceil(result.events.length / 150))
-  const routeBatch = Math.max(1, Math.ceil(result.path.length / 100))
-  let scale = 1, timer = null, phase = 'idle'
+  const cells = new Uint8Array(models[0].walls.length)
+  let modelIndex = 0, model = models[0], timer = null, phase = 'idle'
   let cursor = 0, routeCursor = 0, active = -1, fadeStep = 0
   let wasReduced = reducedMotion.matches
 
-  const center = index => [(index % maze.size + .5) * CELL_SIZE, (Math.floor(index / maze.size) + .5) * CELL_SIZE]
+  const center = index => [(index % model.size + .5) * CELL_SIZE, (Math.floor(index / model.size) + .5) * CELL_SIZE]
   function cell(index, color, target = context) {
     target.fillStyle = color
-    target.fillRect(index % maze.size * CELL_SIZE + .45, Math.floor(index / maze.size) * CELL_SIZE + .45, CELL_SIZE - .9, CELL_SIZE - .9)
+    target.fillRect(index % model.size * CELL_SIZE + .45, Math.floor(index / model.size) * CELL_SIZE + .45, CELL_SIZE - .9, CELL_SIZE - .9)
+  }
+  function drawBase() {
+    baseContext.fillStyle = COLORS.grid; baseContext.fillRect(0, 0, BOARD_SIZE, BOARD_SIZE)
+    model.walls.forEach((wall, index) => cell(index, wall ? COLORS.wall : COLORS.floor, baseContext))
   }
   function markers() {
-    for (const [index, color] of [[maze.start, COLORS.start], [maze.goal, COLORS.goal]]) {
+    for (const [index, color] of [[model.start, COLORS.start], [model.goal, COLORS.goal]]) {
       const [x, y] = center(index)
       context.beginPath(); context.arc(x, y, CELL_SIZE * .39, 0, 2 * Math.PI)
       context.fillStyle = color; context.fill()
@@ -43,7 +49,7 @@ for (const scene of document.querySelectorAll('[data-astar]')) {
     context.fillStyle = COLORS.head; context.fill()
   }
   function drawRoute(count) {
-    for (let i = 0; i < count; i++) segment(result.path[Math.max(0, i - 1)], result.path[i])
+    for (let i = 0; i < count; i++) segment(model.path[Math.max(0, i - 1)], model.path[i])
   }
   function drawState(final = false) {
     context.globalAlpha = 1
@@ -51,7 +57,7 @@ for (const scene of document.querySelectorAll('[data-astar]')) {
     if (!final) {
       cells.forEach((value, index) => { if (value) cell(index, value === 1 ? COLORS.frontier : COLORS.visited) })
     }
-    drawRoute(final ? result.path.length : routeCursor)
+    drawRoute(final ? model.path.length : routeCursor)
     if (!final && active !== -1) {
       if (phase === 'route') head(active)
       else if (phase === 'search') cell(active, COLORS.active)
@@ -63,8 +69,10 @@ for (const scene of document.querySelectorAll('[data-astar]')) {
     completeContext.clearRect(0, 0, complete.width, complete.height)
     completeContext.drawImage(canvas, 0, 0)
   }
-  function reset() {
+  function reset(next = false) {
+    if (next) { modelIndex = (modelIndex + 1) % models.length; model = models[modelIndex] }
     cells.fill(0); cursor = 0; routeCursor = 0; active = -1; fadeStep = 0; phase = 'idle'
+    drawBase()
     drawState()
   }
   function tick() {
@@ -73,24 +81,26 @@ for (const scene of document.querySelectorAll('[data-astar]')) {
     if (phase === 'idle') phase = 'search'
     else if (phase === 'search') {
       if (active !== -1) cell(active, COLORS.visited)
-      for (let n = 0; n < searchBatch && cursor < result.events.length; n++) {
-        const event = result.events[cursor++]
+      const searchBatch = Math.max(1, Math.ceil(model.events.length / 150))
+      for (let n = 0; n < searchBatch && cursor < model.events.length; n++) {
+        const event = model.events[cursor++]
         event.opened.forEach(index => { cells[index] = 1; cell(index, COLORS.frontier) })
         cells[event.current] = 2; cell(event.current, COLORS.visited)
         active = event.current
       }
-      if (cursor === result.events.length) { phase = 'route'; active = -1; delay = 400 }
+      if (cursor === model.events.length) { phase = 'route'; active = -1; delay = 400 }
       else cell(active, COLORS.active)
       markers()
     } else if (phase === 'route') {
       if (active !== -1) cell(active, COLORS.path)
-      for (let n = 0; n < routeBatch && routeCursor < result.path.length; n++) {
-        const next = result.path[routeCursor]
-        segment(result.path[Math.max(0, routeCursor - 1)], next)
+      const routeBatch = Math.max(1, Math.ceil(model.path.length / 100))
+      for (let n = 0; n < routeBatch && routeCursor < model.path.length; n++) {
+        const next = model.path[routeCursor]
+        segment(model.path[Math.max(0, routeCursor - 1)], next)
         active = next; routeCursor++
       }
       head(active); markers()
-      if (routeCursor === result.path.length) { phase = 'hold'; snapshot(); delay = 2400 }
+      if (routeCursor === model.path.length) { phase = 'hold'; snapshot(); delay = 2400 }
     } else if (phase === 'hold') phase = 'fade'
     else if (phase === 'fade') {
       fadeStep++
@@ -100,7 +110,7 @@ for (const scene of document.querySelectorAll('[data-astar]')) {
       context.globalAlpha = t * t * (3 - 2 * t)
       context.drawImage(base, 0, 0, BOARD_SIZE, BOARD_SIZE)
       context.globalAlpha = 1; markers()
-      if (fadeStep >= 24) { reset(); delay = 700 }
+      if (fadeStep >= 24) { reset(true); delay = 700 }
     }
     timer = window.setTimeout(tick, delay)
   }
@@ -109,11 +119,10 @@ for (const scene of document.querySelectorAll('[data-astar]')) {
     if (!width) return
     const pixels = Math.min(1000, Math.round(width * Math.min(window.devicePixelRatio || 1, mobile.matches ? 1.5 : 2)))
     canvas.width = canvas.height = base.width = base.height = complete.width = complete.height = pixels
-    scale = pixels / BOARD_SIZE
+    const scale = pixels / BOARD_SIZE
     context.setTransform(scale, 0, 0, scale, 0, 0)
     baseContext.setTransform(scale, 0, 0, scale, 0, 0)
-    baseContext.fillStyle = COLORS.grid; baseContext.fillRect(0, 0, BOARD_SIZE, BOARD_SIZE)
-    maze.walls.forEach((wall, index) => cell(index, wall ? COLORS.wall : COLORS.floor, baseContext))
+    drawBase()
     drawState(reducedMotion.matches)
     if (phase === 'hold' || phase === 'fade') snapshot()
   }

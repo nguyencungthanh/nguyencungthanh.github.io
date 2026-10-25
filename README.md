@@ -138,9 +138,9 @@ for prose. Literata is the interface, general reading, and heading font,
 including Random Thought. MathJax retains its TeX SVG
 rendering for formulas.
 
-The writings category uses the `mathematics-decorations` shortcode for two
-synchronized Euler scenes: a frontal helix with real/imaginary projections and
-a flat unit circle above progressively drawn real and imaginary plots.
+The writings category uses the `mathematics-decorations` shortcode for an Euler
+helix with real/imaginary projections and separate x/y Fourier epicycles that
+trace the hat tile from *An aperiodic monotile*.
 A small Canvas 2D renderer caches static geometry and shares a
 capped animation loop. SVG fallbacks remain available without JavaScript.
 Lorenz’s attractor and six convex polyhedra add two further mathematical scenes.

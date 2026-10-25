@@ -22,6 +22,8 @@
   <form action='{{ relURL "/search/" }}' method='get' class='inline-form'>
     <input type='search' placeholder='Search…' id='query' name='q' aria-label='Search the site' />
     <button type='submit' aria-label='Search'>🔎</button>
+    <button type='button' class='theme-toggle only-dark' onclick="toggleTheme('l')" title='Light Mode' aria-label='Switch to light mode'>☀︎</button>
+    <button type='button' class='theme-toggle only-light' onclick="toggleTheme('d')" title='Dark Mode' aria-label='Switch to dark mode'>☾</button>
   </form>
 </div>
 

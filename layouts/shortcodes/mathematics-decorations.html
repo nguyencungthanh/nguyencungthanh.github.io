@@ -38,12 +38,13 @@
       </div>
     </div>
     <div class="math-rail math-rail--right">
-      <figure class="math-decoration math-decoration--right" data-ambient-animation data-euler-scene="traces">
-        <div class="euler-heading"><span class="euler-label">THE COMPLEX PLANE</span></div>
-        <div class="euler-stage euler-stage--traces">
-          <canvas class="euler-canvas" width="300" height="533"></canvas>
-          {{ partialCached "decorations/phase-traces-fallback.html" . }}
+      <figure class="math-decoration math-decoration--right" data-ambient-animation data-euler-scene="fourier-hat">
+        <div class="euler-heading"><span class="euler-label">FOURIER · DAVID SMITH'S TILE</span></div>
+        <div class="euler-stage euler-stage--fourier">
+          <canvas class="euler-canvas" width="360" height="336"></canvas>
+          {{ partialCached "decorations/fourier-hat-fallback.html" . }}
         </div>
+        <figcaption class="fourier-hat-key">An aperiodic monotile · 2023</figcaption>
       </figure>
       <figure class="math-decoration math-decoration--polyhedra" data-ambient-animation data-euler-scene="polyhedra">
         <div class="euler-heading"><span class="euler-label">CONVEX POLYHEDRA</span><span class="euler-equation"><i>V</i> − <i>E</i> + <i>F</i> = 2</span></div>

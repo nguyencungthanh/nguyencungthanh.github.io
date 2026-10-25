@@ -2,7 +2,7 @@ export const GRID_SIZE = 51
 export const CELL_SIZE = 10
 export const BOARD_SIZE = GRID_SIZE * CELL_SIZE
 
-// A connected maze with occasional loops and rooms, generated once per page.
+// A seeded connected maze with occasional loops and rooms.
 export function createMaze(seed = 29) {
   let state = seed >>> 0
   const random = () => {

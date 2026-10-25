@@ -45,8 +45,8 @@ export function createPolyhedra() {
     },
     render(context, rotation, colors) {
       meshes.forEach((mesh, index) => {
-        const yaw = rotation * 0.16 + index * 0.7
-        const pitch = 0.4 + Math.sin(rotation * 0.1 + index) * 0.18
+        const yaw = rotation * 0.5 + index * 0.7
+        const pitch = 0.4 + Math.sin(rotation * 0.15 + index) * 0.18
         const vertices = mesh.vertices.map(([x, y, z]) => {
           const horizontal = x * Math.cos(yaw) + z * Math.sin(yaw)
           const depth = z * Math.cos(yaw) - x * Math.sin(yaw)

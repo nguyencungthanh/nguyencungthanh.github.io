@@ -42,9 +42,7 @@
 }
 
 
-/* =============================================================================
-   22. TOC — STYLES (.toc-sticky)
-   ============================================================================= */
+/* 22. TOC — STYLES (.toc-sticky) */
 .toc-sticky {
   /* Not sticky — scrolls out of view with the page */
 }
@@ -94,9 +92,7 @@
   background: transparent; /* Override global nav a hover background */
 }
 
-/* =============================================================================
-   23. SIDENOTE
-   ============================================================================= */
+/* 23. SIDENOTE */
 .sidenote {
   color: inherit;
   float: right;
@@ -108,10 +104,8 @@
 }
 
 
-/* =============================================================================
-   24. POST-SPECIFIC OVERRIDES
-       Scoped to article.post-with-toc to avoid bleeding into other pages.
-   ============================================================================= */
+/* 24. POST-SPECIFIC OVERRIDES */
+/* Scoped to article.post-with-toc to avoid bleeding into other pages. */
 
 /* Muted link color inside post body */
 article.post-with-toc .post-body a {

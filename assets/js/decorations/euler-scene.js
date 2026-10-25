@@ -1,4 +1,4 @@
-import { createPhaseTraces } from './phase-traces.js'
+import { createFourierHat } from './fourier-hat.js'
 import { createLorenzAttractor } from './lorenz-attractor.js'
 import { createPolyhedra } from './polyhedra.js'
 
@@ -14,6 +14,7 @@ import { createPolyhedra } from './polyhedra.js'
   const scenes = []
   const activeScenes = new Set()
   const mobileViewport = window.matchMedia('(max-width: 40rem)')
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   let phase = Math.PI / 4
   let rotation = phase
   let frame = null
@@ -70,14 +71,14 @@ import { createPolyhedra } from './polyhedra.js'
     constructor(element) {
       // Never render a helix for stale or unsupported scene markup.
       const type = element.dataset.eulerScene
-      if (!['helix', 'traces', 'lorenz', 'polyhedra'].includes(type)) return
+      if (!['helix', 'fourier-hat', 'lorenz', 'polyhedra'].includes(type)) return
       this.element = element
       this.canvas = element.querySelector('canvas')
       this.context = this.canvas.getContext('2d')
       if (!this.context) return
       this.background = document.createElement('canvas')
       this.backgroundContext = this.background.getContext('2d')
-      const renderers = { traces: createPhaseTraces, lorenz: createLorenzAttractor, polyhedra: createPolyhedra }
+      const renderers = { 'fourier-hat': createFourierHat, lorenz: createLorenzAttractor, polyhedra: createPolyhedra }
       this.renderer = renderers[type] ? renderers[type]() : null
       this.width = this.renderer ? this.renderer.width : WIDTH
       this.height = this.renderer ? this.renderer.height : HEIGHT
@@ -130,7 +131,7 @@ import { createPolyhedra } from './polyhedra.js'
 
     updateActivity() {
       const visible = this.element.getBoundingClientRect().width > 0
-      if (visible && !this.element.classList.contains('is-paused') && !document.hidden) {
+      if (visible && !this.element.classList.contains('is-paused') && !document.hidden && !reducedMotion.matches) {
         activeScenes.add(this)
       } else {
         activeScenes.delete(this)
@@ -196,7 +197,7 @@ import { createPolyhedra } from './polyhedra.js'
       context.clearRect(0, 0, this.width, this.height)
       context.drawImage(this.background, 0, 0, this.width, this.height)
       if (this.renderer) {
-        this.renderer.render(context, rotation, colors)
+        this.renderer.render(context, rotation, colors, reducedMotion.matches)
         return
       }
       context.lineCap = 'round'
@@ -260,4 +261,5 @@ import { createPolyhedra } from './polyhedra.js'
   // Canvas colors and labels refresh when the theme or local fonts change.
   new MutationObserver(() => scenes.forEach(scene => scene.refreshColors())).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
   document.fonts.ready.then(() => scenes.forEach(scene => scene.refreshColors()))
+  reducedMotion.addEventListener('change', () => scenes.forEach(scene => { scene.render(); scene.updateActivity() }))
 })()

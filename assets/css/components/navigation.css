@@ -28,9 +28,7 @@ nav a[aria-current='page'] {
 }
 
 
-/* =============================================================================
-   15. COMPONENTS — SKIP-TO-CONTENT (Accessibility)
-   ============================================================================= */
+/* 15. COMPONENTS — SKIP-TO-CONTENT (Accessibility) */
 #skip-to-content {
   position: absolute;
   top: -20em;
@@ -50,9 +48,7 @@ nav a[aria-current='page'] {
 }
 
 
-/* =============================================================================
-   16. COMPONENTS — FOOTER
-   ============================================================================= */
+/* 16. COMPONENTS — FOOTER */
 #footer {
   margin-top: 2rem;
   display: flex;
