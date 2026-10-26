@@ -28,6 +28,8 @@
         <div class="euler-stage">
           <canvas class="euler-canvas" width="300" height="280"></canvas>
           {{ partialCached "decorations/euler-fallback.html" . }}
+          <span class="euler-math-label euler-axis-varphi">$\varphi$</span>
+          <span class="euler-math-label euler-phase-readout"><span>$\varphi =$</span><span data-euler-phase-value>0.25</span><span>$\pi$</span></span>
         </div>
         <figcaption class="euler-legend"><span class="euler-real">Re · \(\cos \varphi\)</span><span class="euler-imaginary">Im · \(\sin \varphi\)</span></figcaption>
       </figure>

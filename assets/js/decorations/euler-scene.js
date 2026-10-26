@@ -73,6 +73,7 @@ import { createPolyhedra } from './polyhedra.js'
       const type = element.dataset.eulerScene
       if (!['helix', 'fourier-hat', 'lorenz', 'polyhedra'].includes(type)) return
       this.element = element
+      this.phaseReadout = element.querySelector('[data-euler-phase-value]')
       this.canvas = element.querySelector('canvas')
       this.context = this.canvas.getContext('2d')
       if (!this.context) return
@@ -112,6 +113,7 @@ import { createPolyhedra } from './polyhedra.js'
         this.updateActivity()
         return
       }
+      this.element.style.setProperty('--euler-label-scale', String(width / this.width))
       // Limit backing pixels on high-DPI phones; CSS keeps the layout responsive.
       const mobile = mobileViewport.matches
       const pixelRatio = Math.min(window.devicePixelRatio || 1, mobile ? 1.5 : 2)
@@ -172,7 +174,6 @@ import { createPolyhedra } from './polyhedra.js'
       context.fillStyle = colors.ink
       context.font = 'italic 13px "STIX Two Text", Georgia, serif'
       const labels = [
-        { text: 'φ', at: [1.98, -1.15, -1.15], offset: [3, 4] },
         { text: 'Re', at: [-HALF_LENGTH, 1.45, -1.15], offset: [0, 4] },
         { text: 'Im', at: [-HALF_LENGTH, -1.15, 1.5], offset: [-4, 0] },
       ]
@@ -218,13 +219,8 @@ import { createPolyhedra } from './polyhedra.js'
       point(context, realPoint, colors.real, colors.background, 2.8)
       point(context, imaginaryPoint, colors.imaginary, colors.background, 2.8)
       point(context, current, colors.accent, colors.background, 4)
-      context.fillStyle = colors.ink
-      context.font = '10px "Source Sans 3", sans-serif'
-      context.textAlign = 'left'
-      context.fillText('COMPLEX ROTATION', 22, 265)
-      context.textAlign = 'right'
-      context.fillText(`φ = ${(phase / Math.PI).toFixed(2)}π`, 278, 265)
-      context.textAlign = 'left'
+      const phaseValue = (phase / Math.PI).toFixed(2)
+      if (this.phaseReadout && this.phaseReadout.textContent !== phaseValue) this.phaseReadout.textContent = phaseValue
     }
   }
 

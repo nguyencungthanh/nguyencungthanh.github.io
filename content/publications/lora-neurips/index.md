@@ -5,7 +5,7 @@ authors:
   - Long Nguyen-Chi
   - Quynh Nguyen
   - Thanh Nguyen-Cung
-  - Binh Nguyen
+  - Binh T. Nguyen
 venue: NeurIPS 2026
 date: 2026-09-24
 paper_url: https://arxiv.org/pdf/2610.23343

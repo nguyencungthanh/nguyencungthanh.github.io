@@ -68,6 +68,11 @@
 .euler-canvas, .euler-fallback { width: 100%; height: 100%; }
 .euler-fallback { display: block; }
 .euler-canvas { display: none; }
+.euler-math-label { position: absolute; color: var(--light-text); line-height: 1; pointer-events: none; }
+.math-decoration:not(.is-rendered) .euler-math-label { display: none; }
+.euler-axis-varphi { left: 66.6533%; top: 55.7321%; transform: translateY(-0.8em); font-size: calc(13px * var(--euler-label-scale, 1)); }
+.euler-phase-readout { right: 7.3333%; top: 94.6429%; display: inline-flex; align-items: baseline; gap: 0.1em; transform: translateY(-0.8em); font: calc(15px * var(--euler-label-scale, 1))/1 var(--font-math); font-variant-numeric: tabular-nums; }
+.euler-math-label mjx-container { margin: 0 !important; }
 .is-rendered .euler-canvas { display: block; }
 .is-rendered .euler-fallback { display: none; }
 .math-decoration .euler-legend { display: flex; justify-content: center; gap: 1.1rem; padding: 0; font-family: var(--font-math); font-size: 0.8rem; line-height: 1.5; }
