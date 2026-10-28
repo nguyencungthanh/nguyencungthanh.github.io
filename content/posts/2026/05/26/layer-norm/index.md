@@ -236,18 +236,18 @@ LayerNorm is invariant to:
 
 Specifically,
 $$
-W' = \delta W + \mathbf{1}\gamma^T
+W^{\prime} = \delta W + \mathbf{1}\gamma^T
 $$
 produces the same output
 
 $$
-h' = f\left(\frac{g}{\sigma'}(W'x-\mu')+b\right) = h
+h^{\prime} = f\left(\frac{g}{\sigma^{\prime}}(W^{\prime}x-\mu^{\prime})+b\right) = h
 $$
 
-LayerNorm is also invariant to re-scaling an input example $ x' = \delta x $ because:
+LayerNorm is also invariant to re-scaling an input example $x^{\prime} = \delta x$ because:
 
 $$
-h_i' = f\left(\frac{g_i}{\delta\sigma}(\delta w_i^Tx-\delta\mu)+b_i\right) = h_i
+h_i^{\prime} = f\left(\frac{g_i}{\delta\sigma}(\delta w_i^Tx-\delta\mu)+b_i\right) = h_i
 $$
 
 ---

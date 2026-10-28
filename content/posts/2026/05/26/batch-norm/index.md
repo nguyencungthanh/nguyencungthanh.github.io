@@ -45,7 +45,7 @@ $$
 g(x)=\frac{1}{1+e^{-x}}
 $$
 
-When $|x|$ becomes large $g'(x)\rightarrow 0 $ which causes vanishing gradients. Since \(x = Wu+b\) depends on all preceding layers, parameter updates continuously shift the distribution of \(x\), pushing many activations into saturation and slowing training.
+When $|x|$ becomes large, $g^{\prime}(x)\rightarrow 0$, which causes vanishing gradients. Since $x = Wu+b$ depends on all preceding layers, parameter updates continuously shift the distribution of $x$, pushing many activations into saturation and slowing training.
 
 This issue becomes worse as the network depth increases.
 
@@ -103,7 +103,7 @@ BatchNorm therefore adopts a simpler alternative.
 
 Instead of jointly whitening the entire vector, BN normalizes each dimension independently. Given:
 $$
-x=(x^{(1)},...,x^{(d)})
+x=(x^{(1)},\ldots,x^{(d)})
 $$
 
 and each dimension is normalized as:
@@ -125,8 +125,8 @@ y^{(k)} =  \gamma^{(k)}\hat{x}^{(k)} + \beta^{(k)}
 $$
 
 where:
-- \(\gamma\): scaling parameter,
-- \(\beta\): shifting parameter.
+- $\gamma$: scaling parameter,
+- $\beta$: shifting parameter.
 
 If needed, the original activations can be recovered by:
 
@@ -144,29 +144,35 @@ Thus, BatchNorm can represent the identity transform.
 In SGD, it is impractical to compute statistics over the entire dataset at every step. Instead, BatchNorm uses mini-batch statistics. Given a mini-batch:
 
 $$
-B=\\{x_1,...,x_m\\}
+B=\\{x_1,\ldots,x_m\\}
 $$
 
-**Mini-Batch Mean**: 
-\(
+**Mini-Batch Mean**:
+
+$$
 \mu_B = \frac{1}{m}\sum_{i=1}^{m}x_i
-\)
+$$
 
 **Mini-Batch Variance**:
-\(
-\sigma_B^2 = \frac{1}{m}\sum_{i=1}^{m}(x_i-\mu_B)^2
-\)
 
-**Normalize**: 
-\(
+$$
+\sigma_B^2 = \frac{1}{m}\sum_{i=1}^{m}(x_i-\mu_B)^2
+$$
+
+**Normalize**:
+
+$$
 \hat{x}_i = \frac{x_i-\mu_B} {\sqrt{\sigma_B^2+\epsilon}}
-\)
-where \(\epsilon\) prevents division by zero.
+$$
+
+where $\epsilon$ prevents division by zero.
 
 **Scale + Shift:**
-$
-y_i = \gamma \hat{x}_i+\beta.
-$ 
+
+$$
+y_i = \gamma \hat{x}_i+\beta
+$$
+
 This transformation is called: **Batch Normalizing Transform**
 
 ---
@@ -197,11 +203,7 @@ Ignoring these dependencies can cause unstable training and parameter explosion.
 
 ### Training
 
-During training, BN uses mini-batch statistics
-$
-\mu_B,\sigma_B^2
-$
-and the normalized activations have mean $\approx$ 0 and variance $\approx$ 1.
+During training, BN uses mini-batch statistics $\mu_B,\sigma_B^2$, and the normalized activations have mean $\approx 0$ and variance $\approx 1$.
 
 ---
 
@@ -239,7 +241,7 @@ $$
 z=g(BN(Wu))
 $$
 
-The bias term \(b\) can often be removed because mean subtraction cancels its effect.
+The bias term $b$ can often be removed because mean subtraction cancels its effect.
 
 ---
 
@@ -249,13 +251,13 @@ In CNNs:
 - normalization is applied per feature map,
 - all spatial locations within the same channel share statistics.
 
-Given batch size \(m\) and feature map size \(p\times q\), the effective batch size becomes:
+Given batch size $m$ and feature map size $p\times q$, the effective batch size becomes:
 
 $$
-m' = mpq
+m^{\prime} = mpq
 $$
 
-Each feature map has one \(\gamma^{(k)}\) and one \(\beta^{(k)}\).
+Each feature map has one $\gamma^{(k)}$ and one $\beta^{(k)}$.
 
 ---
 
@@ -312,6 +314,6 @@ $$
 I = Cov[\hat{z}] = JCov[\hat{x}]J^T = JJ^T
 $$
 
-Hence, the singular values of \(J\) are close to 1. This helps:
+Hence, the singular values of $J$ are close to 1. This helps:
 - preserve gradient magnitudes,
 - stabilize backpropagation.
