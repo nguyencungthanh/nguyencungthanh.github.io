@@ -1,1 +1,6 @@
-<img referrerpolicy="no-referrer" src='https://icons.duckduckgo.com/ip3/{{ . }}.ico' class='icon'>
+{{- $src := printf "https://icons.duckduckgo.com/ip3/%s.ico" . -}}
+{{- if in (slice "gmail.com" "www.gmail.com" "mail.google.com") . -}}
+  {{/* Official Gmail icon: https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico */}}
+  {{- $src = relURL "/icons/gmail.ico" -}}
+{{- end -}}
+<img referrerpolicy="no-referrer" src='{{ $src }}' class='icon' alt=''>
