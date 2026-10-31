@@ -13,7 +13,7 @@ paper_url: AISTATS_manuscript.pdf
 ## Research Question
 
 Can a robust estimator of a multivariate mean match the Gaussian sample mean’s optimal leading confidence-radius constant under only finite, unknown covariance? The paper asks whether this is achievable uniformly over distributions, with polynomial-time computation, when dimension is fixed and 
-$L = \log(1\\delta) \to \infty $ while $L/n \to 0$.  
+$L = \log(1/\delta) \to \infty $ while $L/n \to 0$.  
 
 ## Abstract
 
