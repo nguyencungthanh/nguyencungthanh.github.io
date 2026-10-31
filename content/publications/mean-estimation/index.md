@@ -7,7 +7,7 @@ authors:
   - Thanh Nguyen-Cung 
   - Binh T. Nguyen
 venue: AISTATS 2027 
-paper_url: AISTATS_manuscript.pdf
+# paper_url: AISTATS_manuscript.pdf
 ---
 
 ## Research Question
